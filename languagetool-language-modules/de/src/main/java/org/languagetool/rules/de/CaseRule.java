@@ -18,6 +18,7 @@
  */
 package org.languagetool.rules.de;
 
+import org.apache.commons.lang3.StringUtils;
 import org.languagetool.AnalyzedSentence;
 import org.languagetool.AnalyzedToken;
 import org.languagetool.AnalyzedTokenReadings;
@@ -46,7 +47,7 @@ import java.util.regex.Pattern;
  *   
  * @author Daniel Naber
  */
-public class CaseRule extends GermanRule {
+public class CaseRule extends Rule {
 
   private static final Pattern NUMERALS_EN =
           Pattern.compile("[a-z]|[0-9]+|(m{0,4}(cm|cd|d?c{0,3})(xc|xl|l?x{0,3})(ix|iv|v?i{0,3}))$");
@@ -57,6 +58,7 @@ public class CaseRule extends GermanRule {
 
   private static final String UPPERCASE_MESSAGE = "Außer am Satzanfang werden nur Nomen und Eigennamen großgeschrieben";
   private static final String LOWERCASE_MESSAGE = "Falls es sich um ein substantiviertes Verb handelt, wird es großgeschrieben.";
+  private static final String COLON_MESSAGE = "Folgt dem Doppelpunkt weder ein Substantiv noch eine wörtliche Rede oder ein vollständiger Hauptsatz, schreibt man klein weiter.";
 
   // also see case_rule_exception.txt:
   private static final List<List<PatternToken>> ANTI_PATTERNS = Arrays.asList(
@@ -67,6 +69,10 @@ public class CaseRule extends GermanRule {
     Arrays.asList(
       token("Den"),
       token("Haag")
+    ),
+    Arrays.asList(
+      token("Neues"),
+      token("\\?")
     ),
     Arrays.asList(
       token("Hin"),
@@ -128,6 +134,14 @@ public class CaseRule extends GermanRule {
         pos("PKT")
     ),
     Arrays.asList(
+        // um ihren eigenen Glauben an das Gute, Wahre und Schöne zu stärken.
+        token("das"),
+        posRegex("SUB:.*"),
+        token(","),
+        regex("[A-ZÄÖÜ][a-zäöü]+"),
+        regex("und|oder")
+    ),
+    Arrays.asList(
       token("Treu"),
       token("und"),
       token("Glauben")
@@ -164,7 +178,31 @@ public class CaseRule extends GermanRule {
         // "... wie ich das prüfen würde."
         posRegex("VER:INF.*"),
         posRegex("VER:AUX:.:(SIN|PLU)(:KJ2)?")
-    )
+    ),
+    Arrays.asList(
+       // "... etwas Interessantes und Spannendes suchte"
+       regex("etwas|nichts|viel|wenig"),
+       regex("[A-ZÄÖÜ].*es"),
+       regex("und|oder|,"),
+       regex("[A-ZÄÖÜ].*es")
+    ),
+    Arrays.asList(
+       // "... bringt Interessierte und Experten zusammen"
+       posRegex("VER:.*[1-3]:.*"),
+       posRegex("SUB:AKK:.*:ADJ"),
+       regex("und|oder|,"),
+       posRegex("SUB:AKK:.*:(NEU|FEM|MAS)|ART:.*")
+    ),
+    Arrays.asList(
+        // "Das südöstlich von Berlin gelegene"
+        regex("(süd|nord|ost|west).*lich"),
+        token("von")
+     ),
+     Arrays.asList(
+        // "Entscheiden 42,5 Millionen Stimmberechtigte über..."
+        regex("Million(en)?"),
+        posRegex("SUB:.*:ADJ")
+     ) 
   );
 
   private static PatternToken token(String token) {
@@ -196,21 +234,25 @@ public class CaseRule extends GermanRule {
   private static final Set<String> sentenceStartExceptions = new HashSet<>();
   static {
     sentenceStartExceptions.add("(");
-    sentenceStartExceptions.add(":");
     sentenceStartExceptions.add("\"");
     sentenceStartExceptions.add("'");
     sentenceStartExceptions.add("„");
-    sentenceStartExceptions.add("“");
     sentenceStartExceptions.add("«");
     sentenceStartExceptions.add("»");
     sentenceStartExceptions.add(".");
   }
 
   private static final Set<String> UNDEFINED_QUANTIFIERS = new HashSet<>(Arrays.asList(
-      "viel", "nichts", "wenig", "zuviel" ));
+      "viel", "nichts", "wenig", "zuviel"));
 
   private static final Set<String> INTERROGATIVE_PARTICLES = new HashSet<>(Arrays.asList(
-      "was", "wodurch", "wofür", "womit", "woran", "worauf", "woraus", "wovon" ));
+      "was", "wodurch", "wofür", "womit", "woran", "worauf", "woraus", "wovon", "wie"));
+
+  private static final Set<String> POSSESSIVE_INDICATORS = new HashSet<>(Arrays.asList(
+      "einer", "eines", "der", "des", "dieser", "dieses"));
+
+  private static final Set<String> DAS_VERB_EXCEPTIONS = new HashSet<>(Arrays.asList(
+      "nur", "sogar", "auch", "die", "alle", "viele", "zu"));
 
   /*
    * These are words that Morphy only knows as non-nouns (or not at all).
@@ -239,7 +281,6 @@ public class CaseRule extends GermanRule {
     "Beschäftigter",
     "Beschäftigte",
     "Beschäftigten",
-    "Üblichen",
     "Bekannter",
     "Bekannte",
     "Tel",  // Tel. = Telefon
@@ -306,6 +347,7 @@ public class CaseRule extends GermanRule {
     "besonderes",   // je nach Kontext groß (TODO): "etwas Besonderes" 
     "Biss",
     "De",    // "De Morgan" etc
+    "Diesseits", // "im Diesseits"
     "Dr",
     "Durcheinander",
     "Eindrücke",
@@ -317,6 +359,7 @@ public class CaseRule extends GermanRule {
     "Fraß",
     "Für",      // "das Für und Wider"
     "Genüge",
+    "Gefallen", // Gefallen finden
     "Gläubiger",
     "Goldener",    // Goldener Schnitt
     "Guten",    // das Kap der Guten Hoffnung
@@ -360,8 +403,10 @@ public class CaseRule extends GermanRule {
     "Mrs",
     "Nachfrage",
     "Nachts",   // "des Nachts", "eines Nachts"
+    "Nachspann",
     "Nähte",
     "Nähten",
+    "Narkoseverfahren",
     "Neuem",
     "Nr",
     "Nutze",   // zu Nutze
@@ -384,15 +429,18 @@ public class CaseRule extends GermanRule {
     "Schwärme",
     "Schwarzes",    // Schwarzes Brett
     "Sie",
+    "Skype",
     "Spitz",
     "St",   // Paris St. Germain
     "Stereotyp",
     "Störe",
-    "Tausend",   // je nach Kontext groß (TODO) 
+    "Tausend",   // je nach Kontext groß (TODO)
+    "Tischende",
     "Toter",
     "tun",   // "Sie müssen das tun"
-    "Übrigen",   // je nach Kontext groß (TODO), z.B. "im Übrigen" 
-    "Unvorhergesehenes",   // je nach Kontext groß (TODO), z.B. "etwas Unvorhergesehenes" 
+    "Übrigen",   // je nach Kontext groß (TODO), z.B. "im Übrigen"
+    "Unentschieden",
+    "Unvorhergesehenes",   // je nach Kontext groß (TODO), z.B. "etwas Unvorhergesehenes"
     "Verantwortlicher",
     "Verlass",
     "Verwandter",
@@ -408,6 +456,7 @@ public class CaseRule extends GermanRule {
     "Zeche",
     "Zusage",
     "Zwinge",
+    "Zirkusrund",
     "Tertiär",  // geologischer Zeitabschnitt
 
     "Erster",   // "er wurde Erster im Langlauf"
@@ -482,6 +531,7 @@ public class CaseRule extends GermanRule {
     languages.add("Hochdeutsch");
     languages.add("Holländisch");
     languages.add("Indonesisch");
+    languages.add("Irisch");
     languages.add("Isländisch");
     languages.add("Italienisch");
     languages.add("Japanisch");
@@ -489,6 +539,7 @@ public class CaseRule extends GermanRule {
     languages.add("Jugoslawisch");
     languages.add("Kantonesisch");
     languages.add("Katalanisch");
+    languages.add("Klingonisch");
     languages.add("Koreanisch");
     languages.add("Kroatisch");
     languages.add("Lateinisch");
@@ -612,6 +663,7 @@ public class CaseRule extends GermanRule {
     AnalyzedTokenReadings[] tokens = getSentenceWithImmunization(sentence).getTokensWithoutWhitespace();
     
     boolean prevTokenIsDas = false;
+    boolean isPrecededByModalOrAuxiliary = false;
     for (int i = 0; i < tokens.length; i++) {
       //Note: defaulting to the first analysis is only save if we only query for sentence start
       String posToken = tokens[i].getAnalyzedToken(0).getPOSTag();
@@ -619,9 +671,7 @@ public class CaseRule extends GermanRule {
         continue;
       }
       if (i == 1) {   // don't care about first word, UppercaseSentenceStartRule does this already
-        if (nounIndicators.contains(tokens[1].getToken().toLowerCase())) {
-          prevTokenIsDas = true;
-        }
+        prevTokenIsDas = nounIndicators.contains(tokens[1].getToken().toLowerCase());
         continue;
       }
       if (i > 0 && isSalutation(tokens[i-1].getToken())) {   // e.g. "Frau Stieg" could be a name, ignore
@@ -643,31 +693,42 @@ public class CaseRule extends GermanRule {
             // avoid false alarm for "So sollte das funktionieren." (might also remove true alarms...)
             continue;
           }
-          if (prevTokenIsDas && (nextToken.getToken().equals("nur") || nextToken.getToken().equals("sogar") ||
-                nextToken.getToken().equals("auch") || nextToken.getToken().equals("die") ||  nextToken.getToken().equals("zu"))) {
-            // avoid false alarm for "Das wissen die meisten." / "Um das sagen zu können, ..."
-            continue;
-          }
-          if (prevTokenIsDas && isFollowedByRelativeOrSubordinateClause(i, tokens)) {
+          if (prevTokenIsDas
+              && (DAS_VERB_EXCEPTIONS.contains(nextToken.getToken()) ||
+                  isFollowedByRelativeOrSubordinateClause(i, tokens)) ||
+                  (i > 1 && hasPartialTag(tokens[i-2], "VER:AUX"))) {
             // avoid false alarm for "Er kann ihr das bieten, was sie verdient."
+            // avoid false alarm for "Das wissen die meisten." / "Um das sagen zu können, ..."
             // avoid false alarm for "Du musst/solltest/könntest das wissen, damit du die Prüfung bestehst / weil wir das gestern besprochen haben."
+        	// avoid false alarm for "Wir werden das stoppen."
             continue;
           }
         }
         if (isPrevProbablyRelativePronoun(tokens, i)) {
           continue;
         }
-        if (prevTokenIsDas && getTokensWithPartialPosTag(tokens, "VER").length == 1) {
+        if (prevTokenIsDas && getTokensWithPartialPosTagCount(tokens, "VER") == 1) {
           // ignore sentences containing a single verb, e.g., "Das wissen viele nicht."
           continue;
         }
         potentiallyAddLowercaseMatch(ruleMatches, tokens[i], prevTokenIsDas, token, nextTokenIsPersonalOrReflexivePronoun);
       }
       prevTokenIsDas = nounIndicators.contains(tokens[i].getToken().toLowerCase());
-      if (hasNounReading(analyzedToken)) {  // it's the spell checker's task to check that nouns are uppercase
-        continue;
+      if (analyzedToken.matchesPosTagRegex("VER:(MOD|AUX):[1-3]:.*")) {
+        isPrecededByModalOrAuxiliary = true;
       }
       AnalyzedTokenReadings lowercaseReadings = tagger.lookup(token.toLowerCase());
+      if (hasNounReading(analyzedToken)) { // it's the spell checker's task to check that nouns are uppercase
+        if (!isPotentialUpperCaseError(i, tokens, lowercaseReadings, isPrecededByModalOrAuxiliary)) {
+          continue;
+        }
+      } else if (analyzedToken.hasPartialPosTag("SUB:") &&
+                 i < tokens.length-1 &&
+                 Character.isLowerCase(tokens[i+1].getToken().charAt(0)) &&
+                 tokens[i+1].matchesPosTagRegex("VER:[123]:.*")) {
+    	// "Viele Minderjährige sind" but not "Das wirklich Wichtige Verfahren ist"
+        continue;  
+      }
       if (analyzedToken.getAnalyzedToken(0).getPOSTag() == null && lowercaseReadings == null) {
         continue;
       }
@@ -675,13 +736,41 @@ public class CaseRule extends GermanRule {
           && (lowercaseReadings.getAnalyzedToken(0).getPOSTag() == null || analyzedToken.getToken().endsWith("innen"))) {
         continue;  // unknown word, probably a name etc.
       }
-      potentiallyAddUppercaseMatch(ruleMatches, tokens, i, analyzedToken, token);
+      potentiallyAddUppercaseMatch(ruleMatches, tokens, i, analyzedToken, token, lowercaseReadings);
     }
     return toRuleMatchArray(ruleMatches);
   }
 
-  private AnalyzedTokenReadings[] getTokensWithPartialPosTag(AnalyzedTokenReadings[] tokens, String partialPosTag) {
-    return Arrays.stream(tokens).filter(token -> token.hasPartialPosTag(partialPosTag)).toArray(size -> new AnalyzedTokenReadings[size]);
+  private int getTokensWithPartialPosTagCount(AnalyzedTokenReadings[] tokens, String partialPosTag) {
+    return Arrays.stream(tokens).filter(token -> token.hasPartialPosTag(partialPosTag)).mapToInt(e -> 1).sum();
+  }
+
+  private boolean isPotentialUpperCaseError (int pos, AnalyzedTokenReadings[] tokens,
+      AnalyzedTokenReadings lowercaseReadings, boolean isPrecededByModalOrAuxiliary) {
+    if (pos <= 1) {
+      return false;
+    }
+    // find error in: "Man müsse Überlegen, wie man das Problem löst."
+    boolean isPotentialError = pos < tokens.length - 3
+        && tokens[pos+1].getToken().equals(",")
+        && INTERROGATIVE_PARTICLES.contains(tokens[pos+2].getToken())
+        && tokens[pos-1].hasPartialPosTag("VER:MOD:")
+        && !tokens[pos-1].hasLemma("mögen")
+        && !tokens[pos+3].getToken().equals("zum");
+    if (!isPotentialError &&
+        lowercaseReadings != null
+        && tokens[pos].hasPosTag("SUB:NOM:SIN:NEU:INF")
+        && ("zu".equals(tokens[pos-1].getToken()) || hasPartialTag(tokens[pos-1], "SUB", "EIG", "VER:AUX:3:"))) {
+      // find error in: "Der Brief wird morgen Übergeben."
+      isPotentialError |= lowercaseReadings.hasPosTag("PA2:PRD:GRU:VER") && !hasPartialTag(tokens[pos-1], "VER:AUX:3:");
+      // find error in: "Er lässt das Arktisbohrverbot Überprüfen."
+      // find error in: "Sie bat ihn, es zu Überprüfen."
+      isPotentialError |= (pos >= tokens.length - 2 || ",".equals(tokens[pos+1].getToken()))
+        && ("zu".equals(tokens[pos-1].getToken()) || isPrecededByModalOrAuxiliary)
+        && tokens[pos].getToken().startsWith("Über")
+        && lowercaseReadings.hasPartialPosTag("VER:INF:");
+      }
+    return isPotentialError;
   }
 
   @Override
@@ -735,63 +824,94 @@ public class CaseRule extends GermanRule {
   }
 
   private boolean isSalutation(String token) {
-    return token.equals("Herr") || token.equals("Herrn") || token.equals("Frau");
+    if (token.length() == 4) {
+      return "Herr".equals(token) || "Frau".equals(token);
+    } else if (token.length() == 5) {
+      return "Herrn".equals(token);
+    }
+    return false;
   }
 
   private boolean hasNounReading(AnalyzedTokenReadings readings) {
-    // "Die Schöne Tür": "Schöne" also has a noun reading but like "SUB:AKK:SIN:FEM:ADJ", ignore that:
-    try {
-      AnalyzedTokenReadings allReadings = tagger.lookup(readings.getToken());  // unification in disambiguation.xml removes reading, so look up again
-      if (allReadings != null) {
-        for (AnalyzedToken reading : allReadings) {
-          String posTag = reading.getPOSTag();
-          if (posTag != null && posTag.contains("SUB:") && !posTag.contains(":ADJ")) {
-            return true;
+    if (readings !=  null) {
+      // "Die Schöne Tür": "Schöne" also has a noun reading but like "SUB:AKK:SIN:FEM:ADJ", ignore that:
+      try {
+        AnalyzedTokenReadings allReadings = tagger.lookup(readings.getToken());  // unification in disambiguation.xml removes reading, so look up again
+        if (allReadings != null) {
+          for (AnalyzedToken reading : allReadings) {
+            String posTag = reading.getPOSTag();
+            if (posTag != null && posTag.contains("SUB:") && !posTag.contains(":ADJ")) {
+              return true;
+            }
           }
         }
+      } catch (IOException e) {
+        throw new RuntimeException("Could not lookup " + readings.getToken(), e);
       }
-    } catch (IOException e) {
-      throw new RuntimeException("Could not lookup " + readings.getToken(), e);
     }
     return false;
   }
 
   private void potentiallyAddLowercaseMatch(List<RuleMatch> ruleMatches, AnalyzedTokenReadings tokenReadings, boolean prevTokenIsDas, String token, boolean nextTokenIsPersonalOrReflexivePronoun) {
-    if (prevTokenIsDas && !nextTokenIsPersonalOrReflexivePronoun) {
-      // e.g. essen -> Essen
-      if (Character.isLowerCase(token.charAt(0)) && !substVerbenExceptions.contains(token) && tokenReadings.hasPartialPosTag("VER:INF")
-              && !tokenReadings.isIgnoredBySpeller() && !tokenReadings.isImmunized()) {
-        String fixedWord = StringTools.uppercaseFirstChar(tokenReadings.getToken());
-        addRuleMatch(ruleMatches, LOWERCASE_MESSAGE, tokenReadings, fixedWord);
-      }
+    // e.g. essen -> Essen
+    if (prevTokenIsDas &&
+        !nextTokenIsPersonalOrReflexivePronoun &&
+        Character.isLowerCase(token.charAt(0)) &&
+        !substVerbenExceptions.contains(token) &&
+        tokenReadings.hasPartialPosTag("VER:INF") &&
+        !tokenReadings.isIgnoredBySpeller() &&
+        !tokenReadings.isImmunized()) {
+      addRuleMatch(ruleMatches, LOWERCASE_MESSAGE, tokenReadings, StringTools.uppercaseFirstChar(tokenReadings.getToken()));
     }
   }
 
-  private void potentiallyAddUppercaseMatch(List<RuleMatch> ruleMatches, AnalyzedTokenReadings[] tokens, int i, AnalyzedTokenReadings analyzedToken, String token) {
-    if (Character.isUpperCase(token.charAt(0)) &&
+  private void potentiallyAddUppercaseMatch(List<RuleMatch> ruleMatches, AnalyzedTokenReadings[] tokens, int i, AnalyzedTokenReadings analyzedToken, String token, AnalyzedTokenReadings lowercaseReadings) {
+    boolean isUpperFirst = Character.isUpperCase(token.charAt(0));
+	if (isUpperFirst &&
         token.length() > 1 &&     // length limit = ignore abbreviations
         !tokens[i].isIgnoredBySpeller() &&
         !tokens[i].isImmunized() &&
         !sentenceStartExceptions.contains(tokens[i - 1].getToken()) &&
         !exceptions.contains(token) &&
         !StringTools.isAllUppercase(token) &&
-        !isLanguage(i, tokens) &&
-        !isProbablyCity(i, tokens) &&
+        !isLanguage(i, tokens, token) &&
+        !isProbablyCity(i, tokens, token) &&
         !GermanHelper.hasReadingOfType(analyzedToken, POSType.PROPER_NOUN) &&
         !analyzedToken.isSentenceEnd() &&
         !isEllipsis(i, tokens) &&
         !isNumbering(i, tokens) &&
-        !isNominalization(i, tokens) &&
+        !isNominalization(i, tokens, token, lowercaseReadings) &&
         !isAdverbAndNominalization(i, tokens) &&
         !isSpecialCase(i, tokens) &&
-        !isAdjectiveAsNoun(i, tokens) &&
+        !isAdjectiveAsNoun(i, tokens, lowercaseReadings) &&
         !isExceptionPhrase(i, tokens)) {
       String fixedWord = StringTools.lowercaseFirstChar(tokens[i].getToken());
+      if (":".equals(tokens[i - 1].getToken())) {
+        AnalyzedTokenReadings[] subarray = new AnalyzedTokenReadings[i];
+        System.arraycopy(tokens, 0, subarray, 0, i);
+        if (isVerbFollowing(i, tokens, lowercaseReadings) || getTokensWithPartialPosTagCount(subarray, "VER") == 0) {
+          // no error
+        } else {
+          addRuleMatch(ruleMatches, COLON_MESSAGE, tokens[i], fixedWord);
+        }
+        return;
+      }
       addRuleMatch(ruleMatches, UPPERCASE_MESSAGE, tokens[i], fixedWord);
     }
   }
 
-  private void addRuleMatch(List<RuleMatch> ruleMatches, String msg, AnalyzedTokenReadings tokenReadings, String fixedWord) {
+  private boolean isVerbFollowing(int i, AnalyzedTokenReadings[] tokens, AnalyzedTokenReadings lowercaseReadings) {
+	AnalyzedTokenReadings[] subarray = new AnalyzedTokenReadings[ tokens.length - i ];
+	System.arraycopy(tokens, i, subarray, 0, subarray.length);
+	if (lowercaseReadings != null) {
+	  subarray[0] = lowercaseReadings;
+	}
+	// capitalization after ":" requires an independent clause to follow
+	// if there is not a single verb, the tokens cannot be part of an independent clause
+	return getTokensWithPartialPosTagCount(subarray, "VER") != 0;
+}
+
+private void addRuleMatch(List<RuleMatch> ruleMatches, String msg, AnalyzedTokenReadings tokenReadings, String fixedWord) {
     RuleMatch ruleMatch = new RuleMatch(this, tokenReadings.getStartPos(), tokenReadings.getEndPos(), msg);
     ruleMatch.setSuggestedReplacement(fixedWord);
     ruleMatches.add(ruleMatch);
@@ -801,7 +921,8 @@ public class CaseRule extends GermanRule {
   private boolean isNumbering(int i, AnalyzedTokenReadings[] tokens) {
     return i >= 2
             && (tokens[i-1].getToken().equals(")") || tokens[i-1].getToken().equals("]"))
-            && NUMERALS_EN.matcher(tokens[i-2].getToken()).matches();
+            && NUMERALS_EN.matcher(tokens[i-2].getToken()).matches()
+            && !(i > 3 && tokens[i-3].getToken().equals("(") && tokens[i-4].hasPartialPosTag("SUB:")); // no numbering "Der Vater (51) fuhr nach Rom."
   }
 
   private boolean isEllipsis(int i, AnalyzedTokenReadings[] tokens) {
@@ -809,31 +930,39 @@ public class CaseRule extends GermanRule {
            ((i == 4 && tokens[i-2].getToken().equals("…")) || (i == 6 && tokens[i-2].getToken().equals(".")));
   }
 
-  private boolean isNominalization(int i, AnalyzedTokenReadings[] tokens) {
-    String token = tokens[i].getToken();
+  private boolean isNominalization(int i, AnalyzedTokenReadings[] tokens, String token, AnalyzedTokenReadings lowercaseReadings) {
     AnalyzedTokenReadings nextReadings = i < tokens.length-1 ? tokens[i+1] : null;
     // TODO: "vor Schlimmerem", "Er hatte Schlimmes zu befürchten"
     // TODO: wir finden den Fehler in "Die moderne Wissenschaftlich" nicht, weil nicht alle
     // Substantivierungen in den Morphy-Daten stehen (z.B. "Größte" fehlt) und wir deshalb nur
     // eine Abfrage machen, ob der erste Buchstabe groß ist.
     if (StringTools.startsWithUppercase(token) && !isNumber(token) && !hasNounReading(nextReadings) && !token.matches("Alle[nm]")) {
+      if (lowercaseReadings != null && lowercaseReadings.hasPosTag("PRP:LOK+TMP+CAU:DAT+AKK")) {
+        return false;
+      }
       // Ignore "das Dümmste, was je..." but not "das Dümmste Kind"
       AnalyzedTokenReadings prevToken = i > 0 ? tokens[i-1] : null;
       AnalyzedTokenReadings prevPrevToken = i >= 2 ? tokens[i-2] : null;
       AnalyzedTokenReadings prevPrevPrevToken = i >= 3 ? tokens[i-3] : null;
       String prevTokenStr = prevToken != null ? prevToken.getToken() : "";
-      if (prevToken != null && ("und".equals(prevTokenStr) || "oder".equals(prevTokenStr))) {
-        if (prevPrevToken != null && tokens[i].hasPartialPosTag("SUB") && tokens[i].hasPartialPosTag(":ADJ")) {
-          // "das dabei Erlernte und Erlebte ist ..." -> 'Erlebte' is correct here
-          return true;
+      if (prevToken != null && ("und".equals(prevTokenStr) || "oder".equals(prevTokenStr) || "beziehungsweise".equals(prevTokenStr))) {
+        if (prevPrevToken != null) {
+          if (tokens[i].hasPartialPosTag("SUB") && tokens[i].hasPartialPosTag(":ADJ")) {
+            // "das dabei Erlernte und Erlebte ist ..." -> 'Erlebte' is correct here
+            return true;
+          } else if (prevPrevToken.hasPartialPosTag("SUB") && !hasNounReading(nextReadings)) {
+            if (lowercaseReadings != null && lowercaseReadings.hasPartialPosTag("ADJ")) {
+              // "die Ausgaben für Umweltschutz und Soziales"
+              return true;
+            }
+          }
         }
       }
-      return (prevToken != null && ("irgendwas".equals(prevTokenStr) || "aufs".equals(prevTokenStr) || "als".equals(prevTokenStr) || isNumber(prevTokenStr))) ||
-         hasPartialTag(prevToken, "ART") ||  // "die Verurteilten wurden"
-         hasPartialTag(prevToken, "PRO") ||  // "etwas Verrücktes"
+      return (prevToken != null && ("irgendwas".equals(prevTokenStr) || "aufs".equals(prevTokenStr) || isNumber(prevTokenStr))) ||
+         (hasPartialTag(prevToken, "ART", "PRO:") && !(prevToken.getReadings().size() == 1 && prevToken.hasPartialPosTag("PRO:PER:NOM:"))  && !prevToken.hasPartialPosTag(":STD")) ||  // "die Verurteilten", "etwas Verrücktes", "ihr Bestes"
          (hasPartialTag(prevPrevPrevToken, "ART") && hasPartialTag(prevPrevToken, "PRP") && hasPartialTag(prevToken, "SUB")) || // "die zum Tode Verurteilten"
-         (hasPartialTag(prevPrevToken, "PRO", "PRP") && hasPartialTag(prevToken, "ADJ", "ADV", "PA2", "PA1")) ||  // "etwas schön Verrücktes", "mit aufgewühltem Innerem"
-         (hasPartialTag(prevPrevPrevToken, "PRO", "PRP") && hasPartialTag(prevPrevToken, "ADJ", "ADV") && hasPartialTag(prevToken, "ADJ", "ADV", "PA2"));  // "etwas ganz schön Verrücktes"
+         (hasPartialTag(prevPrevToken, "PRO:", "PRP") && hasPartialTag(prevToken, "ADJ", "ADV", "PA2", "PA1")) ||  // "etwas schön Verrücktes", "mit aufgewühltem Innerem"
+         (hasPartialTag(prevPrevPrevToken, "PRO:", "PRP") && hasPartialTag(prevPrevToken, "ADJ", "ADV") && hasPartialTag(prevToken, "ADJ", "ADV", "PA2"));  // "etwas ganz schön Verrücktes"
     }
     return false;
   }
@@ -879,20 +1008,37 @@ public class CaseRule extends GermanRule {
     return "im".equalsIgnoreCase(prevToken) && "Allgemeinen".equals(token) && !hasNounReading(nextReadings);
   }
 
-  private boolean isAdjectiveAsNoun(int i, AnalyzedTokenReadings[] tokens) {
+  private boolean isAdjectiveAsNoun(int i, AnalyzedTokenReadings[] tokens, AnalyzedTokenReadings lowercaseReadings) {
     AnalyzedTokenReadings prevToken = i > 0 ? tokens[i-1] : null;
     AnalyzedTokenReadings nextReadings = i < tokens.length-1 ? tokens[i+1] : null;
+    AnalyzedTokenReadings prevLowercaseReadings = null;
+
+    if (i > 1 && sentenceStartExceptions.contains(tokens[i-2].getToken())) {
+      try {
+        prevLowercaseReadings = tagger.lookup(prevToken.getToken().toLowerCase());
+      } catch (IOException e) {
+        throw new RuntimeException(e);
+      }
+    }
 
     // ignore "Der Versuch, Neues zu lernen / Gutes zu tun / Spannendes auszuprobieren"
     boolean isPossiblyFollowedByInfinitive = nextReadings != null && nextReadings.getToken().equals("zu");
     boolean isFollowedByInfinitive = nextReadings != null && !isPossiblyFollowedByInfinitive && nextReadings.hasPartialPosTag("EIZ");
+    boolean isFollowedByPossessiveIndicator = nextReadings != null && POSSESSIVE_INDICATORS.contains(nextReadings.getToken());
 
     boolean isUndefQuantifier = prevToken != null && UNDEFINED_QUANTIFIERS.contains(prevToken.getToken().toLowerCase());
-    boolean isPrevDeterminer = prevToken != null && (prevToken.hasPartialPosTag("ART") || prevToken.hasPartialPosTag("PRP") || prevToken.hasPartialPosTag("ZAL"));
-    if (!isPrevDeterminer && !isUndefQuantifier && !(isPossiblyFollowedByInfinitive || isFollowedByInfinitive)) {
+    boolean isPrevDeterminer = prevToken != null
+                               && (hasPartialTag(prevToken, "ART", "PRP", "ZAL") || hasPartialTag(prevLowercaseReadings, "ART", "PRP", "ZAL"))
+                               && !prevToken.hasPartialPosTag(":STD");
+    boolean isPrecededByVerb = prevToken != null && prevToken.matchesPosTagRegex("VER:(MOD:|AUX:)?[1-3]:.*") && !prevToken.hasLemma("sein");
+    if (!isPrevDeterminer && !isUndefQuantifier && !(isPossiblyFollowedByInfinitive || isFollowedByInfinitive)
+        && !(isPrecededByVerb && lowercaseReadings != null && hasPartialTag(lowercaseReadings, "ADJ:", "PA") && nextReadings != null &&
+             !nextReadings.getToken().equals("und") && !nextReadings.getToken().equals("oder") && !nextReadings.getToken().equals(","))
+        && !(isFollowedByPossessiveIndicator && hasPartialTag(lowercaseReadings, "ADJ", "VER")) // "Wacht auf, Verdammte dieser Welt!"
+        && !(prevToken != null && prevToken.hasPosTag("KON:UNT") && !hasNounReading(nextReadings) && !nextReadings.hasPosTag("KON:NEB"))) {
       AnalyzedTokenReadings prevPrevToken = i > 1 && prevToken.hasPartialPosTag("ADJ") ? tokens[i-2] : null;
       // Another check to avoid false alarms for "ein politischer Revolutionär"
-      if (prevPrevToken == null || !(prevPrevToken.hasPartialPosTag("ART") || prevPrevToken.hasPartialPosTag("PRP") || prevToken.hasPartialPosTag("ZAL"))) {
+      if (!hasPartialTag(prevPrevToken, "ART", "PRP", "ZAL")) {
         return false;
       }
     }
@@ -900,28 +1046,29 @@ public class CaseRule extends GermanRule {
     // ignore "die Ausgewählten" but not "die Ausgewählten Leute":
     for (AnalyzedToken reading : tokens[i].getReadings()) {
       String posTag = reading.getPOSTag();
-      // ignore "die Ausgewählten" but not "die Ausgewählten Leute":
       if ((posTag == null || posTag.contains("ADJ")) && !hasNounReading(nextReadings)) {
-        return true;
+        if(posTag == null && hasPartialTag(lowercaseReadings, "PRP:LOK", "PA2:PRD:GRU:VER")) {
+          // skip to avoid a false true for, e.g. "Die Zahl ging auf Über 1.000 zurück."/ "Dies gilt schon lange als Überholt."
+          // but not for "Er versuchte, Neues zu wagen."
+        } else {
+          return true;
+        }
       }
     }
 
     return false;
   }
 
-  private boolean isLanguage(int i, AnalyzedTokenReadings[] tokens) {
-    String token = tokens[i].getToken();
+  private boolean isLanguage(int i, AnalyzedTokenReadings[] tokens, String token) {
     boolean maybeLanguage = languages.contains(token) ||
-                            languages.contains(token.replaceFirst("e$", "")) ||  // z.B. "ins Japanische übersetzt"
-                            languages.contains(token.replaceFirst("en$", ""));   // z.B. "im Japanischen"
+                            languages.contains(StringUtils.removeEnd(token, "e")) ||  // z.B. "ins Japanische übersetzt"
+                            languages.contains(StringUtils.removeEnd(token, "en"));   // z.B. "im Japanischen"
     AnalyzedTokenReadings prevToken = i > 0 ? tokens[i-1] : null;
     AnalyzedTokenReadings nextReadings = i < tokens.length-1 ? tokens[i+1] : null;
-    return maybeLanguage && ((nextReadings != null && !hasNounReading(nextReadings)) ||
-                             (prevToken != null && prevToken.getToken().equals("auf")));
+    return maybeLanguage && (!hasNounReading(nextReadings) || (prevToken != null && prevToken.getToken().equals("auf")));
   }
 
-  private boolean isProbablyCity(int i, AnalyzedTokenReadings[] tokens) {
-    String token = tokens[i].getToken();
+  private boolean isProbablyCity(int i, AnalyzedTokenReadings[] tokens, String token) {
     boolean hasCityPrefix = "Klein".equals(token) || "Groß".equals(token) || "Neu".equals(token);
     if (hasCityPrefix) {
       AnalyzedTokenReadings nextReadings = i < tokens.length-1 ? tokens[i+1] : null;
@@ -968,11 +1115,6 @@ public class CaseRule extends GermanRule {
       i++;
     }
     return true;
-  }
-
-  @Override
-  public void reset() {
-    // nothing
   }
 
 }

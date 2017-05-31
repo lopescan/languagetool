@@ -21,30 +21,26 @@ package org.languagetool.rules.pl;
 import org.junit.Before;
 import org.junit.Test;
 import org.languagetool.JLanguageTool;
-import org.languagetool.TestTools;
+import org.languagetool.Language;
 import org.languagetool.language.Polish;
-import org.languagetool.rules.AbstractCompoundRule;
-import org.languagetool.rules.AbstractCompoundRuleTest;
 import org.languagetool.rules.Rule;
-import org.languagetool.rules.pl.DashRule;
 import org.languagetool.rules.RuleMatch;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Arrays;
-import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class DashRuleTest {
 
-  JLanguageTool langTool;
-  Rule rule;
+  private JLanguageTool langTool;
+  private Rule rule;
 
   @Before
   public void setUp() throws Exception {
-    langTool = new JLanguageTool(new Polish());
+    Language lang = new Polish();
+    langTool = new JLanguageTool(lang);
     rule = new DashRule();
   }
 
@@ -61,7 +57,7 @@ public class DashRuleTest {
     check(1, "Aix — en — Provence", new String[]{"Aix-en-Provence"});
   }
 
-  public void check(int expectedErrors, String text) throws IOException {
+  private void check(int expectedErrors, String text) throws IOException {
     check(expectedErrors, text, null);
   }
 
@@ -71,7 +67,7 @@ public class DashRuleTest {
    * @param text the text to check
    * @param expSuggestions the expected suggestions
    */
-  public void check(int expectedErrors, String text, String[] expSuggestions) throws IOException {
+  private void check(int expectedErrors, String text, String[] expSuggestions) throws IOException {
     assertNotNull("Please initialize langTool!", langTool);
     assertNotNull("Please initialize 'rule'!", rule);
     RuleMatch[] ruleMatches = rule.match(langTool.getAnalyzedSentence(text));
