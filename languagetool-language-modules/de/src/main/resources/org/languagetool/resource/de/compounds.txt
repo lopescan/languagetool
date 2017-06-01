@@ -2333,8 +2333,6 @@ Gian-Marcos*
 Gin-Fizz*
 Ginger-Ale*
 Ginger-Ales*
-Gin-Tonic*
-Gin-Tonics*
 Gis-Dur*
 Gis-Dur-Tonleiter*
 Gis-Dur-Tonleitern*
@@ -3543,6 +3541,7 @@ Roll-on-roll-off-Schiffe*
 Roll-on-roll-off-Schiffen*
 Roll-on-roll-off-Schiffs*
 Roll-ons*
+Rolls-Royce*
 römisch-katholisch*
 römisch-katholische*
 römisch-katholischen*

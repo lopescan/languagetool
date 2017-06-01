@@ -1,34 +1,154 @@
 # LanguageTool Change Log
 
-## 3.7 (release planned for 2017-03-27)
+## 3.8-SNAPSHOT (release planned for 2017-06-27)
+
+#### Catalan
+  * added and improved rules
+  * updated dictionary and rules for official names of Valencian municipalities
 
 #### English
   * added and improved rules
 
 #### German
   * added and improved rules
+  * improved messages for old spelling variants, e.g. `Kuß` now suggests only `Kuss` and
+    also has a message explaining the user that `Kuß` is an old spelling
+
+#### Polish
+   * added rules
+   * added some common typos
+
+#### Portuguese
+  * added and improved grammar and style rules, including:
+    - grammar: general agreement rules, contractions, pronominal collocations, compounding, and paronyms detection
+    - style: wordy expressions detection added and significant redundant expressions detection improvements
+    - punctuation: significant improvements
+- typography: international system standards, number and mathematical symbol formatting
+    - [pt-PT] AO90: identify words with changed spelling
+  * disambiguation improvements
+  * false friends support added
+    - Portuguese to Catalan (26 new pairs)
+    - Portuguese to Spanish (7 new pairs)
+  * spell checking exceptions for common Latin, English and French expressions, species scientific names, and famous personalities
+
+#### Slovak
+  * major rule updates by Matúš Matula
+
+#### HTTP API
+  * The deprecated AfterTheDeadline mode has been removed
+  * The `apiVersion` property of the JSON output is now a number
+    instead of a string (issue #712)
+
+#### Java API
+  * Some deprecated methods and classes have been removed.
+
+#### Internal
+  * `spelling.txt` allows multi-word entries: the words/tokens (separated by " ") of one
+    line are converted to a `DisambiguationPatternRule` in which each word is as a case-sensitive
+    and non-inflected `PatternToken` (result: the entire multi-word entry is ignored by
+    the spell checker)
+
+#### LT server
+   * When running a LT server, the enabled/disabled rules loaded from a configuration file 
+     at the startup time will be the new default rules. Previously these rules were "forgotten" 
+     when a server query used the parameters for enabling and disabling rules. Now the rules 
+     from the query will be added to the rules from the configuration file. 
+
+## 3.7 (2017-03-27)
+
+#### Breton
+  * small rule improvements
+
+#### Catalan
+  * added and improved rules
+  * updated dictionary
+
+#### English
+  * added and improved rules
+
+#### French
+  * improved rules
+  * upgraded dictionaries to Dicollecte-6.0.2
+
+#### German
+  * added and improved rules
+  * added some common Latin, French, and English phrases that will be ignored by the spell checker
   * updated Hunspell dictionary to version 2017.01.12:
     * https://extensions.libreoffice.org/extensions/german-de-de-frami-dictionaries
     * https://extensions.libreoffice.org/extensions/german-de-at-frami-dictionaries
     * https://extensions.libreoffice.org/extensions/german-de-ch-frami-dictionaries
 
-#### Lithuanian and Malayalam
-  * Lithuanian and Malayalam are not part of this release anymore. They still exist
-    in the git repository and can be re-activated as soon as a new maintainer takes
+#### Greek
+  * added and improved rules
+
+#### Italian
+  * added one rule
+
+#### Lithuanian, Malayalam, and Icelandic
+  * Lithuanian, Malayalam, and Icelandic are not part of this release anymore. They still
+    exist in the git repository and can be re-activated as soon as a new maintainer takes
     care of them.
+
+#### Portuguese
+  * added and improved grammar and style rules, including:
+    - grammar: general agreement rules, 'crase', pronomial colocations, impersonal verbs, fragment, and paronyms detection improvements
+    - capitalization: AO90 and AO45 rules
+    - style: repetitions and barbarism detection
+    - typography: number formating, chemical formulas, degrees signs, dash signs, and punctuation
+    - semantics: wrong words in the context (22 confusion pairs), url validator and date checker improvements
+    - registered brands category added
+    - translation errors category added
+  * false friends support added:
+    - Portuguese to Spanish (186 new pairs)
+    - Portuguese to English (156 new pairs)
+    - Portuguese to French (78 new pairs)
+    - Portuguese to German (16 new pairs)
+    - Portuguese to Galician (9 new pairs)
+  * spellchecking suggestions activated
+  * updated Hunspell dictionary to:
+    - [pt-PT pos-AO] Dicionários Portugueses Complementares 1.2
+    - [pt-AO pre-AO] Dicionários Portugueses Complementares 1.2
+    - [pt-MZ pre-AO] Dicionários Natura 18.02.2017
 
 #### Russian
   * added and improved rules
+  * updated tagger dictionary from AOT.ru rev.269 with extended POS tags
+
+#### Ukrainian
+  * Significant dictionary update:
+    - many new words
+    - some inflection adjustments
+  * Many new rules (barbarism, punctuations, and grammar)
+  * Improved dynamic tagging for compound words
+
+#### LibreOffice / Apache OpenOffice Integration
+  * Options dialog now uses system theme instead of Nimbus.
 
 #### Command-line
   * Added a `--languageModel` option to the embedded server, thanks to 
     Michał Janik (issue #404)
 
+#### HTTP API
+  * The 'AfterTheDeadline' mode has been deprecated and will be removed in
+    the next version, unless users complain and present a valid use case.
+  * The old XML-based API has been removed. The migration to the new JSON-based
+    API is documented at https://languagetool.org/http-api/migration.php
+  * Speed up with a cache for cases where the same sentences get checked
+    again (e.g. due to a correction in a text that doesn't affect all sentences
+    but causes the whole text to be re-checked)
+  
 #### Java API
   * Some deprecated methods have been removed.
-
+  * A new class `ResultCache` has been added to speed up the LT server
+  * `EnglishRule`, `GermanRule`, `CatalanRule`, and `FrenchRule`are now 
+    deprecated. These are empty abstract classes that never had any real 
+    use. Rules that extend these classes will directly extend `Rule` or
+    `TextLevelRule` in a future release.
+  * All rules that work on the text level instead of the sentence level
+    (e.g. word coherency) now extend `TextLevelRule` instead of `Rule`
+  
 #### Internal
-  * OpenNLP has been updated from 1.6.0 to 1.7.0 (only used for English)
+  * OpenNLP has been updated from 1.6.0 to 1.7.2 (only used for English)
 
 
 ## 3.6 (2016-12-28)

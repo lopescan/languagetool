@@ -73,11 +73,7 @@ public final class Tools {
     AnalyzedSentence srcText = srcLt.getAnalyzedSentence(src);
     AnalyzedSentence trgText = trgLt.getAnalyzedSentence(trg);
     List<Rule> nonBitextRules = trgLt.getAllRules();
-    for (Rule rule : nonBitextRules) {
-      rule.reset();
-    }
-    List<RuleMatch> ruleMatches = trgLt.checkAnalyzedSentence(JLanguageTool.ParagraphHandling.NORMAL,
-            nonBitextRules, 0, 0, 1, trg, trgText, null);
+    List<RuleMatch> ruleMatches = trgLt.checkAnalyzedSentence(JLanguageTool.ParagraphHandling.NORMAL, nonBitextRules, trgText);
     for (BitextRule bRule : bRules) {
       RuleMatch[] curMatch = bRule.match(srcText, trgText);
       if (curMatch != null && curMatch.length > 0) {
