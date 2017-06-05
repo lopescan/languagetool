@@ -5978,15 +5978,15 @@ USA
             <example correction='have'>John <marker>and Jacob has</marker></example>
             <example>John and Jacob have</example>
         </rule>
-        <rule id="HAS_INSTEAD_OF_HAVE" name="has instead of have">
-            <pattern>
-                <token postag='NNP'><exception postag='NNS'></exception></token>
-                <token postag='VB'></token>
-            </pattern>
-            <message>has instead of have</message>
-            <example correction=''><marker>John have</marker> the bike</example>
-            <example>John has the bike</example>
-        </rule>
+        <!--<rule id="HAS_INSTEAD_OF_HAVE" name="has instead of have">-->
+            <!--<pattern>-->
+                <!--<token postag='NNP'><exception postag='NNS'></exception></token>-->
+                <!--<token postag='VB'></token>-->
+            <!--</pattern>-->
+            <!--<message>has instead of have</message>-->
+            <!--<example correction=''><marker>John have</marker> the bike</example>-->
+            <!--<example>John has the bike</example>-->
+        <!--</rule>-->
         <rule id="Duplicate pronouns" name="">
             <pattern>
                 <token postag='PRP'><exception postag='PRP$'></exception></token>
