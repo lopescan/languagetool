@@ -100,5 +100,19 @@ USA
             <example correction="master's thesis">Example sentence with no full stop: <marker>master's dissertation</marker></example>
         </rule>
     </category>
+    <category id="GRAMMAR" name="Grammar" type="grammar">
+        <rule id="USING_ARE_INSTEAD_OF_IS" name="using 'are' instead of 'is'">
+        <pattern>
+            <token postag='SENT_START'></token>
+            <token postag='PDT'></token>
+            <token postag='DT'></token>
+            <token postag='NNS'><exception postag='NN|NN:.*'></exception></token>
+            <token postag='VBZ'></token>
+        </pattern>
+        <message></message>
+        <example correction=''><marker>All the girls is</marker> learning English</example>
+        <example>All the girls are learning English</example>
+    </rule>
+    </category>
 
 </rules>
