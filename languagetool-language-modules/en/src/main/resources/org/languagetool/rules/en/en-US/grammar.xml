@@ -101,15 +101,18 @@ USA
         </rule>
     </category>
     <category id="GRAMMAR" name="Grammar" type="grammar">
-        <rule id="HAS_INSTEAD_OF_HAVE" name="has instead of have">
-            <pattern>
-                <token postag='NNP'><exception postag='NNS'></exception></token>
-                <token>have</token>
-            </pattern>
-            <message>has instead of have</message>
-            <example correction=''>John have been wanted a new bicycle.</example>
-            <example>John has been wanted a new bicycle.</example>
-        </rule>
+        <rule id="USING_ARE_INSTEAD_OF_IS" name="using 'are' instead of 'is'">
+        <pattern>
+            <token postag='SENT_START'></token>
+            <token postag='PDT'></token>
+            <token postag='DT'></token>
+            <token postag='NNS'><exception postag='NN|NN:.*'></exception></token>
+            <token postag='VBZ'></token>
+        </pattern>
+        <message></message>
+        <example correction=''><marker>All the girls is</marker> learning English</example>
+        <example>All the girls are learning English</example>
+    </rule>
     </category>
 
 </rules>
