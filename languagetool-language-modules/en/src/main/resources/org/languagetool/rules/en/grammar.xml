@@ -19871,7 +19871,9 @@ USA
             <pattern>
                 <token>on</token>
                 <token>a</token>
-                <token/>
+                <token>
+                    <exception regexp="yes">word|.*ly</exception>
+                </token>
                 <token>basis</token>
             </pattern>
             <message>Replace with the proper adverbial form of <suggestion>\3ly</suggestion>.</message>
