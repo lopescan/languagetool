@@ -100,5 +100,16 @@ USA
             <example correction="master's thesis">Example sentence with no full stop: <marker>master's dissertation</marker></example>
         </rule>
     </category>
+    <category id="GRAMMAR" name="Grammar" type="grammar">
+        <rule id="HAS_INSTEAD_OF_HAVE" name="has instead of have">
+            <pattern>
+                <token postag='NNP'><exception postag='NNS'></exception></token>
+                <token>have</token>
+            </pattern>
+            <message>has instead of have</message>
+            <example correction=''>John have been wanted a new bicycle.</example>
+            <example>John has been wanted a new bicycle.</example>
+        </rule>
+    </category>
 
 </rules>
