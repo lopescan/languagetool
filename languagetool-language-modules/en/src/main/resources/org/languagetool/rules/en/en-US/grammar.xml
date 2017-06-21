@@ -104,9 +104,18 @@ USA
         <rule id="USING_ARE_INSTEAD_OF_IS" name="use 'are' instead of 'is'">
             <pattern>
                 <token postag='NNS'><exception postag='NN|NN:.*'></exception></token>
-                <token postag='VBZ'></token>
+                <token>is</token>
             </pattern>
             <message>use 'are' instead of 'is'</message>
+            <example correction=''>All the <marker>girls is</marker> learning English</example>
+            <example>All the girls are learning English</example>
+        </rule>
+        <rule id="USING_WERE_INSTEAD_OF_WAS" name="use 'were' instead of 'was'">
+            <pattern>
+                <token postag='NNS'><exception postag='NN|NN:.*'></exception></token>
+                <token>was</token>
+            </pattern>
+            <message>use 'were' instead of 'was'</message>
             <example correction=''>All the <marker>girls is</marker> learning English</example>
             <example>All the girls are learning English</example>
         </rule>
