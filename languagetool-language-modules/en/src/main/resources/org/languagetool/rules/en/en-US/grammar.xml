@@ -149,6 +149,16 @@ USA
             <example>I like my friend</example>
         </rule>
 
+        <rule id="USE_DISEASE_INSTEAD_OF_DISEASED" name="Use 'disease' instead of 'diseased'">
+            <pattern>
+                <token>diseased</token>
+                <token postag='VBD'></token>
+            </pattern>
+            <message>Use 'disease' instead of '\1'.
+                <suggestion><match no="1">disease</match></suggestion>
+            </message>
+        </rule>
+
         <rule id="Wrong grammatical representation" name="">
             <pattern>
                 <token postag='IN'></token>
