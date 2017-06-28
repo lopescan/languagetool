@@ -5967,46 +5967,6 @@ USA
     <!-- Grammar -->
     <!-- ====================================================================== -->
     <category id="GRAMMAR" name="Grammar" type="grammar">
-        <rule id="HAVE_INSTEAD_OF_HAS" name="using 'have' instead of 'has'">
-            <pattern>
-                <token postag='NNP'></token>
-                <token postag='CC'></token>
-                <token postag='NNP'></token>
-                <token postag='VBZ'></token>
-            </pattern>
-            <message>Possible grammatical error</message>
-            <example correction='have'>John <marker>and Jacob has</marker></example>
-            <example>John and Jacob have</example>
-        </rule>
-        <!--<rule id="HAS_INSTEAD_OF_HAVE" name="has instead of have">-->
-            <!--<pattern>-->
-                <!--<token postag='NNP'><exception postag='NNS'></exception></token>-->
-                <!--<token postag='VB'></token>-->
-            <!--</pattern>-->
-            <!--<message>has instead of have</message>-->
-            <!--<example correction=''><marker>John have</marker> the bike</example>-->
-            <!--<example>John has the bike</example>-->
-        <!--</rule>-->
-        <rule id="Duplicate pronouns" name="">
-            <pattern>
-                <token postag='PRP'><exception postag='PRP$'></exception></token>
-                <token postag='PRP$'></token>
-            </pattern>
-            <message>It appears that the pronouns I my are used incorrectly. </message>
-            <example correction='I like my'><marker>I my</marker> like friend</example>
-            <example>I like my friend</example>
-        </rule>
-
-        <rule id="Wrong grammatical representation" name="">
-            <pattern>
-                <token postag='IN'></token>
-                <token postag='VBD'></token>
-                <token postag='DT'></token>
-            </pattern>
-            <message></message>
-            <example correction=''>He <marker>around ran the</marker> block</example>
-            <example>He ran around the block</example>
-        </rule>
         <rule id="RELY_ON" name="rely on">
             <antipattern>
                 <token regexp="yes">(up)?on</token>
