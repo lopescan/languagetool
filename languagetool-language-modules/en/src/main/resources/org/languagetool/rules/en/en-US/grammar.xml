@@ -101,32 +101,25 @@ USA
         </rule>
     </category>
     <category id="GRAMMAR" name="Grammar" type="grammar">
-        <rule id="USING_ARE_INSTEAD_OF_IS" name="use 'are' instead of 'is'">
+        <rule id="Duplicate pronouns" name="">
             <pattern>
-                <token postag='NNS'><exception postag='NN|NN:.*'></exception></token>
-                <token>is</token>
+                <token postag='PRP'><exception postag='PRP$'></exception></token>
+                <token postag='PRP$'></token>
             </pattern>
-            <message>use 'are' instead of 'is'</message>
-            <example correction=''>All the <marker>girls is</marker> learning English</example>
-            <example>All the girls are learning English</example>
+            <message>It appears that the pronouns '\1','\2' are used incorrectly. </message>
+            <example correction='I like my'><marker>I my</marker> like friend</example>
+            <example>I like my friend</example>
         </rule>
-        <rule id="USING_WERE_INSTEAD_OF_WAS" name="use 'were' instead of 'was'">
+
+        <rule id="Wrong grammatical representation" name="">
             <pattern>
-                <token postag='NNS'><exception postag='NN|NN:.*'></exception></token>
-                <token>was</token>
+                <token postag='IN'></token>
+                <token postag='VBD'></token>
+                <token postag='DT'></token>
             </pattern>
-            <message>use 'were' instead of 'was'</message>
-            <example correction=''>All the <marker>girls is</marker> learning English</example>
-            <example>All the girls are learning English</example>
-        </rule>
-        <rule id="HAS_INSTEAD_OF_HAVE" name="use 'has' instead of 'have'">
-            <pattern>
-                <token postag='NNP'><exception postag='NNS'></exception></token>
-                <token>have</token>
-            </pattern>
-            <message>use 'has' instead of 'have'</message>
-            <example correction=''>John have been wanted a new bicycle.</example>
-            <example>John has been wanted a new bicycle.</example>
+            <message></message>
+            <example correction=''>He <marker>around ran the</marker> block</example>
+            <example>He ran around the block</example>
         </rule>
     </category>
 
