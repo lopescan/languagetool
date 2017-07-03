@@ -19871,7 +19871,9 @@ USA
             <pattern>
                 <token>on</token>
                 <token>a</token>
-                <token/>
+                <token>
+                    <exception regexp="yes">word|.*ly</exception>
+                </token>
                 <token>basis</token>
             </pattern>
             <message>Replace with the proper adverbial form of <suggestion>\3ly</suggestion>.</message>
@@ -21300,8 +21302,8 @@ USA
             <example>date</example>
         </rule>
 
-        <rulegroup id="WIKIPEDIA_CONTRACTIONS" name="Replace 'wasn't' with 'was not'">
-            <rule>
+        <rulegroup id="WIKIPEDIA_CONTRACTIONS" name="Replace 'wasn't'/'isn't' with 'was not'/'is not'">
+            <rule id="USE_WAS_NOT_INSTEAD_WASNT" name="Replace 'wasn't' with 'was not'">
                 <pattern>
                     <token>wasn</token>
                     <token regexp="yes">['’]</token>
@@ -21312,7 +21314,7 @@ USA
                 <example correction='was not'><marker>wasn't</marker></example>
                 <example>it's</example>
             </rule>
-            <rule>
+            <rule id="USE_IT_IS_INSTEAD_ITS" name="Replace 'it's' with 'it is'">
                 <pattern>
                     <token>it</token>
                     <token regexp="yes">['’]</token>

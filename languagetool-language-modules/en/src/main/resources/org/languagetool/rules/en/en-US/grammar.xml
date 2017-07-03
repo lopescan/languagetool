@@ -100,5 +100,27 @@ USA
             <example correction="master's thesis">Example sentence with no full stop: <marker>master's dissertation</marker></example>
         </rule>
     </category>
+    <category id="GRAMMAR" name="Grammar" type="grammar">
+        <rule id="Duplicate pronouns" name="">
+            <pattern>
+                <token postag='PRP'><exception postag='PRP$'></exception></token>
+                <token postag='PRP$'></token>
+            </pattern>
+            <message>It appears that the pronouns '\1','\2' are used incorrectly. </message>
+            <example correction='I like my'><marker>I my</marker> like friend</example>
+            <example>I like my friend</example>
+        </rule>
+
+        <rule id="Wrong grammatical representation" name="">
+            <pattern>
+                <token postag='IN'></token>
+                <token postag='VBD'></token>
+                <token postag='DT'></token>
+            </pattern>
+            <message></message>
+            <example correction=''>He <marker>around ran the</marker> block</example>
+            <example>He ran around the block</example>
+        </rule>
+    </category>
 
 </rules>
