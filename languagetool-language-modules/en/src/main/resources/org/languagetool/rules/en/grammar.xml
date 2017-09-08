@@ -6003,7 +6003,7 @@ USA
                 <token postag='VBD'></token>
                 <token postag='DT'></token>
             </pattern>
-            <message></message>
+            <message>Wrong grammatical representation</message>
             <example correction=''>He <marker>around ran the</marker> block</example>
             <example>He ran around the block</example>
         </rule>
