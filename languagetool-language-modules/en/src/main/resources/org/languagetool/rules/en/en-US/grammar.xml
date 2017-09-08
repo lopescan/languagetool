@@ -101,7 +101,7 @@ USA
         </rule>
     </category>
     <category id="GRAMMAR" name="Grammar" type="grammar">
-        <rule id="Duplicate pronouns" name="">
+        <rule id="Duplicate pronouns" name="Duplicate pronouns">
             <pattern>
                 <token postag='PRP'><exception postag='PRP$'></exception></token>
                 <token postag='PRP$'></token>
@@ -111,7 +111,7 @@ USA
             <example>I like my friend</example>
         </rule>
 
-        <rule id="Wrong grammatical representation" name="">
+        <rule id="Wrong grammatical representation" name="Grammatical mistake">
             <pattern>
                 <token postag='IN'></token>
                 <token postag='VBD'></token>
