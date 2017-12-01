@@ -20,17 +20,18 @@ package org.languagetool.server;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import org.languagetool.Language;
 import org.languagetool.Languages;
+import org.languagetool.markup.AnnotatedText;
+import org.languagetool.markup.AnnotatedTextBuilder;
 
 import java.io.IOException;
 import java.io.StringWriter;
 import java.net.HttpURLConnection;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Handle requests to {@code /v2/} of the HTTP API. 
@@ -50,18 +51,28 @@ class ApiV2 {
     this.allowOriginUrl = allowOriginUrl;
   }
 
-  void handleRequest(String path, HttpExchange httpExchange, Map<String, String> parameters) throws Exception {
+  void handleRequest(String path, HttpExchange httpExchange, Map<String, String> parameters, ErrorRequestLimiter errorRequestLimiter, String remoteAddress) throws Exception {
     if (path.equals("languages")) {
       String response = getLanguages();
       ServerTools.setCommonHeaders(httpExchange, JSON_CONTENT_TYPE, allowOriginUrl);
       httpExchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, response.getBytes(ENCODING).length);
       httpExchange.getResponseBody().write(response.getBytes(ENCODING));
     } else if (path.equals("check")) {
-      textChecker.checkText(parameters.get("text"), httpExchange, parameters);
+      AnnotatedText aText;
+      if (parameters.containsKey("text")) {
+        aText = new AnnotatedTextBuilder().addText(parameters.get("text")).build();
+      } else if (parameters.containsKey("data")) {
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode data = mapper.readTree(parameters.get("data"));
+        aText = getAnnotatedText(data, data.get("text").asText());
+      } else {
+        throw new RuntimeException("Missing 'text' or 'data' parameter");
+      }
+      textChecker.checkText(aText, httpExchange, parameters, errorRequestLimiter, remoteAddress);
     } else if (path.equals("log")) {
       // used so the client (especially the browser add-ons) can report internal issues:
       String message = parameters.get("message");
-      if (message.length() > 250) {
+      if (message != null && message.length() > 250) {
         message = message.substring(0, 250) + "...";
       }
       ServerTools.print("Log message from client: " + message + " - User-Agent: " + httpExchange.getRequestHeaders().getFirst("User-Agent"));
@@ -71,6 +82,25 @@ class ApiV2 {
     } else {
       throw new RuntimeException("Unsupported action: '" + path + "'");
     }
+  }
+
+  private AnnotatedText getAnnotatedText(JsonNode data, String text) {
+    AnnotatedTextBuilder textBuilder = new AnnotatedTextBuilder().addText(text);
+    if (data.has("metaData")) {
+      JsonNode metaData = data.get("metaData");
+      Iterator<String> it = metaData.fieldNames();
+      while (it.hasNext()) {
+        String key = it.next();
+        String val = metaData.get(key).asText();
+        try {
+          AnnotatedText.MetaDataKey metaDataKey = AnnotatedText.MetaDataKey.valueOf(key);
+          textBuilder.addGlobalMetaData(metaDataKey, val);
+        } catch (IllegalArgumentException e) {
+          textBuilder.addGlobalMetaData(key, val);
+        }
+      }
+    }
+    return textBuilder.build();
   }
 
   String getLanguages() throws IOException {

@@ -318,7 +318,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <exception postag_regexp="yes" postag=".*:abbr"/>
           </token>
         </pattern>
-        <message>Перед словами, що починаються на в, ф або збігом приголосних із в, ф пишемо у: <suggestion>у</suggestion> \2</message>
+        <message>Перед словами, що починаються на в, ф або збігом приголосних із в, ф пишемо у: <suggestion>у</suggestion> \3</message>
         <url>http://vlada.kiev.ua/pravopys/pravXXI/11.html</url>
         <example correction="у"><marker>в</marker> вівторок.</example>
         <example correction="У"><marker>В</marker> вольєрі сталася пожежа.</example>
@@ -865,6 +865,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         <example>металевої руди</example>
       </rule>
 
+<!--
+    Дощовий має кілька значень, зокрема "багатий дощами", в якому це слово є синонімом до дощовитий. Див https://r2u.org.ua
+
       <rule>
         <pattern>
           <marker>
@@ -877,7 +880,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         <example correction="Дощовитий"><marker>Дощове</marker> літо</example>
         <example>Дощові хмари</example>
       </rule>
-
+-->
       <rule>
         <pattern>
           <token inflected="yes" regexp="yes">науковий|вчений</token>
@@ -1050,15 +1053,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
       </rule>
     </rulegroup>
 
-    <rule id="PRYNALEZHNIST" name="Приналежність і належність">
-      <pattern>
-        <token regexp="yes">приналеж.*</token>
-      </pattern>
-      <message>Правильно: <suggestion><match no="1" regexp_match="[Пп]ри(належ.*)" regexp_replace="$1"/></suggestion></message>
-      <url>http://mova.kreschatic.kiev.ua/246.htm</url>
-      <example correction="належність">культурна <marker>приналежність</marker> людини</example>
-    </rule>
-
 <!-- "ставити питання" є в АС та словнику Виргана, Пилинської -->
     <rulegroup id="ZADAVATY_PYTANNIA" name="Задавати питання">
       <rule>
@@ -1093,6 +1087,39 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         <example correction="питання йому (по)ставити">ці <marker>питання йому задали</marker> його ж студенти</example>
       </rule>
     </rulegroup>
+
+    <rule id="slang_words" name="Жаргонні слова">
+      <pattern>
+        <token postag_regexp="yes" postag=".*:slang.*">
+          <exception negate_pos="yes" postag_regexp="yes" postag=".*:slang.*"/>
+        </token>
+      </pattern>
+      <message>Це слово є жаргонним</message>
+      <example correction="">Ось так він <marker>лоханувся</marker>.</example>
+      <example>прапор</example>
+    </rule>
+
+    <rule id="nezvazhayuchi_na" name="Незважаючи на">
+      <pattern>
+        <marker>
+          <token>незважаючи</token>
+          <token>на</token>
+        </marker>
+      </pattern>
+      <message>Хоча вислів незважаючи на засвідчений у словниках, текстах і чинному правописі, у багатьох випадках те саме значення можна передати іншими словами</message>
+      <suggestion>попри</suggestion>
+      <suggestion>дарма що</suggestion>
+      <suggestion>всупереч</suggestion>
+      <suggestion>наперекір</suggestion>
+      <suggestion>хоч</suggestion>
+      <suggestion>не зважаючи на</suggestion>
+      <suggestion>не вважаючи на</suggestion>
+      <suggestion>незалежно від</suggestion>
+      <example correction="попри|дарма що|всупереч|наперекір|хоч|не зважаючи на|не вважаючи на|незалежно від">Гра тривала <marker>незважаючи на</marker> сильну зливу.</example>
+      <example correction="попри|дарма що|всупереч|наперекір|хоч|не зважаючи на|не вважаючи на|незалежно від">Вони бігли туди <marker>незважаючи на</marker> сильну зливу.</example>
+      <example>Гра тривала попри сильну зливу.</example>
+      <example>Вони бігли туди не зважаючи на сильну зливу.</example>
+    </rule>
 
 <!--
     схоже, «відсутній» не має такого чіткого розділення
@@ -1166,6 +1193,19 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         <example>не світився ліхтар.</example>
         </rule>
         </rulegroup>
+    -->
+
+    <!--
+     // r2u засвідчує такі слова - і в словниках, і в цитатах. Зокрема "приналежний" та інші слова з при- можуть вживатися у високому стилі, для надання урочистості висловленню
+
+    <rule id="PRYNALEZHNIST" name="Приналежність і належність">
+      <pattern>
+        <token regexp="yes">приналеж.*</token>
+      </pattern>
+      <message>Правильно: <suggestion><match no="1" regexp_match="[Пп]ри(належ.*)" regexp_replace="$1"/></suggestion></message>
+      <url>http://mova.kreschatic.kiev.ua/246.htm</url>
+      <example correction="належність">культурна <marker>приналежність</marker> людини</example>
+    </rule>
     -->
   </category>
 

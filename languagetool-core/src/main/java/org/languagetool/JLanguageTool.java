@@ -64,7 +64,7 @@ import java.util.regex.Pattern;
 public class JLanguageTool {
 
   /** LanguageTool version as a string like {@code 2.3} or {@code 2.4-SNAPSHOT}. */
-  public static final String VERSION = "3.8-SNAPSHOT";
+  public static final String VERSION = "4.0-SNAPSHOT";
   /** LanguageTool build date and time like {@code 2013-10-17 16:10} or {@code null} if not run from JAR. */
   @Nullable public static final String BUILD_DATE = getBuildDate();
 
@@ -503,6 +503,14 @@ public class JLanguageTool {
   }
   
   /**
+   * @since 3.9
+   */
+  @Experimental
+  public List<RuleMatch> check(AnnotatedText text, RuleMatchListener listener) throws IOException {
+    return check(text, true, ParagraphHandling.NORMAL, listener);
+  }
+  
+  /**
    * The main check method. Tokenizes the text into sentences and matches these
    * sentences against all currently active rules.
    * @param annotatedText The text to be checked, created with {@link AnnotatedTextBuilder}. 
@@ -671,6 +679,7 @@ public class JLanguageTool {
     RuleMatch thisMatch = new RuleMatch(match.getRule(),
         fromPos, toPos, match.getMessage(), match.getShortMessage());
     thisMatch.setSuggestedReplacements(match.getSuggestedReplacements());
+    thisMatch.setUrl(match.getUrl());
     String sentencePartToError = sentence.substring(0, match.getFromPos());
     String sentencePartToEndOfError = sentence.substring(0, match.getToPos());
     int lastLineBreakPos = sentencePartToError.lastIndexOf('\n');
@@ -884,6 +893,29 @@ public class JLanguageTool {
   }
   
   /**
+   * Works like getAllActiveRules but overrides defaults by officeefaults
+   * @return a List of {@link Rule} objects
+   * @since 4.0
+   */
+  public List<Rule> getAllActiveOfficeRules() {
+    List<Rule> rules = new ArrayList<>();
+    List<Rule> rulesActive = new ArrayList<>();
+    rules.addAll(builtinRules);
+    rules.addAll(userRules);
+    for (Rule rule : rules) {
+      if (!ignoreRule(rule) && !rule.isOfficeDefaultOff()) {
+        rulesActive.add(rule);
+      } else if (rule.isOfficeDefaultOn()) {
+        rulesActive.add(rule);
+        enableRule(rule.getId());
+      } else if (!ignoreRule(rule) && rule.isOfficeDefaultOff()) {
+        disableRule(rule.getId());
+      }
+    }    
+    return rulesActive;
+  }
+  
+  /**
    * Get pattern rules by Id and SubId. This returns a list because rules that use {@code <or>...</or>}
    * are internally expanded into several rules.
    * @return a List of {@link Rule} objects
@@ -967,13 +999,14 @@ public class JLanguageTool {
       List<RuleMatch> ruleMatches = new ArrayList<>();
       for (Rule rule : rules) {
         if (rule instanceof TextLevelRule && !ignoreRule(rule) && paraMode != ParagraphHandling.ONLYNONPARA) {
-          RuleMatch[] matches = ((TextLevelRule) rule).match(analyzedSentences);
+          RuleMatch[] matches = ((TextLevelRule) rule).match(analyzedSentences, annotatedText);
           List<RuleMatch> adaptedMatches = new ArrayList<>();
           for (RuleMatch match : matches) {
             LineColumnRange range = getLineColumnRange(match);
             int newFromPos = annotatedText.getOriginalTextPositionFor(match.getFromPos());
             int newToPos = annotatedText.getOriginalTextPositionFor(match.getToPos() - 1) + 1;
             RuleMatch newMatch = new RuleMatch(match.getRule(), newFromPos, newToPos, match.getMessage(), match.getShortMessage());
+            newMatch.setUrl(match.getUrl());
             newMatch.setLine(range.from.line);
             newMatch.setEndLine(range.to.line);
             if (match.getLine() == 0) {

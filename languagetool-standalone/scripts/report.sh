@@ -80,6 +80,10 @@ echo "" >>$OUTFILE
 echo "Top 10 Errors:" >>$OUTFILE
 grep 'Could not check sentence' $TMPFILE_ALL | grep -v "Caused by:" | uniq -c | sort -n -r | head -n 10 >>$OUTFILE
 
+echo "" >>$OUTFILE
+echo "Top 30 external Referers:" >>$OUTFILE
+grep "Check done:" /tmp/log.temp | awk -F ', ' '{print $4}' | grep -v "languagetool.org" | cut -c -100 | sed 's#https\?://\([.a-z0-9:-]\+\)/.*#\1#' | sort | uniq -c | sort -r -n | head -n 30 >>$OUTFILE
+
 #echo "" >>$OUTFILE
 #echo "Up to 50 client errors sent to the server:" >>$OUTFILE
 #grep "Log message from client:" $TMPFILE | head -n 50 >>$OUTFILE
@@ -110,10 +114,14 @@ YEAR=`date +"%Y"`
 # note: requires a root cronjob to copy the error.log file to ~/api/apache_error.log:
 echo "" >>$OUTFILE
 echo "Apache errors (max. 30):" >>$OUTFILE
-grep "$DATE_APACHE" /home/languagetool/api/apache_error.log | grep $YEAR | tail -n 30 >>$OUTFILE
+grep "$DATE_APACHE" /home/languagetool/api/apache_error.log | grep -v "log.php" | grep $YEAR | tail -n 30 >>$OUTFILE
 
 echo "" >>$OUTFILE
 echo "Apache not found errors (filtered, max. 10):" >>$OUTFILE
 grep "$DATE_APACHE" /home/languagetool/api/apache_not_found.log | grep $YEAR | tail -n 10 >>$OUTFILE
+
+echo "" >>$OUTFILE
+echo -n "Number of client-side errors: " >>$OUTFILE
+grep "$DATE_APACHE" /home/languagetool/api/apache_error.log | grep -c $YEAR >>$OUTFILE
 
 cat $OUTFILE | mail -a 'Content-Type: text/plain; charset=utf-8' -s "LanguageTool API Report" daniel.naber@languagetool.org

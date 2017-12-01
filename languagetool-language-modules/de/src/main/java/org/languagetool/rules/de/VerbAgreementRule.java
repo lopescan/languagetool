@@ -122,6 +122,12 @@ public class VerbAgreementRule extends TextLevelRule {
       new PatternTokenBuilder().token("ich").build(),
       new PatternTokenBuilder().posRegex("PA2:.*").build(),
       new PatternTokenBuilder().token("bin").build()
+    ),
+    Arrays.asList(
+     new PatternTokenBuilder().token("als").build(),
+     new PatternTokenBuilder().tokenRegex("du|e[rs]|sie|ich").build(),
+     new PatternTokenBuilder().token("sein").matchInflectedForms().build(),
+     new PatternTokenBuilder().tokenRegex("[\\.,]").build()
     )
   );
 
@@ -162,6 +168,13 @@ public class VerbAgreementRule extends TextLevelRule {
     "/"
   ));
   
+  private static final Set<String> CONJUNCTIONS = new HashSet<>(Arrays.asList(
+    "weil",
+    "obwohl"/*,
+    "damit",
+    "wenn"*/
+  ));
+
   private static final Set<String> QUOTATION_MARKS = new HashSet<>(Arrays.asList(
     "\"", "„"
   ));
@@ -190,7 +203,18 @@ public class VerbAgreementRule extends TextLevelRule {
     List<RuleMatch> ruleMatches = new ArrayList<>();
     int pos = 0;
     for (AnalyzedSentence sentence : sentences) {
-      ruleMatches.addAll(match(sentence, pos)); 
+      int idx = 0;
+      AnalyzedTokenReadings[] tokens = sentence.getTokens();
+      AnalyzedSentence partialSentence;
+      for(int i = 2; i < tokens.length; i++) {
+        if(",".equals(tokens[i-2].getToken()) && CONJUNCTIONS.contains(tokens[i].getToken())) {
+          partialSentence = new AnalyzedSentence(Arrays.copyOfRange(tokens, idx, i));
+          ruleMatches.addAll(match(partialSentence, pos));
+          idx = i;
+        }
+      }
+      partialSentence = new AnalyzedSentence(Arrays.copyOfRange(tokens, idx, tokens.length));
+      ruleMatches.addAll(match(partialSentence, pos));
       pos += sentence.getText().length();
     }
     return toRuleMatchArray(ruleMatches);

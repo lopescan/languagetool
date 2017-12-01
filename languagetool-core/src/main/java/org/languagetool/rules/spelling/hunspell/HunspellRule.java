@@ -26,14 +26,13 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.regex.Pattern;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
+
+import org.apache.commons.lang3.StringUtils;
 import org.languagetool.AnalyzedSentence;
 import org.languagetool.AnalyzedTokenReadings;
 import org.languagetool.JLanguageTool;
@@ -59,6 +58,12 @@ public class HunspellRule extends SpellingCheckRule {
 
   private static final String NON_ALPHABETIC = "[^\\p{L}]";
 
+  private static final String[] WHITESPACE_ARRAY = new String[20];
+  static {
+    for (int i = 0; i < 20; i++) {
+      WHITESPACE_ARRAY[i] = StringUtils.repeat(' ', i);
+    }
+  }
   protected Pattern nonWordPattern;
 
   public HunspellRule(ResourceBundle messages, Language language) {
@@ -102,10 +107,22 @@ public class HunspellRule extends SpellingCheckRule {
             messages.getString("spelling"),
             messages.getString("desc_spelling_short"));
         List<String> suggestions = getSuggestions(word);
-        suggestions.addAll(0, getAdditionalTopSuggestions(suggestions, word));
-        suggestions.addAll(getAdditionalSuggestions(suggestions, word));
+        List<String> additionalTopSuggestions = getAdditionalTopSuggestions(suggestions, word);
+        Collections.reverse(additionalTopSuggestions);
+        for (String additionalTopSuggestion : additionalTopSuggestions) {
+          if (!word.equals(additionalTopSuggestion)) {
+            suggestions.add(0, additionalTopSuggestion);
+          }
+        }
+        List<String> additionalSuggestions = getAdditionalSuggestions(suggestions, word);
+        for (String additionalSuggestion : additionalSuggestions) {
+          if (!word.equals(additionalSuggestion)) {
+            suggestions.addAll(additionalSuggestions);
+          }
+        }
         if (!suggestions.isEmpty()) {
           filterSuggestions(suggestions);
+          filterDupes(suggestions);
           ruleMatch.setSuggestedReplacements(suggestions);
         }
         ruleMatches.add(ruleMatch);
@@ -121,7 +138,19 @@ public class HunspellRule extends SpellingCheckRule {
     if (word.length() == 1) { // hunspell dictionaries usually do not contain punctuation
       isAlphabetic = Character.isAlphabetic(word.charAt(0));
     }
-    return (isAlphabetic && !word.equals("--") && hunspellDict.misspelled(word)) || isProhibited(removeTrailingDot(word));
+    return (isAlphabetic && !"--".equals(word) && hunspellDict.misspelled(word)) || isProhibited(removeTrailingDot(word));
+  }
+  
+  void filterDupes(List<String> words) {
+    Set<String> seen = new HashSet<>();
+    Iterator<String> iterator = words.iterator();
+    while (iterator.hasNext()) {
+      String word = iterator.next();
+      if (seen.contains(word)) {
+        iterator.remove();
+      }
+      seen.add(word);
+    }
   }
 
   private String removeTrailingDot(String word) {
@@ -147,10 +176,26 @@ public class HunspellRule extends SpellingCheckRule {
     AnalyzedTokenReadings[] sentenceTokens = getSentenceWithImmunization(sentence).getTokens();
     for (int i = 1; i < sentenceTokens.length; i++) {
       String token = sentenceTokens[i].getToken();
-      if (isUrl(token) || isEMail(token) || sentenceTokens[i].isImmunized() || sentenceTokens[i].isIgnoredBySpeller()) {
+      if (sentenceTokens[i].isImmunized() || isUrl(token) || isEMail(token) || sentenceTokens[i].isIgnoredBySpeller()) {
         // replace URLs and immunized tokens with whitespace to ignore them for spell checking:
-        for (int j = 0; j < token.length(); j++) {
-          sb.append(' ');
+        if (token.length() < 20) {
+          sb.append(WHITESPACE_ARRAY[token.length()]);
+        } else {
+          for (int j = 0; j < token.length(); j++) {
+            sb.append(' ');
+          }
+        }
+      } else if (token.length() > 1 && token.codePointCount(0, token.length()) != token.length()) {
+        // some symbols such as emojis (😂) have a string length that equals 2 
+        for (int charIndex = 0; charIndex < token.length();) {
+          int unicodeCodePoint = token.codePointAt(charIndex);
+          int increment = Character.charCount(unicodeCodePoint);
+          if (increment == 1) {
+            sb.append(token.charAt(charIndex));
+          } else {
+            sb.append("  ");
+          }
+          charIndex += increment;
         }
       } else {
         sb.append(token);
@@ -181,11 +226,9 @@ public class HunspellRule extends SpellingCheckRule {
         hunspellDict = null;
       } else {
         hunspellDict = Hunspell.getInstance().getDictionary(path);
-
         if (!"".equals(hunspellDict.getWordChars())) {
           wordChars = "(?![" + hunspellDict.getWordChars().replace("-", "\\-") + "])";
         }
-
         addIgnoreWords();
       }
     }
@@ -195,7 +238,6 @@ public class HunspellRule extends SpellingCheckRule {
 
   private void addIgnoreWords() throws IOException {
     hunspellDict.addWord(SpellingCheckRule.LANGUAGETOOL);
-    hunspellDict.addWord(SpellingCheckRule.LANGUAGETOOL_FX);
     URL ignoreUrl = JLanguageTool.getDataBroker().getFromResourceDirAsUrl(getIgnoreFileName());
     List<String> ignoreLines = Resources.readLines(ignoreUrl, Charsets.UTF_8);
     for (String ignoreLine : ignoreLines) {
@@ -212,7 +254,7 @@ public class HunspellRule extends SpellingCheckRule {
     String dictionaryPath;
     //in the webstart, java EE or OSGi bundle version, we need to copy the files outside the jar
     //to the local temporary directory
-    if ("jar".equals(dictURL.getProtocol()) || "vfs".equals(dictURL.getProtocol()) || "bundle".equals(dictURL.getProtocol())) {
+    if ("jar".equals(dictURL.getProtocol()) || "vfs".equals(dictURL.getProtocol()) || "bundle".equals(dictURL.getProtocol()) || "bundleresource".equals(dictURL.getProtocol())) {
       File tempDir = new File(System.getProperty("java.io.tmpdir"));
       File tempDicFile = new File(tempDir, dicName + ".dic");
       JLanguageTool.addTemporaryFile(tempDicFile);

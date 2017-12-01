@@ -96,6 +96,7 @@ Beit Hanoun	NPCNG00
 Belo Horizonte	NPCNG00
 Ben Jawad	NPCNG00
 Beni Suef	NPCNG00
+Benjamin Britten	_GN_MS
 Boca Juniors	_GN_MS
 Bosanska Krajina	NPCNG00
 Bosanski Brod	NPCNG00
@@ -282,6 +283,7 @@ Red River	NPCNG00
 Reggio de Calàbria	NPCNG00
 Reggio de l'Emília	NPCNG00
 Reial Club Deportiu Espanyol	_GN_MS
+Richard Wagner	_GN_MS
 RCD Espanyol	NPMSO00
 Rhode Island	NPCNG00
 Rift Valley	NPCNG00
@@ -363,6 +365,9 @@ West Ham	NPCNG00
 West Side	NPCNG00
 Xi Jiang	NPCNG00
 Zareh Sharan	NPCNG00
+Warner Bros	_GN_FS
+Paramount Pictures	_GN_FS
+20th Century Fox	_GN_FS
 a banda i banda	LOC_ADV
 a base d'	LOC_PREP
 a base de	LOC_PREP
@@ -610,6 +615,7 @@ al tombant d'	LOC_PREP
 al tombant de	LOC_PREP
 al voltant d'	LOC_PREP
 al voltant de	LOC_PREP
+alma mater	_GN_FS
 allèn d'	LOC_PREP
 allèn de	LOC_PREP
 alter ego	_GN_MS
@@ -620,6 +626,7 @@ amb freqüència	LOC_ADV
 amb prou feines	LOC_ADV
 amb referència a	LOC_PREP
 amb tot i	LOC_PREP
+ante meridiem	LOC_ADV
 annus horribilis	_GN_MS
 ara com ara	LOC_ADV
 ara mateix	LOC_ADV
@@ -643,6 +650,8 @@ bel canto	_GN_MS
 ben bé	LOC_ADV
 big bang	_GN_MS
 Big Bang	_GN_MS
+big band	_GN_FS
+big bands	_GN_FP
 bin Laden	NPCNSP0
 bla bla bla	_GN_MS
 boca per amunt	LOC_ADV
@@ -673,6 +682,7 @@ concerto grosso	_GN_MS
 concerti grossi	_GN_MP
 com ara	LOC_CONJ
 commedia dell'arte	_GN_FS
+corpore insepulto	LOC_ADV
 cos a cos	LOC_ADV
 cos per cos	LOC_ADV
 costa amunt	LOC_ADV
@@ -800,6 +810,7 @@ de trobadures	LOC_ADV
 de vegades	LOC_ADV
 de veres	LOC_ADV
 de via estreta	LOC_ADV
+de visu	LOC_ADV
 de viu en viu	LOC_ADV
 de viva veu	LOC_ADV
 déjà vu	_GN_MS
@@ -929,6 +940,8 @@ enmig d'	LOC_PREP
 enmig de	LOC_PREP
 et al.	LOC_ADV
 et alii	LOC_ADV
+et alia	LOC_ADV
+ex abrupto	LOC_ADV
 ex aequo	LOC_ADV
 ex ante	LOC_ADV
 ex cathedra	LOC_ADV
@@ -967,8 +980,18 @@ habeas corpus	_GN_MS
 heavy metal	_GN_MS
 herriko taberna	_GN_FS
 herriko tabernes	_GN_FP
+hic et nunc	LOC_ADV
 honoris causa	LOC_ADV
 horror vacui	_GN_MS
+in articulo mortis	LOC_ADV
+in fieri	LOC_ADV
+in illo tempore	LOC_ADV
+in medias res	LOC_ADV
+in memoriam	LOC_ADV
+in mente	LOC_ADV
+in pectore	LOC_ADV
+in saecula saeculorum	LOC_ADV
+in voce	LOC_ADV
 in albis	LOC_ADV
 in crescendo	LOC_ADV
 in dubio pro reo	LOC_ADV
@@ -978,6 +1001,8 @@ in fraganti	LOC_ADV
 in situ	LOC_ADV
 in vitro	LOC_ADV
 inter se	LOC_ADV
+inter nos	LOC_ADV
+inter vivos	LOC_ADV
 ipso facto	LOC_ADV
 jet lag	_GN_MS
 junt amb	LOC_PREP
@@ -997,6 +1022,7 @@ mare superiora	_GN_FS
 mass media	_GN_MN
 mea culpa	_GN_MN
 melting pot	_GN_MS
+ménage à trois	_GN_MS
 menú degustació	_GN_MS
 menús degustació	_GN_MP
 mercès a	LOC_PREP
@@ -1016,6 +1042,7 @@ musclos zebra	_GN_MP
 més ben dit	LOC_ADV
 més i més	LOC_ADV
 més o menys	LOC_ADV
+nemine discrepante	LOC_ADV
 nihil obstat	_GN_MS
 nit i dia	LOC_ADV
 no fa gaire	LOC_ADV
@@ -1024,6 +1051,10 @@ no gens	LOC_ADV
 no obstant	LOC_PREP
 no obstant això	LOC_ADV
 noli me tàngere	_GN_MN
+non plus ultra	_GN_MS
+non sancta	_LOC_ADJ
+non troppo	_LOC_ADJ
+nota bene	_GN_FS
 nouvelle cuisine	_GN_FS
 numerus clausus	_GN_MN
 o sia	LOC_CONJ
@@ -1034,6 +1065,7 @@ paper film	_GN_MS
 pas a pas	LOC_ADV
 pater familias	_GN_MS
 pax romana	_GN_FS
+peccata minuta	_GN_FS
 pel cap alt	LOC_ADV
 pel cap alt	LOC_ADV
 pel cap baix	LOC_ADV
@@ -1050,6 +1082,7 @@ per contemplació d'	LOC_PREP
 per contemplació de	LOC_PREP
 per càpita	LOC_ADV
 per damunt damunt	LOC_ADV
+damunt damunt	LOC_ADV
 per damunt de tot	LOC_ADV
 per exemple	LOC_ADV
 per les engires d'	LOC_PREP
@@ -1071,6 +1104,7 @@ per tal de	LOC_PREP
 per virtut d'	LOC_PREP
 per virtut de	LOC_PREP
 post mortem	LOC_ADV
+post meridiem	LOC_ADV
 prime time	_GN_MS
 pro domo sua	LOC_ADV
 in dubio pro reo	LOC_ADV
@@ -1116,6 +1150,7 @@ spaghetti western	_GN_MS
 spaghetti westerns	_GN_MP
 statu quo	_GN_MS
 stricto sensu	LOC_ADV
+sub iudice	LOC_ADV
 sui generis	LOC_ADJ
 sucre glaç	_GN_MS
 tabula rasa	_GN_FS
@@ -1146,6 +1181,8 @@ tour de force	_GN_MS
 tractament vip	_GN_MS
 trompe-l'oeil	_GN_MS
 trompe-l'œil	_GN_MS
+tutti quanti	_GN_MP
+tutti frutti	_GN_MS
 ultima ratio	_GN_FS
 ultra mesura	LOC_ADV
 un per un	LOC_ADV
@@ -1158,6 +1195,7 @@ una per una	LOC_ADV
 una vegada per sempre	LOC_ADV
 una vegada per totes	LOC_ADV
 urbi et orbi	LOC_ADV
+vade retro	_GN_MS
 veni, vidi,vici	_GN_MS
 vestit jaqueta	_GN_MS
 vestits jaqueta	_GN_MP
