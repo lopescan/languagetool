@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../../../../../../../../languagetool-core/src/main/resources/org/languagetool/rules/print.xsl" ?>
 <?xml-stylesheet type="text/css" href="../../../../../../../../../languagetool-core/src/main/resources/org/languagetool/rules/rules.css"
-title="Easy editing stylesheet" ?>
+        title="Easy editing stylesheet" ?>
 <!--
 American English Grammar and Typo Rules for LanguageTool
 See tagset.txt for the meaning of the POS tags
@@ -32,24 +32,24 @@ USA
         ]>
 
 <rules lang="en-US" xsi:noNamespaceSchemaLocation="../../../../../../../../../../languagetool-core/src/main/resources/org/languagetool/rules/rules.xsd"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <!-- ====================================================================== -->
     <!-- Possible typos -->
     <!-- ====================================================================== -->
     <category id="US_SPECIFIC_TYPOS" name="Possible Typo" type="misspelling">
-          <rule id="ANY_MORE" name="any more (anymore)">
-              <pattern>
-                  <marker>
-                     <token>any</token>
-                     <token>more</token>
-                  </marker>
-                  <token><exception regexp="yes">of|than</exception><exception postag="NN.*" postag_regexp="yes"/></token>
-              </pattern>
-              <message>Did you mean <suggestion>\1\2</suggestion>?</message>
-              <url>http://www.whichenglish.com/Better-English-Grammar/Online-Usage-Letter-A.html</url>
-              <short>Possible typo</short>
-              <example correction="anymore">I couldn't find my way around in it <marker>any more</marker>.</example>
-          </rule>
+        <rule id="ANY_MORE" name="any more (anymore)">
+            <pattern>
+                <marker>
+                    <token>any</token>
+                    <token>more</token>
+                </marker>
+                <token><exception regexp="yes">of|than</exception><exception postag="NN.*" postag_regexp="yes"/></token>
+            </pattern>
+            <message>Did you mean <suggestion>\1\2</suggestion>?</message>
+            <url>http://www.whichenglish.com/Better-English-Grammar/Online-Usage-Letter-A.html</url>
+            <short>Possible typo</short>
+            <example correction="anymore">I couldn't find my way around in it <marker>any more</marker>.</example>
+        </rule>
     </category>
 
     <category id="AMERICAN_ENGLISH_STYLE" name="American English Style" type="style">
@@ -70,7 +70,7 @@ USA
             <example>My birthday is October 8, <marker>1983,</marker> but I usually do not celebrate.</example>
         </rule>
     </category>
-    
+
     <category id="BRITISH_ENGLISH" name="British English phrases" type="locale-violation">
         <rule id="GROUND_FIRST_FLOOR" name="ground floor/first floor">
             <pattern>
@@ -98,28 +98,6 @@ USA
             <example correction="master's thesis">Her <marker>master's dissertation</marker> is excellent.</example>
             <example correction="Master’s theses"><marker>Master’s dissertations</marker> are not easy to write.</example>
             <example correction="master's thesis">Example sentence with no full stop: <marker>master's dissertation</marker></example>
-        </rule>
-    </category>
-    <category id="GRAMMAR" name="Grammar" type="grammar">
-        <rule id="Duplicate pronouns" name="Duplicate pronouns">
-            <pattern>
-                <token postag='PRP'><exception postag='PRP$'></exception></token>
-                <token postag='PRP$'></token>
-            </pattern>
-            <message>It appears that the pronouns '\1','\2' are used incorrectly. </message>
-            <example correction='I like my'><marker>I my</marker> like friend</example>
-            <example>I like my friend</example>
-        </rule>
-
-        <rule id="Wrong grammatical representation" name="Grammatical mistake">
-            <pattern>
-                <token postag='IN'></token>
-                <token postag='VBD'></token>
-                <token postag='DT'></token>
-            </pattern>
-            <message>Wrong grammatical representation</message>
-            <example correction=''>He <marker>around ran the</marker> block</example>
-            <example>He ran around the block</example>
         </rule>
     </category>
 
