@@ -32,9 +32,9 @@ import org.languagetool.tagging.de.GermanToken;
 import org.languagetool.tagging.de.GermanToken.POSType;
 import org.languagetool.tagging.disambiguation.rules.DisambiguationPatternRule;
 import org.languagetool.tools.StringTools;
+import org.languagetool.tools.Tools;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.*;
 import java.util.regex.Pattern;
@@ -50,7 +50,7 @@ import java.util.regex.Pattern;
 public class CaseRule extends Rule {
 
   private static final Pattern NUMERALS_EN =
-          Pattern.compile("[a-z]|[0-9]+|(m{0,4}(cm|cd|d?c{0,3})(xc|xl|l?x{0,3})(ix|iv|v?i{0,3}))$");
+          Pattern.compile("[a-z]|[0-9]+|(m{0,4}(c[md]|d?c{0,3})(x[cl]|l?x{0,3})(i[xv]|v?i{0,3}))$");
 
   // wenn hinter diesen Wörtern ein Verb steht, ist es wohl ein substantiviertes Verb,
   // muss also groß geschrieben werden:
@@ -63,36 +63,77 @@ public class CaseRule extends Rule {
   // also see case_rule_exception.txt:
   private static final List<List<PatternToken>> ANTI_PATTERNS = Arrays.asList(
     Arrays.asList(
+      // see http://www.lektorenverband.de/die-deutsche-rechtschreibung-was-ist-neu/
+      // and http://www.rechtschreibrat.com/DOX/rfdr_Woerterverzeichnis_2017.pdf
+      regex("Goldenen?"),
+      regex("Hochzeit(en)?")
+    ),
+    Arrays.asList(
+      // see http://www.rechtschreibrat.com/DOX/rfdr_Woerterverzeichnis_2017.pdf
+      regex("Graue[nr]?"),
+      regex("Star|Eminenz")
+    ),
+    Arrays.asList(
+      // see http://www.rechtschreibrat.com/DOX/rfdr_Woerterverzeichnis_2017.pdf
+      regex("Große[nr]?"),
+      regex("Strafkammer|Latinums?")
+    ),
+    Arrays.asList(
+      // see http://www.rechtschreibrat.com/DOX/rfdr_Woerterverzeichnis_2017.pdf
+      csToken("Guten"),
+      csToken("Tag")
+    ),
+    Arrays.asList(
+      // see http://www.rechtschreibrat.com/DOX/rfdr_Woerterverzeichnis_2017.pdf
+      regex("Höheren?"),
+      regex("Schule|Mathematik")
+    ),
+    Arrays.asList(
+      // see http://www.rechtschreibrat.com/DOX/rfdr_Woerterverzeichnis_2017.pdf
+      regex("Künstliche[nr]?"),
+      token("Intelligenz")
+    ),
+    Arrays.asList(
+      // see http://www.rechtschreibrat.com/DOX/rfdr_Woerterverzeichnis_2017.pdf
+      regex("Neuen?"),
+      token("Jahr(s|es)?|Linken?")
+    ),
+    Arrays.asList(
+      // see http://www.rechtschreibrat.com/DOX/rfdr_Woerterverzeichnis_2017.pdf
+      regex("Roten?"),
+      csToken("Grütze")
+    ),
+    Arrays.asList(
       regex("Vereinigte[ns]?"),
       regex("Staaten|Königreiche?s?")
     ),
     Arrays.asList(
-      token("Den"),
-      token("Haag")
+      csToken("Den"),
+      csToken("Haag")
     ),
     Arrays.asList(
       token("Neues"),
       token("\\?")
     ),
     Arrays.asList(
-      token("Hin"),
-      token("und"),
-      token("Her")
+      csToken("Hin"),
+      csToken("und"),
+      csToken("Her")
     ),
     Arrays.asList(
-      token("Bares"),
-      token("ist"),
-      token("Wahres")
+      csToken("Bares"),
+      csToken("ist"),
+      csToken("Wahres")
     ),
     Arrays.asList(
-      token("Auf"),
-      token("und"),
-      token("Ab")
+      csToken("Auf"),
+      csToken("und"),
+      csToken("Ab")
     ),
     Arrays.asList(
-      token("Lug"),
-      token("und"),
-      token("Trug")
+      csToken("Lug"),
+      csToken("und"),
+      csToken("Trug")
     ),
     Arrays.asList(
         token("Zahl"),
@@ -104,7 +145,7 @@ public class CaseRule extends Rule {
         regex("[\\.?!]")
     ),
     Arrays.asList(
-        token(","),
+        csToken(","),
         regex("[md]eine?|du"),
         posRegex(".*ADJ.*|UNKNOWN"),
         regex("[\\.?!]")
@@ -122,13 +163,13 @@ public class CaseRule extends Rule {
     Arrays.asList(
         //token("dass"),
         posRegex("PRO:PER:.*|EIG:.*"),
-        token("das"),
+        csToken("das"),
         posRegex("PA2:.*"),
         posRegex("VER:AUX:.*")
     ),
     Arrays.asList(
         // Er fragte,ob das gelingen wird.
-        token("das"),
+        csToken("das"),
         posRegex("VER:.*"),
         posRegex("VER:AUX:.*"),
         pos("PKT")
@@ -142,22 +183,19 @@ public class CaseRule extends Rule {
         regex("und|oder")
     ),
     Arrays.asList(
-      token("Treu"),
-      token("und"),
-      token("Glauben")
+      csToken("Treu"),
+      csToken("und"),
+      csToken("Glauben")
     ),
     Arrays.asList(
-      token("Speis"),
-      token("und"),
-      token("Trank")
+      csToken("Speis"),
+      csToken("und"),
+      csToken("Trank")
     ),
     Arrays.asList(
-        token("Sang"),
-        token("und"),
-        token("Klang")
-    ),
-    Arrays.asList(
-        regex("US-amerikanisch(e|er|es|en|em)?")
+      csToken("Sang"),
+      csToken("und"),
+      csToken("Klang")
     ),
     Arrays.asList(
       // "... weshalb ihr das wissen wollt."
@@ -181,7 +219,7 @@ public class CaseRule extends Rule {
     ),
     Arrays.asList(
        // "... etwas Interessantes und Spannendes suchte"
-       regex("etwas|nichts|viel|wenig"),
+       regex("etwas|nichts|viel|wenig|allerlei"),
        regex("[A-ZÄÖÜ].*es"),
        regex("und|oder|,"),
        regex("[A-ZÄÖÜ].*es")
@@ -189,9 +227,9 @@ public class CaseRule extends Rule {
     Arrays.asList(
        // "... bringt Interessierte und Experten zusammen"
        posRegex("VER:.*[1-3]:.*"),
-       posRegex("SUB:AKK:.*:ADJ"),
+       posRegex("SUB:AKK:.+:ADJ"),
        regex("und|oder|,"),
-       posRegex("SUB:AKK:.*:(NEU|FEM|MAS)|ART:.*")
+       posRegex("SUB:AKK:.+:(NEU|FEM|MAS)|ART:.*")
     ),
     Arrays.asList(
         // "Das südöstlich von Berlin gelegene"
@@ -202,11 +240,48 @@ public class CaseRule extends Rule {
         // "Entscheiden 42,5 Millionen Stimmberechtigte über..."
         regex("Million(en)?"),
         posRegex("SUB:.*:ADJ")
-     ) 
+     ),
+     Arrays.asList(
+        // "Vor Betreten des" / "Trotz Verboten seiner Eltern"
+        posRegex("PRP:.*|ADV:MOD"),
+        pos("VER:PA2:NON"),
+        posRegex("(ART|PRO):(IND|DE[FM]|POS):GEN:.*")
+     ),
+     Arrays.asList(
+        // "Er liebt UV-bestrahltes, Na-haltiges und Makeup-freies Obst."
+        // "Er vertraut auf CO2-arme Wasserkraft"
+        regex("[A-ZÄÖÜ0-9]+[a-zäöüß0-9]-[a-zäöüß]+")
+     ),
+     Arrays.asList(
+       // "Das Aus für Italien kam unerwartet."
+       token("das"),
+       csToken("Aus"),
+       posRegex("^PRP:.+")
+     ),
+     Arrays.asList(
+       // "Bündnis 90/Die Grünen"
+       csToken("90"),
+       csToken("/"),
+       csToken("Die")
+     ),
+     Arrays.asList(
+       // "Öffentlicher Dienst"
+       regex("Öffentlich(e[nmr]?)?"),
+       new PatternTokenBuilder().csToken("Dienst").matchInflectedForms().build()
+     ),
+     Arrays.asList(
+       // https://de.wikipedia.org/wiki/Neue_Mittelschule
+       regex("Neue[nr]?"),
+       new PatternTokenBuilder().csToken("Mittelschule").matchInflectedForms().build()
+     )
   );
 
   private static PatternToken token(String token) {
     return new PatternTokenBuilder().tokenRegex(token).build();
+  }
+
+  private static PatternToken csToken(String token) {
+    return new PatternTokenBuilder().csToken(token).build();
   }
 
   private static PatternToken regex(String regex) {
@@ -243,7 +318,7 @@ public class CaseRule extends Rule {
   }
 
   private static final Set<String> UNDEFINED_QUANTIFIERS = new HashSet<>(Arrays.asList(
-      "viel", "nichts", "wenig", "zuviel"));
+      "viel", "nichts", "wenig", "allerlei"));
 
   private static final Set<String> INTERROGATIVE_PARTICLES = new HashSet<>(Arrays.asList(
       "was", "wodurch", "wofür", "womit", "woran", "worauf", "woraus", "wovon", "wie"));
@@ -260,6 +335,7 @@ public class CaseRule extends Rule {
    * workaround to avoid false alarms, these words can be added here.
    */
   private static final Set<String> exceptions = new HashSet<>(Arrays.asList(
+    "Str",
     "Auszubildende",
     "Auszubildender",
     "Gelehrte",
@@ -337,14 +413,12 @@ public class CaseRule extends Rule {
     "Verlobter",
     "Anstrich",
     "Armes",
-    "Aus",    // "vor dem Aus stehen"
     "Ausdrücke",
     "Auswüchsen",
     "Bände",
     "Bänden",
     "Beauftragter",
     "Belange",
-    "besonderes",   // je nach Kontext groß (TODO): "etwas Besonderes" 
     "Biss",
     "De",    // "De Morgan" etc
     "Diesseits", // "im Diesseits"
@@ -357,12 +431,10 @@ public class CaseRule extends Rule {
     "Folgendes",   // je nach Kontext groß (TODO)...
     "Fort",
     "Fraß",
-    "Für",      // "das Für und Wider"
+    "Frevel",
     "Genüge",
     "Gefallen", // Gefallen finden
     "Gläubiger",
-    "Goldener",    // Goldener Schnitt
-    "Guten",    // das Kap der Guten Hoffnung
     "Hechte",
     "Herzöge",
     "Herzögen",
@@ -379,6 +451,7 @@ public class CaseRule extends Rule {
     "Jenseits",
     "Jugendlicher",
     "Jünger",
+    "Kant", //Immanuel
     "Klaue",
     "Konditional",
     "Krähe",
@@ -416,6 +489,7 @@ public class CaseRule extends Rule {
     "Patsche",
     "Pfiffe",
     "Pfiffen",
+    "Press", // University Press
     "Prof",
     "Puste",
     "Sachverständiger",
@@ -431,22 +505,24 @@ public class CaseRule extends Rule {
     "Sie",
     "Skype",
     "Spitz",
+    "Spott",
     "St",   // Paris St. Germain
     "Stereotyp",
     "Störe",
     "Tausend",   // je nach Kontext groß (TODO)
     "Tischende",
     "Toter",
-    "tun",   // "Sie müssen das tun"
     "Übrigen",   // je nach Kontext groß (TODO), z.B. "im Übrigen"
     "Unentschieden",
     "Unvorhergesehenes",   // je nach Kontext groß (TODO), z.B. "etwas Unvorhergesehenes"
     "Verantwortlicher",
     "Verlass",
     "Verwandter",
+    "Vielfache",
     "Vielfaches",
     "Vorsitzender",
     "Fraktionsvorsitzender",
+    "Walt",
     "Weitem",
     "Weiteres",
     "Wicht",
@@ -542,6 +618,7 @@ public class CaseRule extends Rule {
     languages.add("Klingonisch");
     languages.add("Koreanisch");
     languages.add("Kroatisch");
+    languages.add("Kurdisch");
     languages.add("Lateinisch");
     languages.add("Lettisch");
     languages.add("Litauisch");
@@ -591,7 +668,6 @@ public class CaseRule extends Rule {
     substVerbenExceptions.add("helfen");
     substVerbenExceptions.add("lassen");
     substVerbenExceptions.add("passieren");  // "das Schlimmste, das passieren könnte"
-    substVerbenExceptions.add("machen");  // "Du kannst das machen."
     substVerbenExceptions.add("haben");  // "Das haben schon viele versucht."
     substVerbenExceptions.add("passiert");  // "Das passiert..."
     substVerbenExceptions.add("beschränkt");  // "Das beschränkt sich..."
@@ -645,11 +721,7 @@ public class CaseRule extends Rule {
 
   @Override
   public URL getUrl() {
-    try {
-      return new URL("http://www.canoo.net/services/GermanSpelling/Regeln/Gross-klein/index.html");
-    } catch (MalformedURLException e) {
-      throw new RuntimeException(e);
-    }
+    return Tools.getUrl("http://www.canoo.net/services/GermanSpelling/Regeln/Gross-klein/index.html");
   }
 
   @Override
@@ -689,18 +761,19 @@ public class CaseRule extends Rule {
           AnalyzedTokenReadings nextToken = tokens[i + 1];
           // avoid false alarm for "Das haben wir getan." etc:
           nextTokenIsPersonalOrReflexivePronoun = nextToken.hasPartialPosTag("PRO:PER") || nextToken.getToken().equals("sich") || nextToken.getToken().equals("Sie");
-          if (nextToken.isSentenceEnd() || nextToken.getToken().equals(",")) {
+          if ("!?.\",".contains(nextToken.getToken())) {
             // avoid false alarm for "So sollte das funktionieren." (might also remove true alarms...)
             continue;
           }
           if (prevTokenIsDas
               && (DAS_VERB_EXCEPTIONS.contains(nextToken.getToken()) ||
                   isFollowedByRelativeOrSubordinateClause(i, tokens)) ||
-                  (i > 1 && hasPartialTag(tokens[i-2], "VER:AUX"))) {
+                  (i > 1 && hasPartialTag(tokens[i-2], "VER:AUX", "VER:MOD"))) {
             // avoid false alarm for "Er kann ihr das bieten, was sie verdient."
             // avoid false alarm for "Das wissen die meisten." / "Um das sagen zu können, ..."
             // avoid false alarm for "Du musst/solltest/könntest das wissen, damit du die Prüfung bestehst / weil wir das gestern besprochen haben."
-        	// avoid false alarm for "Wir werden das stoppen."
+            // avoid false alarm for "Wir werden das stoppen."
+            // avoid false alarm for "Wahre Liebe muss das aushalten."
             continue;
           }
         }
@@ -726,7 +799,7 @@ public class CaseRule extends Rule {
                  i < tokens.length-1 &&
                  Character.isLowerCase(tokens[i+1].getToken().charAt(0)) &&
                  tokens[i+1].matchesPosTagRegex("VER:[123]:.*")) {
-    	// "Viele Minderjährige sind" but not "Das wirklich Wichtige Verfahren ist"
+        // "Viele Minderjährige sind" but not "Das wirklich Wichtige Verfahren ist"
         continue;  
       }
       if (analyzedToken.getAnalyzedToken(0).getPOSTag() == null && lowercaseReadings == null) {
@@ -745,10 +818,22 @@ public class CaseRule extends Rule {
     return Arrays.stream(tokens).filter(token -> token.hasPartialPosTag(partialPosTag)).mapToInt(e -> 1).sum();
   }
 
+  private int getTokensWithMatchingPosTagRegexpCount(AnalyzedTokenReadings[] tokens, String regexp) {
+    return Arrays.stream(tokens).filter(token -> token.matchesPosTagRegex(regexp)).mapToInt(e -> 1).sum();
+  }
+
   private boolean isPotentialUpperCaseError (int pos, AnalyzedTokenReadings[] tokens,
       AnalyzedTokenReadings lowercaseReadings, boolean isPrecededByModalOrAuxiliary) {
     if (pos <= 1) {
       return false;
+    }
+
+    // "Das ist zu Prüfen." but not "Das geht zu Herzen."
+    if ("zu".equals(tokens[pos-1].getToken()) &&
+      !tokens[pos].matchesPosTagRegex(".*(NEU|MAS|FEM)$") &&
+      lowercaseReadings != null &&
+      lowercaseReadings.hasPartialPosTag("VER:INF:")) {
+      return true;
     }
     // find error in: "Man müsse Überlegen, wie man das Problem löst."
     boolean isPotentialError = pos < tokens.length - 3
@@ -759,16 +844,17 @@ public class CaseRule extends Rule {
         && !tokens[pos+3].getToken().equals("zum");
     if (!isPotentialError &&
         lowercaseReadings != null
-        && tokens[pos].hasPosTag("SUB:NOM:SIN:NEU:INF")
-        && ("zu".equals(tokens[pos-1].getToken()) || hasPartialTag(tokens[pos-1], "SUB", "EIG", "VER:AUX:3:"))) {
-      // find error in: "Der Brief wird morgen Übergeben."
+        && (tokens[pos].hasPosTag("SUB:NOM:SIN:NEU:INF") || tokens[pos].hasPartialPosTag("SUB:DAT:PLU:"))
+        && ("zu".equals(tokens[pos-1].getToken()) || hasPartialTag(tokens[pos-1], "SUB", "EIG", "VER:AUX:3:", "ADV:TMP", "ABK"))) {
+      // find error in: "Der Brief wird morgen Übergeben." / "Die Ausgaben haben eine Mrd. Euro Überschritten."
       isPotentialError |= lowercaseReadings.hasPosTag("PA2:PRD:GRU:VER") && !hasPartialTag(tokens[pos-1], "VER:AUX:3:");
       // find error in: "Er lässt das Arktisbohrverbot Überprüfen."
       // find error in: "Sie bat ihn, es zu Überprüfen."
+      // find error in: "Das Geld wird Überwiesen."
       isPotentialError |= (pos >= tokens.length - 2 || ",".equals(tokens[pos+1].getToken()))
         && ("zu".equals(tokens[pos-1].getToken()) || isPrecededByModalOrAuxiliary)
         && tokens[pos].getToken().startsWith("Über")
-        && lowercaseReadings.hasPartialPosTag("VER:INF:");
+        && (lowercaseReadings.hasPartialPosTag("VER:INF:") || lowercaseReadings.hasPosTag("PA2:PRD:GRU:VER"));
       }
     return isPotentialError;
   }
@@ -833,7 +919,11 @@ public class CaseRule extends Rule {
   }
 
   private boolean hasNounReading(AnalyzedTokenReadings readings) {
-    if (readings !=  null) {
+    if (readings != null) {
+      // Anmeldung bis Fr. 1.12. (Fr. as abbreviation of Freitag is has a noun reading!)
+      if (readings.hasPosTagStartingWith("ABK:") && readings.hasPartialPosTag("SUB")) {
+        return true;
+      }
       // "Die Schöne Tür": "Schöne" also has a noun reading but like "SUB:AKK:SIN:FEM:ADJ", ignore that:
       try {
         AnalyzedTokenReadings allReadings = tagger.lookup(readings.getToken());  // unification in disambiguation.xml removes reading, so look up again
@@ -867,7 +957,7 @@ public class CaseRule extends Rule {
 
   private void potentiallyAddUppercaseMatch(List<RuleMatch> ruleMatches, AnalyzedTokenReadings[] tokens, int i, AnalyzedTokenReadings analyzedToken, String token, AnalyzedTokenReadings lowercaseReadings) {
     boolean isUpperFirst = Character.isUpperCase(token.charAt(0));
-	if (isUpperFirst &&
+    if (isUpperFirst &&
         token.length() > 1 &&     // length limit = ignore abbreviations
         !tokens[i].isIgnoredBySpeller() &&
         !tokens[i].isImmunized() &&
@@ -901,17 +991,17 @@ public class CaseRule extends Rule {
   }
 
   private boolean isVerbFollowing(int i, AnalyzedTokenReadings[] tokens, AnalyzedTokenReadings lowercaseReadings) {
-	AnalyzedTokenReadings[] subarray = new AnalyzedTokenReadings[ tokens.length - i ];
-	System.arraycopy(tokens, i, subarray, 0, subarray.length);
-	if (lowercaseReadings != null) {
-	  subarray[0] = lowercaseReadings;
-	}
-	// capitalization after ":" requires an independent clause to follow
-	// if there is not a single verb, the tokens cannot be part of an independent clause
-	return getTokensWithPartialPosTagCount(subarray, "VER") != 0;
+    AnalyzedTokenReadings[] subarray = new AnalyzedTokenReadings[ tokens.length - i ];
+    System.arraycopy(tokens, i, subarray, 0, subarray.length);
+    if (lowercaseReadings != null) {
+      subarray[0] = lowercaseReadings;
+    }
+    // capitalization after ":" requires an independent clause to follow
+    // if there is not a single verb, the tokens cannot be part of an independent clause
+    return getTokensWithPartialPosTagCount(subarray, "VER") != 0;
 }
 
-private void addRuleMatch(List<RuleMatch> ruleMatches, String msg, AnalyzedTokenReadings tokenReadings, String fixedWord) {
+  private void addRuleMatch(List<RuleMatch> ruleMatches, String msg, AnalyzedTokenReadings tokenReadings, String fixedWord) {
     RuleMatch ruleMatch = new RuleMatch(this, tokenReadings.getStartPos(), tokenReadings.getEndPos(), msg);
     ruleMatch.setSuggestedReplacement(fixedWord);
     ruleMatches.add(ruleMatch);
@@ -958,18 +1048,23 @@ private void addRuleMatch(List<RuleMatch> ruleMatches, String msg, AnalyzedToken
           }
         }
       }
+      if (lowercaseReadings != null && lowercaseReadings.hasPosTag("PA1:PRD:GRU:VER")) {
+        // "aus sechs Überwiegend muslimischen Ländern"
+        return false;
+      }
       return (prevToken != null && ("irgendwas".equals(prevTokenStr) || "aufs".equals(prevTokenStr) || isNumber(prevTokenStr))) ||
-         (hasPartialTag(prevToken, "ART", "PRO:") && !(prevToken.getReadings().size() == 1 && prevToken.hasPartialPosTag("PRO:PER:NOM:"))  && !prevToken.hasPartialPosTag(":STD")) ||  // "die Verurteilten", "etwas Verrücktes", "ihr Bestes"
+         (hasPartialTag(prevToken, "ART", "PRO:") && !(((i < 4 && tokens.length > 4) || prevToken.getReadings().size() == 1 || prevPrevToken.hasLemma("sein")) && prevToken.hasPartialPosTag("PRO:PER:NOM:"))  && !prevToken.hasPartialPosTag(":STD")) ||  // "die Verurteilten", "etwas Verrücktes", "ihr Bestes"
          (hasPartialTag(prevPrevPrevToken, "ART") && hasPartialTag(prevPrevToken, "PRP") && hasPartialTag(prevToken, "SUB")) || // "die zum Tode Verurteilten"
          (hasPartialTag(prevPrevToken, "PRO:", "PRP") && hasPartialTag(prevToken, "ADJ", "ADV", "PA2", "PA1")) ||  // "etwas schön Verrücktes", "mit aufgewühltem Innerem"
-         (hasPartialTag(prevPrevPrevToken, "PRO:", "PRP") && hasPartialTag(prevPrevToken, "ADJ", "ADV") && hasPartialTag(prevToken, "ADJ", "ADV", "PA2"));  // "etwas ganz schön Verrücktes"
+         (hasPartialTag(prevPrevPrevToken, "PRO:", "PRP") && hasPartialTag(prevPrevToken, "ADJ", "ADV") && hasPartialTag(prevToken, "ADJ", "ADV", "PA2")) || // "etwas ganz schön Verrücktes"
+         (tokens[i].hasPartialPosTag("VER:") && getTokensWithMatchingPosTagRegexpCount(tokens, "VER:[123]:SIN:.*") > 1 && getTokensWithPartialPosTagCount(tokens, "PKT") < 2); // "Parks Vertraute Choi Soon Sil ist zu drei Jahren Haft verurteilt worden."
     }
     return false;
   }
 
   private boolean isNumber(String token) {
     try {
-      if(token.matches("\\d+")) {
+      if (StringUtils.isNumeric(token)) {
         return true;
       }
       AnalyzedTokenReadings lookup = tagger.lookup(StringTools.lowercaseFirstChar(token));
@@ -1037,6 +1132,15 @@ private void addRuleMatch(List<RuleMatch> ruleMatches, String msg, AnalyzedToken
         && !(isFollowedByPossessiveIndicator && hasPartialTag(lowercaseReadings, "ADJ", "VER")) // "Wacht auf, Verdammte dieser Welt!"
         && !(prevToken != null && prevToken.hasPosTag("KON:UNT") && !hasNounReading(nextReadings) && !nextReadings.hasPosTag("KON:NEB"))) {
       AnalyzedTokenReadings prevPrevToken = i > 1 && prevToken.hasPartialPosTag("ADJ") ? tokens[i-2] : null;
+      // Another check to avoid false alarms for "eine Gruppe Aufständischer starb"
+      if (!isPrecededByVerb && lowercaseReadings != null && prevToken != null) {
+        if (prevToken.hasPartialPosTag("SUB:") && lowercaseReadings.matchesPosTagRegex("(ADJ|PA2):GEN:PLU:MAS:GRU:SOL.*")) {
+          return nextReadings != null && !nextReadings.hasPartialPosTag("SUB:");
+        } else if (nextReadings.getReadingsLength() == 1 && prevToken.hasPosTagStartingWith("PRO:PER:NOM:") && nextReadings.hasPosTag("ADJ:PRD:GRU")) {
+          // avoid false alarm "Weil er Unmündige sexuell missbraucht haben soll,..."
+          return true;
+        }
+      }
       // Another check to avoid false alarms for "ein politischer Revolutionär"
       if (!hasPartialTag(prevPrevToken, "ART", "PRP", "ZAL")) {
         return false;
@@ -1047,7 +1151,7 @@ private void addRuleMatch(List<RuleMatch> ruleMatches, String msg, AnalyzedToken
     for (AnalyzedToken reading : tokens[i].getReadings()) {
       String posTag = reading.getPOSTag();
       if ((posTag == null || posTag.contains("ADJ")) && !hasNounReading(nextReadings)) {
-        if(posTag == null && hasPartialTag(lowercaseReadings, "PRP:LOK", "PA2:PRD:GRU:VER")) {
+        if(posTag == null && hasPartialTag(lowercaseReadings, "PRP:LOK", "PA2:PRD:GRU:VER", "PA1:PRD:GRU:VER")) {
           // skip to avoid a false true for, e.g. "Die Zahl ging auf Über 1.000 zurück."/ "Dies gilt schon lange als Überholt."
           // but not for "Er versuchte, Neues zu wagen."
         } else {
@@ -1061,8 +1165,7 @@ private void addRuleMatch(List<RuleMatch> ruleMatches, String msg, AnalyzedToken
 
   private boolean isLanguage(int i, AnalyzedTokenReadings[] tokens, String token) {
     boolean maybeLanguage = languages.contains(token) ||
-                            languages.contains(StringUtils.removeEnd(token, "e")) ||  // z.B. "ins Japanische übersetzt"
-                            languages.contains(StringUtils.removeEnd(token, "en"));   // z.B. "im Japanischen"
+                            languages.contains(StringUtils.removeEnd(StringUtils.removeEnd(token, "n"), "e"));   // z.B. "im Japanischen" / z.B. "ins Japanische übersetzt"
     AnalyzedTokenReadings prevToken = i > 0 ? tokens[i-1] : null;
     AnalyzedTokenReadings nextReadings = i < tokens.length-1 ? tokens[i+1] : null;
     return maybeLanguage && (!hasNounReading(nextReadings) || (prevToken != null && prevToken.getToken().equals("auf")));
