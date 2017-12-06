@@ -188,6 +188,11 @@ public abstract class Language {
     ResourceDataBroker dataBroker = JLanguageTool.getDataBroker();
     ruleFiles.add(dataBroker.getRulesDir()
             + "/" + getShortCode() + "/" + JLanguageTool.PATTERN_FILE);
+    String customRuleFileName = getShortCode() + "/custom/" + JLanguageTool.PATTERN_FILE;
+    if (dataBroker.ruleFileExists(customRuleFileName)) {
+      ruleFiles.add(dataBroker.getRulesDir()
+              + "/" + customRuleFileName);
+    }
     if (getShortCodeWithCountryAndVariant().length() > 2) {
       String fileName = getShortCode() + "/"
               + getShortCodeWithCountryAndVariant()
