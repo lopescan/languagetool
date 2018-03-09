@@ -126,7 +126,7 @@ USA
                     <token>being</token>
                     <token postag="VBN"/>
                 </pattern>
-                <message>Change from passive to active voice? Example: "A cake is being baked by him." can be changed to "He is baking a cake."</message>
+                <message>Change from passive to active voice. Example: "A cake is being baked by him." can be changed to "He is baking a cake."</message>
                 <short>Passive voice</short>
                 <example correction="">A <marker>cake is being baked</marker> by him by tonight.</example>
                 <example>He is baking a cake.</example>
