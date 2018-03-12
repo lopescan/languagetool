@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../../../../../../../../../languagetool-core/src/main/resources/org/languagetool/rules/print.xsl" ?>
-<?xml-stylesheet type="text/css" href="../../../../../../../../../languagetool-core/src/main/resources/org/languagetool/rules/rules.css"
+<?xml-stylesheet type="text/css" href="../../../../../../../../../../languagetool-core/src/main/resources/org/languagetool/rules/rules.css"
         title="Easy editing stylesheet" ?>
 <!--
 English Grammar and Typo Rules for LanguageTool
@@ -42,18 +42,115 @@ USA
     <!-- Possible typo -->
     <!-- ====================================================================== -->
     <category id="STYLE" name="Style" type="style">
-        <rule id="passivevoice" name="passivevoice">
-            <pattern><!-- future perfect tense -->
-                <token regexp="yes" skip="1">will|shall</token><!-- skip to allow for "not", "also", etc. -->
-                <token>have</token>
-                <token>been</token>
-                <token postag="VBN"/>
-            </pattern>
-            <message>Change from pagit ssive to active voice? Example: "Her work will have been finished by tonight." can be changed to "She will have her work finished by tonight."</message>
-            <short>Passive voice</short>
-            <example correction="">Her work <marker>will have been finished</marker> by tonight.</example>
-            <example correction="">Her work <marker>will not have been finished</marker> by tonight.</example>
-            <example>She will have her work finished by tonight.</example>
-        </rule>
+        <rulegroup id="passivevoice" name="passivevoice">
+            <rule> <!-- Passive infinitive (1/2) -->
+                <pattern>
+                    <token>it</token>
+                    <token skip="1" inflected="yes">be</token>
+                    <!-- skip=1 to handle: it is not possible, it is also possible, etc. -->
+                    <token postag="VBN|JJ" postag_regexp="yes"/> <!--said|thought|believed|possible|necessary|impossible|known|argued -->
+                    <token>that</token>
+                </pattern>
+                <message>Change from passive to active voice? Example: "It is possible that the sky is blue." can be changed to "The sky might be blue".</message>
+                <short>Passive voice</short>
+                <example correction=""><marker>It is possible that</marker> the sky is blue.</example>
+                <example correction=""><marker>It is also possible that</marker> the sky is blue.</example>
+                <example>The sky might be blue.</example>
+            </rule>
+            <rule> <!-- Passive infinitive (2/2) -->
+                <pattern>
+                    <token skip="1" inflected="yes">be</token>
+                    <!-- skip to allow for: not, also, etc -->
+                    <token postag="VBN"/> <!-- said, known, believed, thought, etc. -->
+                    <token>to</token>
+                    <token skip="1">have</token>
+                    <!-- skip to allow for: not, also, etc -->
+                    <token>been</token>
+                </pattern>
+                <message>Change from passive to active voice? Example: "He is said to have been happy."  can be changed to "The people said that he was happy." if you can define who/what performed the action.</message>
+                <short>Passive voice</short>
+                <example correction="">He <marker>is said to have been</marker> happy.</example>
+                <example correction="">He <marker>is said to have not been</marker> happy.</example>
+                <example>The people said that he was happy.</example>
+                <example correction="">He <marker>is not thought to have been</marker> happy.</example>
+                <example correction="">He <marker>was not thought to have been</marker> happy.</example>
+            </rule>
+            <rule> <!-- Passive infinitive (2/2) -->
+                <pattern>
+                    <token skip="1" inflected="yes">be</token>
+                    <!-- skip to allow for: not, also, etc -->
+                    <token postag="VBN"/> <!-- said, known, believed, thought, etc. -->
+                    <token>to</token>
+                    <token>be</token>
+                </pattern>
+                <message>Change from passive to active voice? Example: "He is said to be happy." could be changed to "The people said that he was happy." if you can define who/what performed the action.</message>
+                <short>Passive voice</short>
+                <example correction="">He <marker>is said to be</marker> happy.</example>
+                <example>People say that he is happy.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token skip="-1" regexp="yes" inflected="yes">advise|insist|propose|recommend|suggest</token>
+                    <marker>
+                        <token postag="NN.*" postag_regexp="yes" skip="1"/>
+                        <!-- skip must/could/should/etc -->
+                        <token>be</token>
+                        <token postag="VBN"/>
+                    </marker>
+                </pattern>
+                <message>Change from passive to active voice? Example: "He insisted that red should be used." can be changed to "He insisted on using red."</message>
+                <short>Passive voice</short>
+                <example correction="">He insisted that <marker>red should be used</marker>.</example>
+                <example correction="">He insisted that <marker>red be used</marker>.</example>
+                <example>He insisted on using red.</example>
+            </rule>
+            <rule>
+                <pattern> <!-- future perfect tense -->
+                    <token skip="1" regexp="yes">will|shall</token>
+                    <!-- skip to allow for "not", "also", etc. -->
+                    <token>have</token>
+                    <token>been</token>
+                    <token postag="VBN"/>
+                </pattern>
+                <message>Change from passive to active voice? Example: "Her work will have been finished by tonight." can be changed to "She will have her work finished by tonight."</message>
+                <short>Passive voice</short>
+                <example correction="">Her work <marker>will have been finished</marker> by tonight.</example>
+                <example correction="">Her work <marker>will not have been finished</marker> by tonight.</example>
+                <example>She will have her work finished by tonight.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token postag="NN.*" postag_regexp="yes"/>
+                    <token skip="1" inflected="yes">be</token>
+                    <!-- skip to allow for "not", "also", etc. -->
+                    <token>being</token>
+                    <token postag="VBN"/>
+                </pattern>
+                <message>Change from passive to active voice. Example: "A cake is being baked by him." can be changed to "He is baking a cake."</message>
+                <short>Passive voice</short>
+                <example correction="">A <marker>cake is being baked</marker> by him by tonight.</example>
+                <example>He is baking a cake.</example>
+                <example correction="">A <marker>cake is also being baked</marker> by him by tonight.</example>
+                <example correction="">A <marker>cake was also being baked</marker> by him by tonight.</example>
+                <example correction="">A dozen <marker>cookies were also being baked</marker> by him by tonight.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token postag="NN.*" postag_regexp="yes"/>
+                    <token skip="1" inflected="yes">be</token>
+                    <!-- skip to allow for "not", "also", etc. -->
+                    <token skip="2" postag="VBN"/>
+                    <!-- skip to allow for "a noun" or "a adjective noun", etc. -->
+                    <token>by</token>
+                </pattern>
+                <message>Change from passive to active voice? Example: "Instruments are played by her." can be changed to "She plays instruments."</message>
+                <short>Passive voice</short>
+                <example correction=""><marker>Instruments are played by</marker> her.</example>
+                <example correction=""><marker>Instruments were played by</marker> her.</example>
+                <example correction=""><marker>Instruments are not played by</marker> her.</example>
+                <example correction=""><marker>John was given a book by</marker> her.</example>
+                <example>She plays instruments.</example>
+            </rule>
+        </rulegroup>
     </category>
 </rules>
