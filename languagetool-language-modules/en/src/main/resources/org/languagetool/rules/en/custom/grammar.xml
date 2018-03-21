@@ -120,6 +120,17 @@ USA
             </rule>
             <rule>
                 <pattern>
+                    <token>have</token>
+                    <token>been</token>
+                    <token postag="VBN"/>
+                </pattern>
+                <message>Change from passive to active voice? Example: "All your old letters have been kept." can be changed to "I have kept all your old letters."</message>
+                <short>Passive voice</short>
+                <example correction="">All your old letters<marker>have been kept</marker></example>
+                <example>I have kept all your old letters.</example>
+            </rule>
+            <rule>
+                <pattern>
                     <token postag="NN.*" postag_regexp="yes"/>
                     <token skip="1" inflected="yes">be</token>
                     <!-- skip to allow for "not", "also", etc. -->
