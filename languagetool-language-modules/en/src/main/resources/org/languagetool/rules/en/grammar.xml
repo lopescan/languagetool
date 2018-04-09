@@ -8,7 +8,7 @@ See tagset.txt for the meaning of the POS tags
 Copyright (C) 2001-2015 Daniel Naber (http://www.danielnaber.de),
   Marcin Miłkowski and the LanguageTool contributors
 
-Portions of rules are converted from After The Deadline grammar checker, 
+Portions of rules are converted from After The Deadline grammar checker,
 available at http://open.afterthedeadline.com/, licensed under
 GNU GPL.
 
@@ -3985,11 +3985,10 @@ USA
                     </token>
                 </pattern>
                 <message>Apostrophe might be missing. Did you mean
-                    <suggestion><match no="3"/>'
+                    <suggestion>effect
                     </suggestion>
                     or
-                    <suggestion><match suppress_misspelled="yes" no="3" postag="NN(P)?S" postag_regexp="yes"
-                                       postag_replace="NN$1(:U.?)?" setpos="no"/>'s
+                    <suggestion>effect's
                     </suggestion>
                     ?
                 </message>
