@@ -164,4 +164,18 @@ USA
             </rule>
         </rulegroup>
     </category>
+    <category id="CONFUSED_WORDS" name="Commonly Confused Words" type="misspelling">
+        <rulegroup id="AFFECT_EFFECT" name="affect vs effect">
+            <rule>
+                <pattern>
+                    <token>affects</token>
+                </pattern>
+                <message>Did you mean <suggestion>effects</suggestion>
+                </message>
+                <short>Commonly confused word</short>
+                <example correction="effects">Children need to understand the<marker>effects</marker> of their actions on others.
+                </example>
+            </rule>
+        </rulegroup>
+    </category>
 </rules>
