@@ -21,7 +21,6 @@ al
 jure
 et
 #Contractions - should be ignored!
-#
 aint
 arent
 couldnt
@@ -81,7 +80,6 @@ youd
 youll
 youre
 youve
-
 #Whitelisted_words
 abrahamic
 adderall
@@ -356,7 +354,6 @@ Padak
 Dupey
 Rockville
 Schaufeli
-
 #SSA: http://www.socialsecurity.gov/oact/babynames/names.zip
 #first names
 #surnames
