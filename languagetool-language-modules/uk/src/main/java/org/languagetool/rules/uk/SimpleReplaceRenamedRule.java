@@ -18,14 +18,10 @@
  */
 package org.languagetool.rules.uk;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
@@ -33,10 +29,8 @@ import org.languagetool.JLanguageTool;
 import org.languagetool.AnalyzedSentence;
 import org.languagetool.AnalyzedToken;
 import org.languagetool.AnalyzedTokenReadings;
-import org.languagetool.rules.Categories;
 import org.languagetool.rules.Rule;
 import org.languagetool.rules.RuleMatch;
-import org.languagetool.rules.Rule;
 import org.languagetool.rules.ITSIssueType;
 import org.languagetool.tagging.uk.PosTagHelper;
 
@@ -50,7 +44,6 @@ public class SimpleReplaceRenamedRule extends Rule {
 
   private static final Map<String, List<String>> RENAMED_LIST = ExtraDictionaryLoader.loadLists("/uk/replace_renamed.txt");
   private static final Pattern GEO_POSTAG_PATTERN = Pattern.compile("noun:inanim.*?:prop.*|adj.*");
-
 
   public SimpleReplaceRenamedRule(ResourceBundle messages) {
     super(messages);
@@ -113,7 +106,7 @@ public class SimpleReplaceRenamedRule extends Rule {
           }
         }
 
-        RuleMatch match = createRuleMatch(tokenReadings, replacements, getMessage(renamedLemmas.iterator().next(), info));
+        RuleMatch match = createRuleMatch(tokenReadings, replacements, getMessage(renamedLemmas.iterator().next(), info), sentence);
         ruleMatches.add(match);
       }
 
@@ -130,8 +123,8 @@ public class SimpleReplaceRenamedRule extends Rule {
     return msg;
   }
 
-  private RuleMatch createRuleMatch(AnalyzedTokenReadings readings, List<String> replacements, String msg) {
-    RuleMatch potentialRuleMatch = new RuleMatch(this, readings.getStartPos(), readings.getEndPos(), msg, "Перейменована назва");
+  private RuleMatch createRuleMatch(AnalyzedTokenReadings readings, List<String> replacements, String msg, AnalyzedSentence sentence) {
+    RuleMatch potentialRuleMatch = new RuleMatch(this, sentence, readings.getStartPos(), readings.getEndPos(), msg, "Перейменована назва");
     potentialRuleMatch.setSuggestedReplacements(replacements);
 
     return potentialRuleMatch;

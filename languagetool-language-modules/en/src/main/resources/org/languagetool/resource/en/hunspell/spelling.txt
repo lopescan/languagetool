@@ -1,851 +1,1040 @@
 # Words that extend the spell checker. See ignore.txt for words that should be
 # completely ignored (i.e. not used to create suggestions).
 # For multi-word terms, refer to https://github.com/languagetool-org/languagetool/issues/700
-anotherArtificialTestWordForLanguageTool
 a posteriori
 a priori
 ab initio
-abaxial
-Abelian
-abided
-aboil
-absorber
-absorbers
-absorptions
-accordantly
-accuracies
-ad hoc
-ad infinitum
-ad nauseam
-adaptor
-adaptors
-add-ons
-adhesions
-adjoint
-affirmatives
-aggregator
-aggregators
-airfoil
-airfoils
-airframe
-airframes
-airpower
-alimentation
-alkalis
-ambits
-amidst
-amine
-amines
-amongst
-analytics
-annunciate
-annunciated
-annunciates
-annunciating
-annunciator
-annunciators
-ansatz
-anticorrosion
-antihermitian
-antilinear
-antineutrino
-antineutrinos
-antiproton
-antiprotons
-approver
-approvers
-archetypical
-assistive
-attentional
-attentionally
+Abu Dhabi
+accomplishable
+achromatization
+AdWords
+Airbnb
+Akmal
+Al Jazeera
+Alibaba
+alkalizer
+alkalizers
+alphameric
+amplexus
+amplexuses
+analyte
+analytes
+Antiguans
+APIs
+argy-bargy
+Arial
+ASINs
+Asteraceae
+Astrid
+astronomize
+astronomized
+astronomizes
+astronomizing
+au contraire
 au fait
-auditee
-auditees
-automata
-automorphism
-autosave
-bachelorette
-bachelorettes
-backflow
-backflows
-backlighting
-baseplate
-baseplates
-becquerel
-becquerels
-Belarusian
-bellcrank
-bellcranks
-bilinear
-bisectional
-bisectionally
-bitt
-bitts
-blowdown
-blowdowns
-Blu-ray
-boomset
-boomsets
-boomtown
-boomtowns
-bootlessly
-bootlessness
-borate
-borates
-borescope
-borescopes
-bosonic
-breadthwise
-Brexit
-bulleted
-bunkered
-bunkering
-callout
-callouts
-cancellable
-candela
-candelas
-catenaries
-catenary
-cavitation
-cavitations
-CD-ROM
-CDs
-Cerys
-chandlery
-chemoprophylactic
-chemoprophylaxis
-Cherkasy
-Chernihiv
-Chernivtsi
-chirality
-chloracne
-chock-full
-circlip
-circlips
-cliché
-clichés
-clinometer
-clinometers
-coaming
-coamings
-codec
-codecs
-coincidently
-collet
-collets
-collider
-colliders
-colorable
-combustor
-combustors
-compensator
-compensators
-complicatedness
-computable
-conditionality
-conformities
-construal
-contextuality
-contra
-contravariant
-copywriting
-counterattack
-counterattacked
-counterattacking
-counterattacks
-counterclockwise
-counterstroke
-counterstrokes
-countlessly
-coupé
-coupés
-coupler
-couplers
-criticality
-crore
-crores
-crosshair
-crosshairs
-crosshead
-crossheads
-crossways
-crowdsourcing
-cuprous
-curveball
-curveballs
-deaerate
-deaerated
-deaerates
-deaerating
-deaeration
-deaerator
-deaerators
-decrement
-decrementing
-de-energize
-de-energized
-de-energizes
-de-energizing
-deficiently
-defuel
-defuels
-degrease
-degreased
-degreases
-degreasing
+aurochs
+AutoCAD
+autoxidizable
+availabilities
+benchmarked
+Bing
+biomes
+blackbody radiation
+bona fide
+brussels sprout
+brussels sprouts
+Buffett
+callipygian
+chargeback
+chargebacks
+Christianized
+Christianizes
+Christianizing
+Christy
+chronobiologist
+chronobiologists
+chronotype
+chronotypes
+cicatrizant
+cognizably
+computerizable
+Costa Rica
+counterintuitive
+counterintuitively
+Craigslist
+criticizable
+cui bono
+cyber
+cyberattacker
+cyberattackers
+cyberintrusion
+cyberintrusions
+cyberoperation
+cyberoperations
+Daniela
+de facto
+de jure
+decarbonization
+decolorization
+decrypt
+decrypted
+decrypting
+decrypts
 déjà vu
-deliverability
-demurrage
-demurrages
-designee
-designees
-detectability
-diagonalization
-dichroic
-differentiator
-differentiators
-diffusivity
-diluent
-diluents
-disambiguated
-disambiguates
-disambiguating
-discharger
-dischargers
-discretionally
-discretization
-disjunct
-disjunction
-disjunctions
-disjuncts
-dizzyingly
-Dnipro
-documentalist
-documentalists
-documentarian
-documentarians
-doubler
-doublers
-Doxygen
-droopily
-Drupal
-durableness
-durational
-DVDs
-eductor
-eductors
-efflux
-effortful
-effortfully
-effortfulness
-egressed
-egressing
-eigenbasis
-eigenspace
-eigensystem
-émigré
-émigrés
-enduringly
-entrain
-entrained
-entraining
-entrains
-erewhile
-erewhiles
-Esc
+deliverable
+deliverables
+Deloitte
+depolymerization
+derivatization
+derring-do
+deterritorialization
+DHL
+dogmatizer
+dogmatizers
+drumroll
+eco-friendly
+El Niño
+embox
+en masse
+enolizable
 et al
-etcetera
-eukaryote
-eukaryotes
-eukaryotic
-Europeanize
-Europeanized
-Europeanizes
-Europeanizing
-eV
-evaluator
-evaluators
+etherealization
 ex officio
-exchanger
-exchangers
-execrableness
 exempli gratia
-ex-officio
-exoplanet
-exoplanetary
-exoplanets
-expansional
-extendible
-extractive
-eyewear
-façade
-façades
-failover
-failovers
+exteriorization
 fait accompli
-falcate
-fermionic
-fiancé
-fiancée
-fiancées
-fiancés
-filmlike
-findability
-findable
-fittingness
-formulae
-freeboard
-freeboards
-frictionally
-frictionless
-frictionlessly
-gappy
-glitchier
-glitchiest
-glitchy
-gluons
-glycol
-good-natured
-gooseneck
-goosenecked
-goosenecks
-grapheme
-graphemic
-graphemically
-graphemics
-graphene
-guest-starred
-gyrocompass
-gyrocompasses
-handgrip
-handgrips
-handwheel
-handwheels
-happenstance
-happenstances
-hateable
-hawse
-hawses
-haymaker
-haymakers
-headscarves
-headwear
-helicity
-helideck
-helidecks
-heliocentrism
-hereunder
-Hermitian
-heteromerous
-higgledy-piggledy
-highflier
-highfliers
-hp
-hydrophilic
-hydrostatic
-hydrostatically
-hydrostatics
-hypercube
-hypergeometric
-iBook
-iBooks
-igniter
-igniters
-illiquid
-immortalisation
-immortalization
-imperialize
-imperialized
-imperializes
-imperializing
+feralized
+fintech
+flyer
+flyers
+focalization
+fo'c'sle
+formalizable
+Fortnite
+GCHQ
+gelatinization
+geminate
+genealogize
+genealogized
+genealogizes
+genealogizing
+genialize
+genialized
+genializes
+genializing
+geometricize
+geometricized
+geometricizes
+geometricizing
+Gmail
+gospelize
+gospelized
+gospelizes
+gospelizing
+grandparenting
+granitization
+granitize
+granitized
+granitizes
+granitizing
+granulator
+granulators
+graphitizable
+greyed
+Groupon
+groupthink
+gutturalize
+gutturalized
+gutturalizes
+gutturalizing
+gyrostabilizer
+gyrostabilizers
+Hammerstein
+historize
+historized
+historizes
+historizing
+hors d'oeuvre
+hors d'oeuvres
+Huawei
+Huffington
+humorize
+humorized
+humorizes
+humorizing
+hypophysial
+hysterectomize
+hysterectomized
+hysterectomizes
+hysterectomizing
+ICANN
+impactful
 in toto
-indices
-indistinguishability
-inflowing
-influencer
-influencers
-informatics
-ingoing
+informatization
+inseverable
+intelligize
+intelligized
+intelligizes
+intelligizing
 inter alia
-interlaid
-interlay
-interlaying
-interlays
-involvedness
-iOS
-iPhone
 ipso facto
-irrespectively
-isometry
-Ivano-Frankivsk
-Javadoc
-jQuery
-ketone
-ketones
-Kharkiv
-Khmelnytskyi
-Kremenchuk
-Kropyvnytskyi
-Kyiv
-lakh
-lakhs
-Laplacian
-liberated
-liberating
-liftable
-lighter
-lightered
-lightering
-lighters
-limitlessly
-linctus
-Liouville
-livelily
-lockbox
-lockboxes
-louvre
-louvred
-louvres
-Luhansk
-lumen
-lumens
-luminaire
-luminaires
-Lutsk
-lux
-luxes
-Lviv
-macaron
-macOS
-malarious
-mathematic
-meddlesomeness
-mediagenic
-megohm
-megohms
-metameric
-methodize
-methodized
-methodizes
-methodizing
-metrological
-microswitch
-microswitches
-millennialist
-minima
-minimum
-Minkowski
-misalign
-misaligning
-misaligns
-misconfiguration
-misconfigurations
-misrigged
-mitzvah
-mitzvahs
-mitzvot
-mitzvoth
-modalities
-modality
-modularized
+irrealizable
+jeu d'esprit
+jeux d'esprit
+Jimi
+Jira
+Julien
+KPIs
+Kuala Lumpur
+landform
+landforms
+Liam
+lingua franca
+lingua francas
+lingualize
+lingualized
+lingualizes
+lingualizing
+LinkedIn
+localizability
+Lyft
+Maddie
+Mailchimp
+majuscule
+Markus
+marsupialize
+marsupialized
+marsupializes
+marsupializing
+McAfee
+McAllister
+memorizable
+mentorship
+mercurialize
+mercurialized
+mercurializes
+mercurializing
+Mercutio
+metadata
+metaphorize
+metaphorized
+metaphorizes
+metaphorizing
+micellization
+microminiaturize
+microminiaturized
+microminiaturizes
+microminiaturizing
+Minecraft
+mineralizable
+mithridatize
+mithridatized
+mithridatizes
+mithridatizing
+MLB
 modus operandi
 modus vivendi
-moiré
-Molière
-motional
-muchly
-multichannel
-multifunction
-multipart
-mutagenic
+moisturizer
+moisturizers
+Monika
+monotonize
+monotonized
+monotonizes
+monotonizing
+mortiser
+mortisers
+muscularize
+muscularized
+muscularizes
+muscularizing
+mutagenize
+mutagenized
+mutagenizes
+mutagenizing
 mutatis mutandis
-myeloma
-myelomas
-naïve
-nanotube
-nanotubes
-née
-nitric
-nitrosamine
-nitrosamines
-nitrous
-nitty-gritty
-nonconformance
-nonconformances
-nonconformities
+mylonitize
+mylonitized
+mylonitizes
+mylonitizing
+né
+ne plus ultra
+nephrectomize
+nephrectomized
+nephrectomizes
+nephrectomizing
+nidification
+nodalize
+nodalized
+nodalizes
+nodalizing
+nonpolarizable
 nota bene
-Oculus
-Odesa
-oilfree
-oilpaper
-oilpapers
-onboard
-open-mindedly
-operationalize
-operationalized
-operationalizes
-operationalizing
-orthonormal
-outlier
-outliers
-outsized
-overarch
-overarched
-overarches
-overinflate
-overinflated
-overinflates
-overinflating
-oversized
-overtighten
-overtightened
-overtightening
-overtightens
-overvoltage
-overvoltages
-oxidative
+notarize
+notarizes
+notarizing
+oophorectomize
+oophorectomized
+oophorectomizes
+oophorectomizing
+operationalizable
+orthonormalize
+orthonormalized
+orthonormalizes
+orthonormalizing
+ostracizable
+OSX
+oxidizability
+oxygenize
+oxygenized
+oxygenizes
+oxygenizing
 pacta sunt servanda
-panopticon
-panopticons
+palletization
+Palme d'or
+Palme d'Or
+panegyrize
+panegyrized
+panegyrizes
+panegyrizing
+papalize
+papalized
+papalizes
+papalizing
+papyral
+parabolization
+parameterization
+parfocalize
+parfocalized
+parfocalizes
+parfocalizing
 pari passu
-paronym
-paronyms
-passivate
-passivated
-passivates
-passivating
-penetrant
-penetrants
-pentane
-pentanes
+parochialize
+parochialized
+parochializes
+parochializing
+particularization
+particularizations
+paternalize
+paternalized
+paternalizes
+paternalizing
+pauperization
+pectizable
+Pelagianize
+Pelagianized
+Pelagianizes
+Pelagianizing
+peptizable
 per annum
 per capita
 per centum
 per diem
-perplexingly
-phonons
-pictogram
-pictograms
-pitot
-pitots
-playoff
-Poincaré
-ponderable
-postediting
-potentiometer
-potentiometers
-potlife
-potlives
-ppb
-prearrival
-predefine
-predefines
-predefining
-preheater
-preheaters
-preowned
-preventability
-preventively
+per se
+phoneticize
+phoneticized
+phoneticizes
+phoneticizing
+phosphatization
+phosphatize
+phosphatized
+phosphatizes
+phosphatizing
+photopolymerize
+photopolymerized
+photopolymerizes
+photopolymerizing
+photoshop
+Photoshop
+pinealectomize
+pinealectomized
+pinealectomizes
+pinealectomizing
+polarizability
+polarizable
+polymerizable
+porcelainize
+porcelainized
+porcelainizes
+porcelainizing
+postalize
+postalized
+postalizes
+postalizing
+posterization
+posturize
+posturized
+posturizes
+posturizing
+pragmatize
+pragmatized
+pragmatizes
+pragmatizing
 prima facie
-proscriptive
-proscriptively
-protozoal
-pyrophoric
-pyrophosphate
-pyrophosphates
-quadrennially
-quinquennial
-quinquennially
+pro bono
+prologized
+prologizes
+prologizing
+prologuized
+prologuizes
+prologuizing
+pronominalization
+pronominalize
+pronominalized
+pronominalizes
+pronominalizing
+Protestantise
+Protestantised
+Protestantises
+Protestantising
+Protestantize
+Protestantized
+Protestantizes
+protocolize
+protocolized
+protocolizes
+protocolizing
+provincialize
+provincialized
+provincializes
+provincializing
+psychedelicize
+psychedelicized
+psychedelicizes
+psychedelicizing
+psychiatrize
+psychiatrized
+psychiatrizes
+psychiatrizing
+pyritize
+pyritized
+pyritizes
+pyritizing
+Qin
+quantizable
 quod vide
-radian
-radians
-radome
-radomes
+R&D
+radialization
+radializations
+rainforest
+rainforests
 raison d'être
-rale
-rales
-reasonability
-reckonable
-reclaimer
-reclaimers
-regenerator
-regenerators
-regrease
-regreased
-regreases
-regreasing
-reified
-reifies
-reify
-reifying
-reinflate
-reinflated
-reinflates
-reinflating
-reinstallation
-repairability
-repeatability
-reposition
-repositioned
-repositioning
-repositions
-repressurize
-repressurized
-repressurizes
-repressurizing
-reseller
-resellers
-resistivity
-reticle
-reticles
-retractive
-retractives
-retractor
-retractors
-retrim
-retrimmed
-retrimming
-retrims
-retune
-retuned
-retunes
-retuning
-reverser
-reversers
-ringfence
-ringfenced
-ringfences
-ringfencing
-riverfront
-Rivne
-robotically
-rôle
-rôles
-ropey
-safetied
-safetying
-Schengen
-scintillator
-scintillators
-screencast
-screencasts
-screenful
-screenfuls
-screenshot
-screwjack
-screwjacks
-searchable
-Segway
-Segways
-self-adjoint
-semiautomatically
-semiautonomous
-semilinear
-seriatim
-sesquilinear
-shiitake
-shitake
-shoreside
-shortcut
-sideslip
-sideslipped
-sideslipping
-sideslips
-siemens
-sievert
-sieverts
-single-handedly
-siting
-slantways
-smackdown
-spacetime
-spanwise
-speedbrake
-speedbrakes
-Spicer
-spick
-spicks
+Rajesh
+Rasmus
+rationalizable
+Rebecca
+Reddit
+rehospitalization
+renderer
+renderers
+replicable
+resocialization
+rheumatology
+Rio Grande
+rivulose
+Scarlett
+sci-fi
+scribbly
+serializable
+sericitization
+sheesh
+Shenzhen
+sizable
+sizably
+sizeably
+Snapchat
+socializable
 spina bifida
-spinless
-spinor
-spinors
-splined
-statin
-statins
-steradian
-steradians
-stiffnesses
-strategize
-strategized
-strategizes
-strategizing
-subassemblies
-subassembly
-subcritical
-subcriticality
-subfolder
-subfolders
-submenu
-submenus
-subpar
-subpart
-subparts
-subtextual
-subvocalization
+spiralizer
+spiralizers
+Spotify
+SSD
+subtilization
 sui generis
 sui juris
 summa cum laude
-superactivity
-supercritical
-supercriticality
-supermicron
-supersensitive
-supersymmetric
-supersymmetry
-suppressive
-suppressively
-surreally
-switchgear
-Symbian
-symplectic
+summative
+synecdoche
 tabula rasa
-tankage
-tankages
-taskbar
-taskbars
-tattle-tale
-teensy-weensy
-telematics
-tensiometer
-tensiometers
-tensioned
-tensioning
-termbase
-termbases
-Ternopil
-tesla
-tesseract
-tesseracts
-thereunder
-thermocouple
-thermocouples
-thermoduric
-thruster
-thrusters
-timeous
-timeously
-tintype
-tooltip
-tooltips
-touchpoint
-touchpoints
-traceability
-transitorily
-translatability
-trichloroethane
-trichloroethylene
-tuple
-tuples
-ullage
-ullages
-ultracold
-ultrafine
-ultrasensitive
-unachievable
-unbefitting
-unclip
-unclipped
-unclipping
-unclips
-unclutter
-uncluttering
-unclutters
-uncomplicatedly
-underheat
-underheated
-underheating
-underheats
-underinflate
-underinflated
-underinflates
-underinflating
-underprovide
-underprovided
-underprovides
-underproviding
-undersize
-undersupplied
-undersupplies
-undersupply
-undersupplying
-unencrypted
-unendorsed
-unenlightening
-unflawed
-unforthcoming
-unfussy
-unhidden
-unideal
-unimolecular
-uninsulated
-uninvolved
-unlinked
-unlockable
-unmethodical
-unmoor
-unmoored
-unmooring
-unmoors
-unordered
-unpopulated
-unproblematic
-unpunctual
-unquantifiable
-unrevealing
-unrushed
-unserviceable
-unsymmetrically
-unviable
-usualness
-utile
-veraciousness
-verboseness
-verifiably
-victimologies
-victimology
-viewport
-viewports
-Vinnytsia
-vis-à-vis
-volumetric
-walkie-talkie
-walkie-talkies
-walkthrough
-walkthroughs
-waterless
-waypoint
-waypoints
-weathertight
-weber
-webers
-weeklong
-well-known
-wherefrom
-whereinto
-wherethrough
-whereunto
-widdershins
-Wikipedia
-wirelessly
-workboat
-workboats
-worksite
-worksites
-workspace
-workspaces
-workwear
-XMetaL
-XMLmind
-Zaporizhia
-Zhytomyr
+Tanja
+telecom
+terpenoid
+terpenoids
+theatricalization
+tr
+traditionalize
+traditionalized
+traditionalizes
+traditionalizing
+Transferwise
+Uighur
+Uighurs
+Ulaanbaatar
+uncategorizable
+undercapitalization
+unenfranchised
+unlink
+unlinking
+unlinks
+unnaturalize
+unnaturalized
+unnaturalizes
+unnaturalizing
+unobservable
+unprotestantize
+unprotestantized
+unprotestantizes
+unprotestantizing
+unrealize
+unrealizes
+unrealizing
+unrecognized
+unspecialized
+UX
+vaporizable
+verbalizable
+vernalization
+Vijay
+Vimeo
+volatilizable
+volatilization
+von Neumann
+Wachovia
+walkable
+Weasley
+WhatsApp
+Wi-Fi
+Xbox
+Xiaomi
+yay
+Zelda
+Zendesk
+#####         List of Companies from OpenData500 #####
+#####        http://www.opendata500.com/us/list/ #####
+##### Creative Commons Attribution-ShareAlike 4.0  ###
+Round Stones
+# 5PSolutions
+Abt Associates
+Accela
+Accenture
+AccuWeather
+Acxiom
+Adaptive
+Adobe Digital Government
+Aidin
+Alarm
+Allianz
+Allied Van Lines
+AllState Insurance Group
+Alltuition
+Altova
+Amazon Web Services
+American Red Ball Movers
+Amida Technology Solutions
+Analytica
+Apextech LLC
+Appallicious
+Aquicore
+Archimedes
+AreaVibes
+Arpin Van Lines
+Arrive Labs
+ASC Partners
+Asset4
+Atlas Van Lines
+AtSite
+Aunt Bertha
+Aureus Sciences
+AutoGrid Systems
+Avalara
+Avvo
+Ayasdi
+Azavea
+BaleFire Global
+Barchart
+Be Informed
+Bekins
+Berkery Noyes MandASoft
+Berkshire Hathaway
+BetterLesson
+BillGuard
+Bing
+Biovia
+BizVizz
+BlackRock
+Bloomberg
+Booz Allen Hamilton
+Boston Consulting Group
+Boundless
+Bridgewater
+Brightscope
+BuildFax
+Buildingeye
+BuildZoom
+Business and Legal Resources
+Business Monitor International
+Calcbench
+Cambridge Information Group
+Cambridge Semantics
+CAN Capital
+Canon
+Capital Cube
+Cappex
+Captricity
+CareSet Systems
+Careset
+CARFAX
+Caspio
+Castle Biosciences
+CB Insights
+Ceiba Solutions
+Center for Responsive Politics
+Cerner
+Certara
+CGI
+Charles River Associates
+Charles Schwab Corp
+Chemical Abstracts Service
+Child Care Desk
+Chubb
+Citigroup
+CityScan
+CitySourced
+Civic Impulse LLC
+Civic Insight
+Civinomics
+Civis Analytics
+Clean Power Finance
+ClearHealthCosts
+ClearStory Data
+Climate Corporation
+CliniCast
+Cloudmade
+Cloudspyre
+Code for America
+Code-N
+Collective IP
+College Abacus
+College Board
+Compared Care
+Compendia Bioscience Life Technologies
+Compliance and Risks
+Computer Packages
+CONNECT-DOT
+ConnectEDU
+Connotate
+Construction Monitor LLC
+Consumer Reports
+CoolClimate
+Copyright Clearance Center
+CoreLogic
+CostQuest
+Credit Karma
+Credit Sesame
+CrowdANALYTIX
+Dabo Health
+DataLogix
+DataMade
+DataMarket
+Datamyne
+DataWeave
+Deloitte
+DemystData
+Department of Better Technology
+Development Seed
+Docket Alarm
+Dow Jones & Co
+Dun & Bradstreet
+Earth Networks
+EarthObserver App
+Earthquake Alert!
+Eat Shop Sleep
+Ecodesk
+eInstitutional
+Elsevier
+Embark
+EMC
+Energy Points
+Energy Solutions Forum
+Enervee Corporation
+Enigma
+Ensco
+Environmental Data Resources
+Epsilon
+Equal Pay for Women
+Equifax
+Equilar
+Ernst & Young LLP
+eScholar
+Esri
+Estately
+Everyday Health
+Evidera
+Experian
+Expert Health Data Programming
+Exversion
+Ez-XBRL
+Factset
+Factual
+Farmers
+FarmLogs
+Fastcase
+Fidelity Investments
+FindTheBest
+First Fuel Software
+FirstPoint
+Fitch
+FlightAware
+FlightStats
+FlightView
+Food+Tech Connect
+Forrester Research
+Foursquare
+Fujitsu
+Funding Circle
+FutureAdvisor
+Fuzion Apps
+Gallup
+Galorathorporated
+Garmin
+Genability
+GenoSpace
+Geofeedia
+Geolytics
+Geoscape
+GetRaised
+GitHub
+Glassy Media
+Golden Helix
+GoodGuide
+Google Maps
+Google Public Data Explorer
+Government Transaction Services
+Govini
+GovTribe
+Govzilla
+gRadiant Research LLC
+Graebel Van Lines
+Graematter
+Granicus
+GreatSchools
+GuideStar
+H3 Biomedicine
+Harris Corporation
+HDScores
+Headlight
+Healthgrades
+Healthline
+HealthMap
+HealthPocket
+HelloWallet
+HERE
+Honest Buildings
+HopStop
+Housefax
+How's My Offer?
+IBM
+ideas42
+iFactor Consulting
+IFI CLAIMS Patent Services
+iMedicare
+Impact Forecasting
+Impaq International
+Import
+IMS Health
+InCadence
+indoo
+InfoCommerce Group
+Informatica
+InnoCentive
+Innography
+Innovest Systems
+Inovalon
+Inrix Traffic
+Intelius
+Intermap Technologies
+Investormill
+Iodine
+IPHIX
+iRecycle
+iTriage
+IVES Group
+IW Financial
+JJ Keller
+Junar
+Junyo
+Jurispect
+Kaiser Permanante
+karmadata
+Keychain Logistics Corp
+KidAdmit
+Kimono Labs
+KLD Research
+Knoema
+Knowledge Agency
+KPMG
+Kroll Bond Ratings Agency
+Kyruus
+Lawdragon
+Legal Science Partners
+LegiNation
+LegiStorm
+Lenddo
+Lending Club
+Level One Technologies
+LexisNexis
+Liberty Mutual Insurance Cos
+Lilly Open Innovation Drug Discovery
+Liquid Robotics
+Locavore
+LOGIXDATA
+LoopNet
+Loqate
+LoseIt
+LOVELAND Technologies
+Lucid
+Lumesis
+Mango Transit
+Mapbox
+Maponics
+MapQuest
+Marinexplore
+MarketSense
+Marlin & Associates
+Marlin Alter and Associates
+McGraw Hill Financial
+McKinsey
+MedWatcher
+Mercaris
+Merrill Corp
+Merrill Lynch
+MetLife
+mHealthCoach
+MicroBilt Corporation
+Microsoft Windows Azure Marketplace
+Mint
+Moody's
+Morgan Stanley
+Morningstar
+Mozio
+MuckRock
+Munetrix
+Municode
+National Van Lines
+Nationwide Mutual Insurance Company
+Nautilytics
+Navico
+NERA Economic Consulting
+NerdWallet
+New Media Parents
+Next Step Living
+NextBus
+nGAPorporated
+Nielsen
+Noesis
+NonprofitMetrics
+North American Van Lines
+Noveda Technologies
+NuCivic
+Numedii
+Oliver Wyman
+OnDeck
+OnStar
+Ontodia
+Onvia
+Open Data Nation
+OpenCounter
+OpenGov
+OpenPlans
+OpportunitySpace
+Optensity
+optiGov
+OptumInsight
+Orlin Research
+OSIsoft
+OTC Markets
+Outline
+Oversight Systems
+Overture Technologies
+Owler
+Palantir Technologies
+Panjiva
+Parsons Brinckerhoff
+Patently-O
+PatientsLikeMe
+Pave
+Paxata
+PayScale
+PeerJ
+People Power
+Persint
+Personal Democracy Media
+Personal
+Personalis
+Peterson's
+PEV4me
+PIXIA Corp
+PlaceILive
+PlanetEcosystems
+PlotWatt
+Plus-U
+PolicyMap
+Politify
+Poncho App
+POPVOX
+Porch
+PossibilityU
+PowerAdvocate
+Practice Fusion
+Predilytics
+PricewaterhouseCoopers
+ProgrammableWeb
+Progressive Insurance Group
+Propeller Health
+ProPublica
+PublicEngines
+PYA Analytics
+Qado Energy
+Quandl
+Quertle
+Quid
+R R Donnelley
+RAND Corporation
+Rand McNally
+Rank and Filed
+Ranku
+Rapid Cycle Solutions
+realtor
+Recargo
+ReciPal
+Redfin
+RedLaser
+Reed Elsevier
+REI Systems
+Relationship Science
+Remi
+Retroficiency
+Revaluate
+Revelstone
+Rezolve Group
+Rivet Software
+Roadify Transit
+Robinson + Yu
+Russell Investments
+Sage Bionetworks
+SAP
+SAS
+Scale Unlimited
+Science Exchange
+Seabourne
+SeeClickFix
+SigFig
+Simple Energy
+SimpleTuition
+SlashDB
+Smart Utility Systems
+SmartAsset
+SmartProcure
+Smartronix
+SnapSense
+Social Explorer
+Social Health Insights
+SocialEffort
+Socrata
+Solar Census
+SolarList
+Sophic Systems Alliance
+S&P Capital IQ
+SpaceCurve
+SpeSo Health
+Spikes Cavell Analytic
+Splunk
+Spokeo
+SpotCrime
+SpotHero
+Stamen Design
+Standard and Poor's
+State Farm Insurance
+Sterling Infosystems
+Stevens Worldwide Van Lines
+STILLWATER SUPERCOMPUTING
+StockSmart
+Stormpulse
+StreamLink Software
+StreetCred Software
+StreetEasy
+Suddath
+Symcat
+Synthicity
+Tableau Software
+TagniFi
+Telenav
+Tendril
+Teradata
+The Advisory Board Company
+The Bridgespan Group
+The DocGraph Journal
+The Govtech Fund
+The Schork Report
+The Vanguard Group
+Think Computer Corporation
+Thinknum
+Thomson Reuters
+TopCoder
+TowerData
+TransparaGov
+TransUnion
+TrialTrove
+TrialX
+Trintech
+TrueCar
+Trulia
+TrustedID
+TuvaLabs
+Uber
+Unigo LLC
+United Mayflower
+Urban Airship
+Urban Mapping
+US Green Data
+USAA Group
+USSearch
+Verdafero
+Vimo
+VisualDoD
+Vital Axiom | Niinja
+VitalChek
+Vitals
+Vizzuality
+Votizen
+Walk Score
+WaterSmart Software
+WattzOn
+Way Better Patents
+Weather Channel
+Weather Decision Technologies
+Weather Underground
+WebFilings
+Webitects
+WebMD
+Weight Watchers
+WeMakeItSafer
+Wheaton World Wide Moving
+Whitby Group
+Wolfram Research
+Wolters Kluwer
+Workhands
+Xatori
+Xcential
+xDayta
+Xignite
+Yahoo
+Zebu Compliance Solutions
+Yelp
+YourMapper
+Zillow
+ZocDoc
+Zonability
+Zoner
+Zurich Insurance
+######################################
+Facebook

@@ -28,10 +28,13 @@ public class PatternTokenBuilder {
 
   private String token;
   private String posTag;
+  private boolean marker = true;
   private boolean matchInflectedForms = false;
   private boolean caseSensitive;
   private boolean regexp;
   private boolean negation;
+  private boolean isWhiteSpaceSet = false;
+  private boolean isWhiteSpaceBefore;
   private int skip;
 
   /**
@@ -66,6 +69,16 @@ public class PatternTokenBuilder {
     return pos(posTag, true);
   }
 
+  /**
+   * Corresponds to {@code <marker>...</marker>} in XML. Note that there
+   * can be more tokens with a mark, but then must all be adjacent.
+   * @since 4.6
+   */
+  public PatternTokenBuilder mark(boolean isMarked) {
+    this.marker = isMarked;
+    return this;
+  }
+
   private PatternTokenBuilder pos(String posTag, boolean regexp) {
     this.posTag = Objects.requireNonNull(posTag);
     this.regexp = regexp;
@@ -83,6 +96,14 @@ public class PatternTokenBuilder {
     this.skip = skip;
     return this;
   }
+
+  /** @since 4.4 */
+  public PatternTokenBuilder setIsWhiteSpaceBefore(boolean whiteSpaceBefore) {
+    this.isWhiteSpaceBefore = whiteSpaceBefore;
+    this.isWhiteSpaceSet = true;
+    return this;
+  }
+
   /**
    * Also match inflected forms of the given word - note this will only work when the
    * given token actually is a baseform.
@@ -102,7 +123,11 @@ public class PatternTokenBuilder {
     } else {
       patternToken = new PatternToken(token, caseSensitive, regexp, matchInflectedForms);
     }
+    if (isWhiteSpaceSet) {
+      patternToken.setWhitespaceBefore(isWhiteSpaceBefore);
+    }
     patternToken.setSkipNext(skip);
+    patternToken.setInsideMarker(marker);
     return patternToken;
   }
 }

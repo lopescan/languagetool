@@ -20,6 +20,7 @@ package org.languagetool.language;
 
 import org.languagetool.Language;
 import org.languagetool.LanguageMaintainedState;
+import org.languagetool.UserConfig;
 import org.languagetool.rules.*;
 import org.languagetool.rules.gl.*;
 import org.languagetool.synthesis.Synthesizer;
@@ -111,12 +112,12 @@ public class Galician extends Language {
   public Contributor[] getMaintainers() {
     return new Contributor[] {
             new Contributor("Susana Sotelo Docío"),
-            new Contributor("Tiago F. Santos (4.0)", "https://github.com/TiagoSantos81")
+            new Contributor("Tiago F. Santos (4.0+)", "https://github.com/TiagoSantos81")
     };
   }
 
   @Override
-  public List<Rule> getRelevantRules(ResourceBundle messages) throws IOException {
+  public List<Rule> getRelevantRules(ResourceBundle messages, UserConfig userConfig, Language motherTongue, List<Language> altLanguages) throws IOException {
     return Arrays.asList(
             new CommaWhitespaceRule(messages,
                 Example.wrong("Tomamos café<marker> ,</marker> queixo, bolachas e uvas."),
@@ -125,23 +126,19 @@ public class Galician extends Language {
             new GenericUnpairedBracketsRule(messages,
                     Arrays.asList("[", "(", "{", "“", "«", "»", "‘", "\"", "'"),
                     Arrays.asList("]", ")", "}", "”", "»", "«", "’", "\"", "'")),
-            new HunspellRule(messages, this),
+            new HunspellRule(messages, this, userConfig, altLanguages),
             new UppercaseSentenceStartRule(messages, this,
                 Example.wrong("Esta casa é vella. <marker>foi</marker> construida en 1950."),
                 Example.fixed("Esta casa é vella. <marker>Foi</marker> construida en 1950.")),
             new MultipleWhitespaceRule(messages, this),
-            new LongSentenceRule(messages, 20, false),
-            new LongSentenceRule(messages, 25, false),
-            new LongSentenceRule(messages, 30, false),
-            new LongSentenceRule(messages, 35, false),
-            new LongSentenceRule(messages, 40, false),
-            new LongSentenceRule(messages, 45, false),
-            new LongSentenceRule(messages, 50, true),
-            new LongSentenceRule(messages, 60, false),
+            new LongSentenceRule(messages, userConfig, -1, true),
+            new LongParagraphRule(messages, this, userConfig),
             new SentenceWhitespaceRule(messages),
-            new WhiteSpaceBeforeParagraphEnd(messages),
+            new WhiteSpaceBeforeParagraphEnd(messages, this),
             new WhiteSpaceAtBeginOfParagraph(messages),
-            new EmptyLineRule(messages),
+            new EmptyLineRule(messages, this),
+            new ParagraphRepeatBeginningRule(messages, this),
+            new PunctuationMarkAtParagraphEnd(messages, this),
             // Specific to Galician:
             new SimpleReplaceRule(messages),
             new CastWordsRule(messages),
@@ -176,15 +173,15 @@ public class Galician extends Language {
       // case "BIASED_OPINION_WORDS":      return -31;
       // case "WEAK_WORDS":                return -32;
       // case "PT_AGREEMENT_REPLACE":      return -35;
-      case "GL_WIKIPEDIA_COMMON_ERRORS":   return -45;
+      case "GL_WIKIPEDIA_COMMON_ERRORS":return -45;
       case "HUNSPELL_RULE":             return -50;
       // case "NO_VERB":                   return -52;
       // case "CRASE_CONFUSION":           return -55;
       // case "FINAL_STOPS":               return -75;
       // case "T-V_DISTINCTION":           return -100;
       // case "T-V_DISTINCTION_ALL":       return -101;
-      // case "REPEATED_WORDS":            return -210;
-      // case "REPEATED_WORDS_3X":         return -211;
+      case "REPEATED_WORDS":            return -210;
+      case "REPEATED_WORDS_3X":         return -211;
       case "TOO_LONG_SENTENCE_20":      return -997;
       case "TOO_LONG_SENTENCE_25":      return -998;
       case "TOO_LONG_SENTENCE_30":      return -999;
@@ -195,6 +192,6 @@ public class Galician extends Language {
       case "TOO_LONG_SENTENCE_60":      return -1004;
       // case "CACOPHONY":                 return -2000;
     }
-    return 0;
+    return super.getPriorityForId(id);
   }
 }

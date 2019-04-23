@@ -63,6 +63,11 @@ public class WordRepeatRule extends Rule {
   }
 
   @Override
+  public int estimateContextForSureMatch() {
+    return 1;
+  }
+
+  @Override
   public RuleMatch[] match(AnalyzedSentence sentence) {
     List<RuleMatch> ruleMatches = new ArrayList<>();
     AnalyzedTokenReadings[] tokens = getSentenceWithImmunization(sentence).getTokensWithoutWhitespace();
@@ -78,7 +83,7 @@ public class WordRepeatRule extends Rule {
         String msg = messages.getString("repetition");
         int prevPos = tokens[i - 1].getStartPos();
         int pos = tokens[i].getStartPos();
-        RuleMatch ruleMatch = createRuleMatch(prevToken, token, prevPos, pos, msg);
+        RuleMatch ruleMatch = createRuleMatch(prevToken, token, prevPos, pos, msg, sentence);
         ruleMatches.add(ruleMatch);
       }
       prevToken = token;
@@ -86,8 +91,8 @@ public class WordRepeatRule extends Rule {
     return toRuleMatchArray(ruleMatches);
   }
 
-  protected RuleMatch createRuleMatch(String prevToken, String token, int prevPos, int pos, String msg) {
-    RuleMatch ruleMatch = new RuleMatch(this, prevPos, pos+prevToken.length(), msg, messages.getString("desc_repetition_short"));
+  protected RuleMatch createRuleMatch(String prevToken, String token, int prevPos, int pos, String msg, AnalyzedSentence sentence) {
+    RuleMatch ruleMatch = new RuleMatch(this, sentence, prevPos, pos+prevToken.length(), msg, messages.getString("desc_repetition_short"));
     ruleMatch.setSuggestedReplacement(prevToken);
     return ruleMatch;
   }
@@ -95,7 +100,7 @@ public class WordRepeatRule extends Rule {
   // avoid "..." etc. to be matched:
   private boolean isWord(String token) {
     boolean isWord = true;
-    if (token.isEmpty() || StringUtils.isNumeric(token)) {
+    if (StringUtils.isNumericSpace(token)) {
       isWord = false;
     } else if (token.length() == 1) {
       char c = token.charAt(0);

@@ -128,6 +128,14 @@ public class GermanTaggerTest {
     AnalyzedTokenReadings aToken13 = tagger.lookup("Entweder-oder");
     assertTrue(aToken13.getReadings().get(0).getPOSTag().matches("SUB.*"));
     assertEquals("Entweder-oder", aToken13.getReadings().get(0).getLemma());
+
+    AnalyzedTokenReadings aToken14 = tagger.lookup("Verletzter");
+    assertTrue(aToken14.getReadings().get(0).getPOSTag().equals("SUB:NOM:SIN:MAS:ADJ"));
+    assertEquals("Verletzter", aToken14.getReadings().get(0).getLemma());
+    assertTrue(aToken14.getReadings().get(1).getPOSTag().equals("SUB:GEN:PLU:MAS:ADJ"));
+
+    AnalyzedTokenReadings aToken15 = tagger.lookup("erzkatholisch");
+    assertTrue(aToken15.getReadings().get(0).getPOSTag().equals("ADJ:PRD:GRU"));
   }
 
   // make sure we use the version of the POS data that was extended with post spelling reform data
@@ -202,7 +210,7 @@ public class GermanTaggerTest {
    * Returns a string representation like {@code toString()}, but sorts
    * the elements alphabetically.
    */
-  private String toSortedString(AnalyzedTokenReadings tokenReadings) {
+  public static String toSortedString(AnalyzedTokenReadings tokenReadings) {
     StringBuilder sb = new StringBuilder(tokenReadings.getToken());
     Set<String> elements = new TreeSet<>();
     sb.append('[');
@@ -215,5 +223,4 @@ public class GermanTaggerTest {
     sb.append(']');
     return sb.toString();
   }
-
 }

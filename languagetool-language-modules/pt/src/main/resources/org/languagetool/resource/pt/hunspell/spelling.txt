@@ -1,9 +1,12 @@
 # After validation, add here words suggested by users
-# General portuguese words
-# Do not add variant specific words
-# For specific variant words, comment the word before adding it. 
-# It will be added to the specific dictionary later.
+#
+# Portuguese words of all variants
+# DO NOT add variant specific words
+#
+# For specific variant words, comment the word before adding it,
+# so it will be added to the specific dictionary later.
 afear
+Auchan
 baseball
 basketball
 database
@@ -11,12 +14,15 @@ databases
 device
 devices
 DNA
+JUMBO
+LanguageTool
 laptop
 laptops
 management
+Office # MS Office
 premio
 #
-# Words handled by foreign words replacement lists
+# Words handled by foreign word replacement lists
 #
 abat-jour
 abat-jours
@@ -2324,8 +2330,6 @@ take-offs
 takeaway
 takeaways
 takes
-taliban
-talibans
 talk-show
 talk-shows
 tandem
@@ -2994,6 +2998,8 @@ Celsius
 CEO
 CEOs
 ceviches
+chacra
+chacras
 Charlie
 Charlot
 Chauvenet
@@ -3968,7 +3974,7 @@ zoófilas
 Zuckerberg
 # Países e Capitais
 # https://pt.wikipedia.org/wiki/Lista_de_capitais_nacionais
-# Selecionados apenas os que tem grafias relativamente consensuais 
+# Selecionados apenas os que tem grafias relativamente consensuais
 Abecásia
 Sucumi
 Tshwane
@@ -4994,6 +5000,8 @@ apolítico
 apolíticos
 Aquaman
 aritmeticamente
+arnês
+arnêses
 arouquense
 arouquenses
 Arsenal
@@ -5015,8 +5023,10 @@ auroques
 autocaravana
 autocaravanas
 Avalon
+AWS
 azuis-índigo
 azul-índigo
+Bachelard
 BAFTA
 balanite
 balanopostite
@@ -5054,6 +5064,9 @@ Berlin-Tegel
 Bernabéu
 BES
 BI
+BIs
+bifidobactéria
+bifidobactérias
 bioanalítica
 bioanalíticas
 bioanalítico
@@ -5074,6 +5087,10 @@ biomoleculares
 biomoléculas
 biópsia
 biópsias
+biorretenção
+biorretenções
+biqueirão
+biqueirões
 Birmingham
 biureto
 biuretos
@@ -5184,6 +5201,7 @@ cleptocracias
 Clix
 cloud
 CMYK
+COGOC
 Cointrin
 colhereiro
 colhereiros
@@ -5263,6 +5281,10 @@ divertículo
 divertículos
 DN
 Dogecoin
+dógica
+dógicas
+dógico
+dógicos
 dominatrix
 dominatrixes
 Donald
@@ -5283,6 +5305,7 @@ ecólogo
 ecólogos
 EEG
 Eindhoven
+Elisabeth
 encarquilhada
 encarquilhadas
 encarquilhado
@@ -5316,6 +5339,8 @@ ERSE
 erúcico
 ESAP
 escabiose
+escapulário
+escapulários
 esclera
 escleras
 esclerodermia
@@ -5358,6 +5383,7 @@ Esther
 estromatólito
 estromatólitos
 ET
+ETs
 Ethereum
 EUAC
 eufemística
@@ -5379,6 +5405,8 @@ excruciante
 excruciantes
 exogamia
 exogamias
+extracurricular
+extracurriculares
 ExxonMobil
 Fabiana
 fabulação
@@ -5403,12 +5431,18 @@ fenólicas
 fenólico
 fenólicos
 FENSE
+Feyerabend
 fibroblasto
 fibroblastos
 fibropapiloma
 fibropapilomas
 Firefox
+firmware
+firmwares
+fitorremediação
+fitorremediações
 Fiumicino
+FNAC
 folhosa
 folhosas
 foliculite
@@ -5428,8 +5462,11 @@ frieiras
 Fujitsu
 Fukushima
 FullHD
+funicular
+funiculares
 fusiforme
 fusiformes
+futsal
 futurística
 futurísticas
 futurístico
@@ -5442,10 +5479,15 @@ Gasprocar
 gastroenterologista
 gastroenterologistas
 Gatwick
+GCP
 GDDR
 GeForce
 géis
 Generalitat
+geoestacionária
+geoestacionárias
+geoestacionário
+geoestacionários
 geoestratégica
 geoestratégicas
 geoestratégico
@@ -5474,6 +5516,7 @@ gonococo
 gonococos
 GoPro
 Goreti
+Gotemburgo
 GPU
 GPUs
 Grammy
@@ -5490,7 +5533,12 @@ halitose
 halitoses
 Haneda
 Hannah
+háptica
+hápticas
+háptico
+hápticos
 Hartsfield
+Hassan
 Hatshepsut
 HDMI
 HDR
@@ -5560,6 +5608,7 @@ ICBAS
 ICN
 ICNB
 ICNF
+IDEB
 IEEE
 IFPA
 IGAI
@@ -5580,6 +5629,8 @@ incredulamente
 independentismo
 índigo
 índigos
+indutivista
+indutivistas
 INETI
 Infarmed
 infra-alar
@@ -5603,6 +5654,8 @@ intermunicipais
 intermunicipal
 intermutáveis
 intermutável
+interrelação
+interrelações
 intersindicais
 intersindical
 intocada
@@ -5642,6 +5695,8 @@ iTunes
 IUC
 IUCS
 IUM
+Jefferson
+Jennifer
 Jeremy
 jetpack
 jetpacks
@@ -5661,12 +5716,17 @@ keynesianismo
 keynesiano
 keynesianos
 Kiev-Boryspil
+kosovar
+kosovares
 Kruger
 Kubitschek
 lacertídeo
 lacertídeos
+lactobacilo
+lactobacilos
 lagomorfo
 lagomorfos
+Lamborghini
 Lamborghini
 lastimavelmente
 Laurissilva
@@ -5677,6 +5737,7 @@ Lehman
 Leicester
 leirão
 leirões
+Leléu
 LG
 limiana
 limianas
@@ -5693,7 +5754,10 @@ liturgicamente
 Liverpool
 LiveStrong
 Logan
+LP
+LPs
 LTE
+Lucy
 ludificação
 Luna
 Luxor
@@ -5820,6 +5884,9 @@ neurotóxicos
 Newcastle
 NFL
 Nibiru
+nictúria
+nictúrias
+NIRE
 NOAA
 nocauteada
 nocauteadas
@@ -5846,6 +5913,8 @@ Odebrecht
 OLED
 OLX
 ONGs
+oócito
+oócitos
 orangotango-de-bornéu
 orangotangos-de-bornéu
 ordoliberais
@@ -5885,10 +5954,16 @@ pastorinhos
 Paulo-Guarulhos
 PCMark
 PCNs
+pedopsiquiátrica
+pedopsiquiátricas
+pedopsiquiátrico
+pedopsiquiátricos
 pedunculada
 pedunculadas
 pedunculado
 pedunculados
+pellet
+pellets
 péptido
 péptidos
 Peretola
@@ -5917,6 +5992,7 @@ pinenos
 pinguim-de-adélia
 pinguins-de-adélia
 Pirelli
+PLOS
 pluricarpelar
 pluricarpelares
 plurilocular
@@ -5960,10 +6036,13 @@ psicomotricidade
 psilocibina
 psoríase
 Puigdemont
+pulsante
+pulsantes
 putativa
 putativas
 putativo
 putativos
+Pyeongchang
 QE
 QEs
 QI
@@ -5974,6 +6053,7 @@ queratose
 queratoses
 quintilha
 quintilhas
+Rabat
 Rachel
 Radeon
 Rajastão
@@ -6007,24 +6087,32 @@ RNAP
 robustamente
 roconpatia
 roconpatias
+Rolex
 Rorschach
 Roscosmos
 Rousseau
+ROV
+ROVs
 RSI
 Ruzyne
 Ryanair
 SAD
+SADs
 salabim
 Saladino
 Samsung
 Sandman
+saramugo
+saramugos
 SARS
 satoshi
 satoshis
+Saussere
 saxitoxina
 Schott
 SciELO
 SCUT
+SCUTs
 Seagate
 sedeada
 sedeadas
@@ -6043,6 +6131,9 @@ sequenciadores
 Shakira
 Sheremetyevo
 SIG
+siluro
+siluros
+Simplex
 Sinatra
 SIPE
 Skype
@@ -6067,6 +6158,7 @@ stand-up
 Standvirtual
 Stansted
 STASI
+Stefany
 Stoke
 streaming
 Suárez-Barajas
@@ -6097,7 +6189,10 @@ supuração
 supurações
 sustentadamente
 SUV
+SUVs
 Swansea
+TAC
+TACs
 Tahrir
 TCP
 TechDirt
@@ -6112,6 +6207,10 @@ temporomandibular
 temporomandibulares
 Tenerife
 teneteara
+tetraneta
+tetranetas
+tetraneto
+tetranetos
 Tetris
 TGV
 TGVs
@@ -6231,6 +6330,7 @@ XS
 XXL
 XXS
 Yahweh
+YouTuber
 Zcash
 zoofilia
 zoófilo
@@ -6238,3 +6338,1794 @@ zoófilos
 zooxantela
 zooxantelas
 ZTE
+################################
+# Sugestões dos utilizadores 4 #
+################################
+ADFP
+adultização
+adultizações
+Arcozelo
+ARM
+ArsTechnica
+AVI
+BAK
+BDSM
+BMP
+caralho
+caralhos
+Cassie
+ciberdivisa
+ciberdivisas
+cibermoeda
+cibermoedas
+conversora
+conversoras
+CSS
+CSV
+densificação
+densificações
+determinadamente
+DOC
+DOCX
+élfica
+élficas
+élfico
+élficos
+Elsa
+espiã
+espiãs
+Fagilde
+filoxera
+FCPJ
+GIF
+Gimenez
+Glastonbury
+HEIC
+HEVC
+irreversão
+irreversões
+isquémica
+isquémicas
+isquémico
+isquémicos
+JPEG
+MPG
+ODP
+ODS
+ODT
+OTF
+osseointegrada
+osseointegradas
+osseointegrado
+osseointegrados
+osseointegrar
+oxicodona
+PHP
+picoense
+picoenses
+pixelizar
+pixelizada
+pixelizadas
+pixelizado
+pixelizados
+PNG
+PPTX
+psicossocial
+psicossociais
+RTF
+saqueta
+saquetas
+sindicância
+sindicâncias
+SVG
+SWIFT
+Takeshi
+TMP
+trasfega
+trasfegas
+TTF
+TXT
+WAV
+youtuber
+youtubers
+################################
+# Sugestões dos utilizadores 5 #
+################################
+AdC
+Aerosmith
+ALOHA
+Altice
+anomização
+anomizações
+aquícola
+aquícolas
+assexual
+assexuais
+assimbolia
+assimbolias
+Aston Villa
+Avanca
+Austro-Húngaro
+Bayer Leverkusen
+Bayern Munich
+biodiesel
+biodieseis
+bioética
+Bioética
+biofilme
+biofilmes
+biomedicina
+biomedicinas
+Bizâncio
+Borussia Dortmund
+Borussia Mönchengladbach
+assepsia
+assepsias
+Azeredo
+campaniça
+campaniças
+campaniço
+campaniços
+choninhas
+clientelismo
+clientelismos
+Club Brugge
+CNBC
+colagénio
+Coriolis
+craca
+cracas
+Crawford
+CRISPR
+DAESH
+Daytona
+despautério
+despautérios
+dignitária
+dignitárias
+dignitário
+dignitários
+dissensão
+dissensões
+dreno
+drenos
+EAU
+Eintracht Frankfurt
+Elidérico
+EMEL
+endotraqueal
+endotraqueais
+epidural
+epidurais
+estratosférica
+estratosféricas
+estratosférico
+estratosféricos
+Fabíola
+factualidade
+factualidades
+felídeo
+felídeos
+Feyenoord
+frenesi
+frenesis
+Friedrich
+fundacional
+fundacionais
+GALP
+geodesia
+geodinâmica
+geodinâmicas
+geoespacial
+geoespaciais
+geriátrica
+geriátricas
+geriátrico
+geriátricos
+globalista
+globalistas
+gravímetro
+gravímetros
+Hamas
+Heinrich
+hipersexualizada
+hipersexualizadas
+hipersexualizado
+hipersexualizados
+histoplasmose
+histoplasmoses
+histrionismo
+houthi
+houthis
+Idanha
+IMAX
+inadequação
+inadequações
+Inditex
+intimidante
+intimidantes
+impreterível
+impreterivelmente
+imunossupressor
+imunossupressora
+imunossupressoras
+imunossupressores
+irredutivelmente
+Johnson
+Jumbo
+Juventus
+Karen
+Karlowitz
+Kumar
+lânguida
+languidamente
+lânguidas
+lânguido
+lânguidos
+laxista
+laxistas
+Leeds United
+leptospirose
+leptospiroses
+libertarianismo
+libertarianismos
+McCain
+Medvedev
+megaoperação
+megaoperações
+marrequinha
+marrequinhas
+menorá
+menorás
+micologia
+microalga
+microalgas
+microcrédito
+microcréditos
+minudência
+minudências
+misandria
+misândrica
+misândricas
+misândrico
+misândricos
+Miramar
+motoclube
+motoclubes
+Murdoch
+Navratilova
+negacionista
+negacionistas
+Nestlé
+noodles
+nordestina
+nordestinas
+nordestino
+nordestinos
+Nottingham Forest
+Novichok
+oligossacarídeo
+oligossacarídeos
+oportunisticamente
+Panathinaikos
+paraolímpica
+paraolímpicas
+paraolímpico
+paraolímpicos
+passarela
+passarelas
+PDN
+Petrogrado
+pimenta-de-sichuan
+plurinominal
+plurinominais
+polímata
+polímatas
+poliquística
+poliquísticas
+poliquístico
+poliquísticos
+Portucel
+prevalente
+prevalentes
+proibicionista
+proibicionistas
+prostética
+prostéticas
+prostético
+prostéticos
+psicotrópica
+psicotrópicas
+psicotrópico
+psicotrópicos
+PSV Eindhoven
+purpurina
+purpurinas
+rebarbadora
+rebarbadoras
+recidivante
+recidivantes
+Red Star Belgrade
+Reich
+rooftop
+rooftops
+Romanov
+RGPD
+salafista
+salafistas
+Salisbury
+senciência
+senciente
+sencientes
+Skripal
+SONAE
+Saint-Étienne
+Steaua București
+Sumatra
+supracional
+supracionais
+Tinder
+TPP
+transfobia
+Transpacífico
+transumante
+transumantes
+website
+websites
+WONCA
+Yosemite
+Zapatero
+Zézinha
+################################
+# Sugestões dos utilizadores 6 #
+################################
+Abidjan
+Abrunhosa
+acareação
+acareações
+aeronavais
+aeronaval
+ajuizamento
+Ajuizamentos
+Alagoinhas
+aleivosia
+aleivosias
+Alexander
+Alibaba
+alíquota
+alíquotas
+Andreas
+Angoche
+anticíclica
+anticíclicas
+anticíclico
+antropomorfização
+antropomorfizações
+apiário
+apiários
+ASAU
+Asperger
+atávica
+atávicas
+atávico
+atávicos
+AutoCAD
+autopreservação
+AZERTY
+Bafatá
+Bakunin
+baleia-da-gronelândia
+baleias-da-gronelândia
+Bastiat
+Begonha
+Bengo
+Bing
+bioeconomia
+bioinformática
+Böhm-Bawerk
+Bolama
+Bolsonaro
+bráquete
+bráquetes
+BRICS
+Caála
+Cabify
+Cabinda
+Cacheu
+Caconda
+Caluquembe
+Camabatela
+Camacupa
+candomblé
+Cangamba
+cardiorrespiratória
+cardiorrespiratórias
+cardiorrespiratório
+cardiorrespiratórios
+Carrefour
+casuístico
+casuísticos
+Catabola
+catecolaminérgica
+catecolaminérgicas
+catecolaminérgico
+catecolaminérgicos
+Catumbela
+Caxito
+CCTV # Estrangeirismo
+Chaffeur Privé
+Chibuto
+Chimoio
+Chokwé
+Chrome
+CIIMAR
+clientelar
+clientelares
+comatosa
+comatosas
+comatoso
+comatosos
+construtivismo
+contornável
+Craigslist
+Cuamba
+Cubango
+Davos
+DDoS # Estrangeirismo
+dedutibilidade
+demonização
+demonizações
+DGRSP
+DHL
+DIRPF
+Dondo
+Dropbox
+ébola
+energúmena
+energúmenas
+energúmeno
+energúmenos
+ensaística
+ensaísticas
+ensaístico
+ensaísticos
+epifania
+epifanias
+epítome
+epítomes
+etnicismo
+exclusivista
+exclusivistas
+eximiamente
+exponenciada
+exponenciadas
+exponenciado
+exponenciados
+expropriativa
+expropriativas
+expropriativo
+expropriativos
+FAPLA
+Farfetch
+finitude
+finitudes
+forfetária
+forfetárias
+forfetário
+forfetários
+Fortnite
+Gabela
+gabonês
+gabonesa
+gabonesas
+gaboneses
+Genilson
+genotóxica
+genotóxicas
+genotoxicidade
+genotóxico
+genotóxicos
+gentrificação
+Gestalt
+Gmail
+Gorringe
+grupais
+grupal
+Guangdong
+Gurué
+hatchback # Estrangeirismo
+hatchbacks # Estrangeirismo
+Hayek
+hidroclimática
+hidroclimáticas
+hidroclimático
+hidroclimáticos
+hipertermia
+hipertermias
+hipotermia
+hipotermias
+Huíla
+IBAN
+iCloud
+ideação
+ideações
+IFMG
+IFPR
+impreparada
+impreparadas
+impreparado
+impreparados
+influenciador
+influenciadores
+Inhambane
+instituinte
+instituintes
+interbancária
+interbancárias
+interbancário
+interbancários
+interfacetária
+interfacetárias
+interfacetário
+interfacetários
+interparlamentar
+interparlamentares
+Interpol
+IoT
+IPCC
+ISPs
+IURD
+Jair
+JPMorgan
+Kindle
+Kuito
+kVA
+Landsat
+Levpay
+Lichinga
+Lindóia
+longarina
+longarinas
+Longonjo
+Luau
+Luena
+maluquinha
+maluquinhas
+maluquinho
+maluquinhos
+manatim
+manatins
+Matola
+Maxixe
+M'Banza Kongo
+MBWay
+melatonina
+Menongue
+mentoria
+mentorias
+meritocrata
+meritocratas
+microeconomia
+Microeconomia
+millennial # Estrangeirismo
+millennials # Estrangeirismo
+Minecraft
+mocassins # Estrangeirismo
+Mocuba
+Montepuez
+motivacional
+Moxico
+Lucapa
+Mozilla
+MST
+MTE
+multiparentalidade
+Mussulo
+Nacala
+Namibe
+Nampula
+NampulaLuanda
+nanotubo
+nanotubos
+não-Hodgkin
+N'dalatando
+neurobiologia
+Niassa
+Nikolai
+nosocomiais
+nosocomial
+N'Zeto
+Oio
+ok
+Ok
+OK
+Ondjiva
+Owen
+Pemba
+perequação
+perequações
+Peterson
+Photoshop
+Piaget
+precipitáveis
+precipitável
+Proudhon
+provocatoriamente
+psicótica
+psicóticas
+psicótico
+psicóticos
+quantiqualitativa
+quantiqualitativas
+quantiqualitativo
+quantiqualitativos
+Quelimane
+Quirino
+QWERTY
+QWERTZ
+rebaldaria
+recalibrar
+revanche # Estrangeirismo
+revanches # Estrangeirismo
+revocatória
+revocatórias
+revocatório
+revocatórios
+Rivera
+roaz-corvineiro
+Saturnália
+Saurimo
+saurópode
+saurópodes
+Schumpeter
+senioridade
+Serrão
+Silvano
+Snapchat
+Sofala
+Sonangol
+Sophie
+Sowell
+Soyo
+Spotify
+SQL
+sub-reptícia
+sub-reptícias
+sub-reptício
+sub-reptícios
+Sumbe
+supletivamente
+SWIFT
+talibã
+talibãs
+Taperuaba
+taróloga
+tarólogas
+tarólogo
+tarólogos
+Taxify
+TdC
+teatralização
+teatralizações
+termopolimerizáveis
+termopolimerizável
+Tombali
+Tomboa
+Tomboco
+transnacionalidade
+transposão
+transposões
+tríptico
+trípticos
+Tsé-Tung
+tubarão-anequim
+tubarões-anequim
+tuia-gigante
+tuias-gigantes
+Twitch
+Uber
+umbundo
+usucapião
+usucapiar
+usucapiendo
+usucapiendos
+usucapiente
+usucapientes
+usucapto
+usucaptos
+vomeronasais
+vomeronasal
+Waku-Kungo
+www
+WWW
+Xai-Xai
+Xbox
+Xiaomi
+########################################
+##########Greek letters ################
+########################################
+Α
+Β
+Γ
+Δ
+Ε
+Ζ
+Η
+Θ
+Ι
+Κ
+Λ
+Μ
+Ν
+Ξ
+Ο
+Π
+Ρ
+Σ
+Τ
+Υ
+Φ
+Χ
+Ψ
+Ω
+α
+β
+γ
+δ
+ε
+ζ
+η
+θ
+ι
+κ
+λ
+μ
+ν
+ξ
+ο
+π
+ρ
+σ
+τ
+υ
+φ
+χ
+ψ
+ω
+################################
+# Sugestões dos utilizadores 6 #
+################################
+abdominoplastia
+abdominoplastias
+abrótea
+abróteas
+acomodativa
+acomodativas
+acomodativo
+acomodativos
+adenocarcinoma
+adenocarcinomas
+aeroclube
+aeroclubes
+anestesiologia
+androginia
+antiepiléptica
+antiepilépticas
+antiepiléptico
+antiepilépticos
+antimeridiano
+antimeridianos
+apagão
+apagões
+ASMR # Estrangeirismo
+astenosfera
+astigmatismo
+audiologista
+audiologistas
+autoestimulação
+badejo
+badejos
+barracuda
+barracudas
+BdP
+Bentley
+biparental
+biparentais
+bodião-vermelho
+bodiões-vermelhos
+botulínica
+botulínicas
+botulínico
+botulínicos
+Bugatti
+caboz-camarão
+cabozes-camarão
+cardiotocografia
+cardiotocografias
+carrosséis
+cefalópode
+cefalópodes
+cibervigilância
+CIBIO
+ciconiforme
+ciconiformes
+civilizadamente
+chicungunha
+Clio
+circunstancialmente
+civicamente
+clitoriana
+clitorianas
+clitoriano
+clitorianos
+cobo-do-nilo
+cobos-do-nilo
+coformulante
+coformulantes
+cofundação
+cofundações
+colonoscopia
+colonoscopias
+confucionista
+confucionistas
+conjugalidade
+Corolla
+cranioencefálica
+cranioencefálicas
+cranioencefálico
+cranioencefálicos
+cromoscopia
+cromoscopias
+demagoga
+demagogas
+diaconal
+diaconais
+dizigótica
+dizigóticas
+dizigótico
+dizigóticos
+drapeada
+drapeadas
+drapeado
+drapeados
+Eliseu
+endometriose
+endoscópica
+endoscópicas
+endoscópico
+endoscópicos
+endoscópio
+endoscópios
+erógena
+erógenas
+erógeno
+erógenos
+esclavagista
+esclavagistas
+Escort
+espectador # Válido nos dois acordos
+espectadores # Válido nos dois acordos
+estatismo
+estatismos
+estol
+estorno
+estornos
+estuarina
+estuarinas
+estuarino
+estuarinos
+Exponor
+Eurobarómetro
+eurocrata
+eurocratas
+eurocrato
+eurocratos
+falcada
+falcadas
+falcado
+falcados
+FCTUC
+FdP
+FdPs
+felácio
+felácios
+fê-la
+fê-las
+fê-lo
+fê-los
+fenologia
+fenologias
+fisiatria
+fisiopatologia
+fisiopatologias
+fitofarmacêutica
+fitofarmacêuticas
+fitofarmacêutico
+fitofarmacêuticos
+focídeo
+focídeos
+formaldeído
+frecha
+frechas
+fruta-pão
+frutas-pão
+Furadouro
+gastroenterologia
+geodiversidade
+geoeconómica
+geoeconómicas
+geoeconómico
+geoeconómicos
+geoengenharia
+geófita
+geófitas
+geófito
+geófitos
+geoparque
+geoparques
+gibão
+gibões
+gilbardeira
+gilbardeiras
+Glock
+gobídeo
+gobídeos
+gorgónia
+gorgónias
+governabilidade
+grandiloquente
+grandiloquentes
+half-pipe # Estrangeirismo
+half-pipes # Estrangeirismo
+Hemingway
+hidroterapia
+hipermetropia
+hipnotizante
+hipnotizantes
+hortofruticultura
+hortofruticulturas
+Iberdrola
+impulsividade
+imunogénica
+imunogénicas
+imunogénico
+imunogénicos
+imunologista
+imunologistas
+imunoterapêutica
+imunoterapêuticas
+imunoterapêutico
+imunoterapêuticos
+imunoterapia
+imunoterapias
+inconformismo
+inconformismos
+incriminatória
+incriminatórias
+incriminatório
+incriminatórios
+indubitavelmente
+inegavelmente
+inequitativa
+inequitativas
+inequitativo
+inequitativos
+integrativa
+integrativas
+integrativo
+integrativos
+intravaginal
+intravaginais
+Ipiranga
+irreflectida
+irreflectidas
+irreflectido
+irreflectidos
+isonomia
+jamanta
+jamantas
+JFK
+JPP
+joão-da-palha
+lagostim-vermelho-do-Louisiana
+lagostins-vermelhos-do-Louisiana
+LED # Estrangeirismo
+lipoaspiração
+lipoaspirações
+litosférica
+litosféricas
+litosférico
+litosféricos
+McNamara
+Mégane
+micro-ARN
+microfibra
+microfibras
+Millenium BCP
+mixóloga
+mixólogas
+mixólogo
+mixólogos
+moncorvense
+moncorvenses
+monozigótica
+monozigóticas
+monozigótico
+monozigóticos
+musculoesquelética
+musculoesqueléticas
+musculoesquelético
+musculoesqueléticos
+musicoterapia
+mustelídeo
+mustelídeos
+mutualização
+mutualizações
+naja
+najas
+nanoplástico
+nanoplásticos
+narceja
+narcejas
+nanomaterial
+nanomateriais
+neonatologia
+neoplasticismo
+neurodegenerescência
+neuroendócrina
+neuroendócrinas
+neuroendócrino
+neuroendócrinos
+neurogénica
+neurogénicas
+neurogénico
+neurogénicos
+neuroimunologia
+neuropediatra
+neuropediatras
+neuropsiquiátrica
+neuropsiquiátricas
+neuropsiquiátrico
+neuropsiquiátricos
+NFC
+ninja
+ninjas
+normouvinte
+normouvintes
+notch # Estrangeirismo
+nugget # Estrangeirismo
+nuggets
+obituário
+obituários
+ocapi
+ocapis
+Olívia
+optometria
+optometrista
+optometristas
+ortostática
+ortostáticas
+ortostático
+ortostáticos
+otite
+otites
+ototoxicidade
+Oudinot
+palangre
+palangres
+pan-europeu
+pan-europeus
+papiloma
+papilomas
+paul
+pauis
+pápula
+pápulas
+pelágica
+pelágicas
+pelágico
+pelágicos
+perineais
+perineal
+períneo
+períneos
+phishing
+Plasmosdium
+polinésia
+polinésias
+polinésio
+polinésios
+poliqueta
+poliquetas
+portossantense
+portossantenses
+prequela
+prequelas
+presbiteral
+presbiterais
+prístino
+prístinos
+pústula
+pústulas
+Qashqai
+quadriciclo
+quadriciclos
+Quintanilha
+QR
+recalcitrante
+recalcitrantes
+rebaldaria
+rela
+rela-meridional
+relas
+relas-meridionais
+retoricamente
+ridicularização
+RNA # Estrangeirismo
+salomónica
+salomónicas
+salomónico
+salomónicos
+sambódromo
+sambódromos
+samouco
+samoucos
+santomense
+santomenses
+semi-idêntica
+semi-idênticas
+semi-idêntico
+semi-idênticos
+seriíssima
+seriíssimas
+seriíssimo
+seriíssimos
+sesquizigótica
+sesquizigóticas
+sesquizigótico
+sesquizigóticos
+sexting
+SIBS
+skater # Estrangeirismo
+skaters # Estrangeirismo
+Smithsonian
+sobredotada
+sobredotadas
+sobredotado
+sobredotados
+sobrequalificada
+sobrequalificadas
+sobrequalificado
+sobrequalificados
+sobrepesca
+UICN
+supraconstitucionais
+supraconstitucional
+stall # Estrangeirismo
+SRS
+TAEG
+taloamina
+tamanduá
+tamanduás
+Tarrafal
+tartaranhão
+tartaranhões
+taxonomista
+taxonomistas
+TDT
+teleconsulta
+teleconsultas
+terrário
+terrários
+trampolins
+transcriptómica
+tricloroetileno
+Turing
+ultraligeiro
+ultraligeiros
+veganismo
+vegetarianismo
+virologicamente
+vívida
+vívidas
+xávega
+Yellowstone
+ZEE
+zoófita
+zoófitas
+zoófito
+zoófitos
+#####         List of Companies from OpenData500 #####
+#####        http://www.opendata500.com/us/list/ #####
+##### Creative Commons Attribution-ShareAlike 4.0  ###
+Round Stones
+# 5PSolutions
+Abt Associates
+Accela
+Accenture
+AccuWeather
+Acxiom
+Adaptive
+Adobe Digital Government
+Aidin
+Alarm
+Allianz
+Allied Van Lines
+AllState Insurance Group
+Alltuition
+Altova
+Amazon Web Services
+American Red Ball Movers
+Amida Technology Solutions
+Analytica
+Apextech LLC
+Appallicious
+Aquicore
+Archimedes
+AreaVibes
+Arpin Van Lines
+Arrive Labs
+ASC Partners
+Asset4
+Atlas Van Lines
+AtSite
+Aunt Bertha
+Aureus Sciences
+AutoGrid Systems
+Avalara
+Avvo
+Ayasdi
+Azavea
+BaleFire Global
+Barchart
+Be Informed
+Bekins
+Berkery Noyes MandASoft
+Berkshire Hathaway
+BetterLesson
+BillGuard
+Bing
+Biovia
+BizVizz
+BlackRock
+Bloomberg
+Booz Allen Hamilton
+Boston Consulting Group
+Boundless
+Bridgewater
+Brightscope
+BuildFax
+Buildingeye
+BuildZoom
+Business and Legal Resources
+Business Monitor International
+Calcbench
+Cambridge Information Group
+Cambridge Semantics
+CAN Capital
+Canon
+Capital Cube
+Cappex
+Captricity
+CareSet Systems
+Careset
+CARFAX
+Caspio
+Castle Biosciences
+CB Insights
+Ceiba Solutions
+Center for Responsive Politics
+Cerner
+Certara
+CGI
+Charles River Associates
+Charles Schwab Corp
+Chemical Abstracts Service
+Child Care Desk
+Chubb
+Citigroup
+CityScan
+CitySourced
+Civic Impulse LLC
+Civic Insight
+Civinomics
+Civis Analytics
+Clean Power Finance
+ClearHealthCosts
+ClearStory Data
+Climate Corporation
+CliniCast
+Cloudmade
+Cloudspyre
+Code for America
+Code-N
+Collective IP
+College Abacus
+College Board
+Compared Care
+Compendia Bioscience Life Technologies
+Compliance and Risks
+Computer Packages
+CONNECT-DOT
+ConnectEDU
+Connotate
+Construction Monitor LLC
+Consumer Reports
+CoolClimate
+Copyright Clearance Center
+CoreLogic
+CostQuest
+Credit Karma
+Credit Sesame
+CrowdANALYTIX
+Dabo Health
+DataLogix
+DataMade
+DataMarket
+Datamyne
+DataWeave
+Deloitte
+DemystData
+Department of Better Technology
+Development Seed
+Docket Alarm
+Dow Jones & Co
+Dun & Bradstreet
+Earth Networks
+EarthObserver App
+Earthquake Alert!
+Eat Shop Sleep
+Ecodesk
+eInstitutional
+Elsevier
+Embark
+EMC
+Energy Points
+Energy Solutions Forum
+Enervee Corporation
+Enigma
+Ensco
+Environmental Data Resources
+Epsilon
+Equal Pay for Women
+Equifax
+Equilar
+Ernst & Young LLP
+eScholar
+Esri
+Estately
+Everyday Health
+Evidera
+Experian
+Expert Health Data Programming
+Exversion
+Ez-XBRL
+Factset
+Factual
+Farmers
+FarmLogs
+Fastcase
+Fidelity Investments
+FindTheBest
+First Fuel Software
+FirstPoint
+Fitch
+FlightAware
+FlightStats
+FlightView
+Food+Tech Connect
+Forrester Research
+Foursquare
+Fujitsu
+Funding Circle
+FutureAdvisor
+Fuzion Apps
+Gallup
+Galorathorporated
+Garmin
+Genability
+GenoSpace
+Geofeedia
+Geolytics
+Geoscape
+GetRaised
+GitHub
+Glassy Media
+Golden Helix
+GoodGuide
+Google Maps
+Google Public Data Explorer
+Government Transaction Services
+Govini
+GovTribe
+Govzilla
+gRadiant Research LLC
+Graebel Van Lines
+Graematter
+Granicus
+GreatSchools
+GuideStar
+H3 Biomedicine
+Harris Corporation
+HDScores
+Headlight
+Healthgrades
+Healthline
+HealthMap
+HealthPocket
+HelloWallet
+HERE
+Honest Buildings
+HopStop
+Housefax
+How's My Offer?
+IBM
+ideas42
+iFactor Consulting
+IFI CLAIMS Patent Services
+iMedicare
+Impact Forecasting
+Impaq International
+Import
+IMS Health
+InCadence
+indoo
+InfoCommerce Group
+Informatica
+InnoCentive
+Innography
+Innovest Systems
+Inovalon
+Inrix Traffic
+Intelius
+Intermap Technologies
+Investormill
+Iodine
+IPHIX
+iRecycle
+iTriage
+IVES Group
+IW Financial
+JJ Keller
+Junar
+Junyo
+Jurispect
+Kaiser Permanante
+karmadata
+Keychain Logistics Corp
+KidAdmit
+Kimono Labs
+KLD Research
+Knoema
+Knowledge Agency
+KPMG
+Kroll Bond Ratings Agency
+Kyruus
+Lawdragon
+Legal Science Partners
+LegiNation
+LegiStorm
+Lenddo
+Lending Club
+Level One Technologies
+LexisNexis
+Liberty Mutual Insurance Cos
+Lilly Open Innovation Drug Discovery
+Liquid Robotics
+Locavore
+LOGIXDATA
+LoopNet
+Loqate
+LoseIt
+LOVELAND Technologies
+Lucid
+Lumesis
+Mango Transit
+Mapbox
+Maponics
+MapQuest
+Marinexplore
+MarketSense
+Marlin & Associates
+Marlin Alter and Associates
+McGraw Hill Financial
+McKinsey
+MedWatcher
+Mercaris
+Merrill Corp
+Merrill Lynch
+MetLife
+mHealthCoach
+MicroBilt Corporation
+Microsoft Windows Azure Marketplace
+Mint
+Moody's
+Morgan Stanley
+Morningstar
+Mozio
+MuckRock
+Munetrix
+Municode
+National Van Lines
+Nationwide Mutual Insurance Company
+Nautilytics
+Navico
+NERA Economic Consulting
+NerdWallet
+New Media Parents
+Next Step Living
+NextBus
+nGAPorporated
+Nielsen
+Noesis
+NonprofitMetrics
+North American Van Lines
+Noveda Technologies
+NuCivic
+Numedii
+Oliver Wyman
+OnDeck
+OnStar
+Ontodia
+Onvia
+Open Data Nation
+OpenCounter
+OpenGov
+OpenPlans
+OpportunitySpace
+Optensity
+optiGov
+OptumInsight
+Orlin Research
+OSIsoft
+OTC Markets
+Outline
+Oversight Systems
+Overture Technologies
+Owler
+Palantir Technologies
+Panjiva
+Parsons Brinckerhoff
+Patently-O
+PatientsLikeMe
+Pave
+Paxata
+PayScale
+PeerJ
+People Power
+Persint
+Personal Democracy Media
+Personal
+Personalis
+Peterson's
+PEV4me
+PIXIA Corp
+PlaceILive
+PlanetEcosystems
+PlotWatt
+Plus-U
+PolicyMap
+Politify
+Poncho App
+POPVOX
+Porch
+PossibilityU
+PowerAdvocate
+Practice Fusion
+Predilytics
+PricewaterhouseCoopers
+ProgrammableWeb
+Progressive Insurance Group
+Propeller Health
+ProPublica
+PublicEngines
+PYA Analytics
+Qado Energy
+Quandl
+Quertle
+Quid
+R R Donnelley
+RAND Corporation
+Rand McNally
+Rank and Filed
+Ranku
+Rapid Cycle Solutions
+realtor
+Recargo
+ReciPal
+Redfin
+RedLaser
+Reed Elsevier
+REI Systems
+Relationship Science
+Remi
+Retroficiency
+Revaluate
+Revelstone
+Rezolve Group
+Rivet Software
+Roadify Transit
+Robinson + Yu
+Russell Investments
+Sage Bionetworks
+SAP
+SAS
+Scale Unlimited
+Science Exchange
+Seabourne
+SeeClickFix
+SigFig
+Simple Energy
+SimpleTuition
+SlashDB
+Smart Utility Systems
+SmartAsset
+SmartProcure
+Smartronix
+SnapSense
+Social Explorer
+Social Health Insights
+SocialEffort
+Socrata
+Solar Census
+SolarList
+Sophic Systems Alliance
+S&P Capital IQ
+SpaceCurve
+SpeSo Health
+Spikes Cavell Analytic
+Splunk
+Spokeo
+SpotCrime
+SpotHero
+Stamen Design
+Standard and Poor's
+State Farm Insurance
+Sterling Infosystems
+Stevens Worldwide Van Lines
+STILLWATER SUPERCOMPUTING
+StockSmart
+Stormpulse
+StreamLink Software
+StreetCred Software
+StreetEasy
+Suddath
+Symcat
+Synthicity
+Tableau Software
+TagniFi
+Telenav
+Tendril
+Teradata
+The Advisory Board Company
+The Bridgespan Group
+The DocGraph Journal
+The Govtech Fund
+The Schork Report
+The Vanguard Group
+Think Computer Corporation
+Thinknum
+Thomson Reuters
+TopCoder
+TowerData
+TransparaGov
+TransUnion
+TrialTrove
+TrialX
+Trintech
+TrueCar
+Trulia
+TrustedID
+TuvaLabs
+Uber
+Unigo LLC
+United Mayflower
+Urban Airship
+Urban Mapping
+US Green Data
+USAA Group
+USSearch
+Verdafero
+Vimo
+VisualDoD
+Vital Axiom | Niinja
+VitalChek
+Vitals
+Vizzuality
+Votizen
+Walk Score
+WaterSmart Software
+WattzOn
+Way Better Patents
+Weather Channel
+Weather Decision Technologies
+Weather Underground
+WebFilings
+Webitects
+WebMD
+Weight Watchers
+WeMakeItSafer
+Wheaton World Wide Moving
+Whitby Group
+Wolfram Research
+Wolters Kluwer
+Workhands
+Xatori
+Xcential
+xDayta
+Xignite
+Yahoo
+Zebu Compliance Solutions
+Yelp
+YourMapper
+Zillow
+ZocDoc
+Zonability
+Zoner
+Zurich Insurance
+######################################
+ALNG
+apagão
+apagões
+CERN
+Chevron
+denisovana
+denisovanas
+denisovano
+denisovanos
+endocrinológica
+endocrinológicas
+endocrinológico
+endocrinológicos
+ENI
+epigenética
+epigenéticas
+epigenético
+epigenéticos
+eurocrata
+eurocratas
+Facebook
+fiscalista
+fiscalistas
+glicemia
+guaxinim
+guaxinins
+hidroeléctrica
+magnetómetro
+magnetómetros
+naturopatia
+neoconservador
+neoconservadoras
+neoconservadores
+neocórtex
+paralisador
+paralisadora
+paralisadoras
+paralisadores
+partidarismo
+pentaneta
+pentanetas
+pentaneto
+pentanetos
+pentavó
+pentavô
+pentavós
+pentavôs
+plântula
+plântulas
+quiropraxia
+salomónica
+salomónicas
+salomónico
+salomónicos
+sobrinha-trineta
+sobrinhas-trinetas
+sobrinho-trineto
+sobrinhos-trinetos
+Somoil
+talibã
+talibãs
+teleconferência
+teleconferências
+telómero
+telómeros

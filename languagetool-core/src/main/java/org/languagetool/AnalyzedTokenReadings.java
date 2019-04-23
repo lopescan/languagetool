@@ -38,6 +38,8 @@ import static org.languagetool.JLanguageTool.*;
  */
 public final class AnalyzedTokenReadings implements Iterable<AnalyzedToken> {
 
+  private static final Pattern NON_WORD_REGEX = Pattern.compile("[.?!…:;,~’'\"„“”»«‚‘›‹()\\[\\]\\-–—*×∗·+÷/=]");
+
   private final boolean isWhitespace;
   private final boolean isLinebreak;
   private final boolean isSentStart;
@@ -76,7 +78,7 @@ public final class AnalyzedTokenReadings implements Iterable<AnalyzedToken> {
   }
 
   public AnalyzedTokenReadings(List<AnalyzedToken> tokens, int startPos) {
-    anTokReadings = tokens.toArray(new AnalyzedToken[tokens.size()]);
+    anTokReadings = tokens.toArray(new AnalyzedToken[0]);
     this.startPos = startPos;
     token = anTokReadings[0].getToken();
     isWhitespace = StringTools.isWhitespace(token);
@@ -143,7 +145,27 @@ public final class AnalyzedTokenReadings implements Iterable<AnalyzedToken> {
   }
 
   /**
-   * Checks if the token has a particular POS tag, whereas only a part of the given POS tag needs to match.
+   * Checks if one of the token's readings has one of the given lemmas
+   *
+   * @param lemmas to look for
+   */
+  public boolean hasAnyLemma(String... lemmas) {
+    boolean found = false;
+    for(String lemma : lemmas) {
+      for (AnalyzedToken reading : anTokReadings) {
+        if (reading.getLemma() != null) {
+          found = lemma.equals(reading.getLemma());
+          if (found) {
+            return found;
+          }
+        }
+      }
+    }
+    return found;
+  }
+
+  /**
+   * Checks if the token has a particular POS tag, where only a part of the given POS tag needs to match.
    *
    * @param posTag POS tag substring to look for
    * @since 1.8
@@ -161,8 +183,23 @@ public final class AnalyzedTokenReadings implements Iterable<AnalyzedToken> {
     return found;
   }
 
+ /**
+  * Checks if the token has any of the given particular POS tags (only a part of the given POS tag needs to match)
+  *
+  * @param posTags POS tag substring to look for
+  * @since 4.0
+  */
+  public boolean hasAnyPartialPosTag(String... posTags) {
+    for (String posTag : posTags) {
+      if (hasPartialPosTag(posTag)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   /**
-   * Checks if the token has a postag starting with the given string.
+   * Checks if the token has a POS tag starting with the given string.
    *
    * @param posTag POS tag substring to look for
    * @since 4.0
@@ -205,14 +242,13 @@ public final class AnalyzedTokenReadings implements Iterable<AnalyzedToken> {
    * @param token new reading, given as {@link AnalyzedToken}
    */
   public void addReading(AnalyzedToken token) {
-    List<AnalyzedToken> l = new ArrayList<>();
-    l.addAll(Arrays.asList(anTokReadings).subList(0, anTokReadings.length - 1));
+    List<AnalyzedToken> l = new ArrayList<>(Arrays.asList(anTokReadings).subList(0, anTokReadings.length - 1));
     if (anTokReadings[anTokReadings.length - 1].getPOSTag() != null) {
       l.add(anTokReadings[anTokReadings.length - 1]);
     }
     token.setWhitespaceBefore(isWhitespaceBefore);
     l.add(token);
-    anTokReadings = l.toArray(new AnalyzedToken[l.size()]);
+    anTokReadings = l.toArray(new AnalyzedToken[0]);
     if (token.getToken().length() > this.token.length()) { //in case a longer token is added
       this.token = token.getToken();
     }
@@ -248,7 +284,7 @@ public final class AnalyzedTokenReadings implements Iterable<AnalyzedToken> {
       l.add(new AnalyzedToken(this.token, null, null));
       l.get(0).setWhitespaceBefore(isWhitespaceBefore);
     }
-    anTokReadings = l.toArray(new AnalyzedToken[l.size()]);
+    anTokReadings = l.toArray(new AnalyzedToken[0]);
     setNoRealPOStag();
     if (removedSentEnd) {
       isSentEnd = false;
@@ -279,7 +315,7 @@ public final class AnalyzedTokenReadings implements Iterable<AnalyzedToken> {
       l.add(new AnalyzedToken(this.token, null, null));
       l.get(0).setWhitespaceBefore(isWhitespaceBefore);
     }
-    anTokReadings = l.toArray(new AnalyzedToken[l.size()]);
+    anTokReadings = l.toArray(new AnalyzedToken[0]);
     setNoRealPOStag();
     hasSameLemmas = areLemmasSame();
   }
@@ -536,6 +572,14 @@ public final class AnalyzedTokenReadings implements Iterable<AnalyzedToken> {
    */
   public boolean hasSameLemmas() {
     return hasSameLemmas;
+  }
+
+  /**
+   * @return true if AnalyzedTokenReadings is a punctuation mark, bracket, etc
+   * @since 4.4
+   */
+  public boolean isNonWord() {
+    return NON_WORD_REGEX.matcher(token).matches();
   }
 
   @Override

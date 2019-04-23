@@ -254,7 +254,7 @@ public class JLanguageToolTest {
     @Override
     public RuleMatch[] match(List<AnalyzedSentence> sentences, AnnotatedText text) throws IOException {
       if (text.getGlobalMetaData(AnnotatedText.MetaDataKey.EmailToAddress, "").contains("Foo Bar")) {
-        return new RuleMatch[]{new RuleMatch(this, 0, 1, "test message")};
+        return new RuleMatch[]{new RuleMatch(this, null, 0, 1, "test message")};
       }
       return new RuleMatch[0];
     }
@@ -264,11 +264,11 @@ public class JLanguageToolTest {
     }
     @Override
     public String getId() {
-      return null;
+      return "MyTextLevelRule";
     }
     @Override
     public String getDescription() {
-      return null;
+      return "Test rule";
     }
   }
 }

@@ -1,0 +1,41 @@
+# Words to be marked as spelling errors even if the spell checker
+# accepts them. Useful to improve the spell checker without touching
+# its files (which are usually not from LT).
+# Lines ending with ".*" will prohibit all words starting with that string
+# (this is identical to the regular expression)
+# For the opposite (accept words), see ignore.txt.
+#-----------------------------------------------------------------------------------------------------------
+Aardappel
+bluesbandje
+bluesbandjes
+bluesbands
+coachingsdoelen
+constrictor
+gemonopoliseerde
+gezondheidseisen
+idiot
+muziekuitgavecontracten
+muziekuitgaverechten
+participation
+uitgavecontract
+uitgavecontracten
+uitgavedatum
+uitgavefrequentie
+uitgavegroei
+uitgavejaar
+uitgaveklimaat
+uitgavekwesties
+uitgavelimiet
+uitgavelimieten
+uitgavemogelijkheden
+uitgaveovereenkomst
+uitgavepatronen
+uitgavepatroon
+uitgavepost
+uitgaveproject
+uitgaveprojecten
+uitgaverecht
+uitgaverechten
+uitgavestroom
+uitgavevorm
+uitgavewoede
