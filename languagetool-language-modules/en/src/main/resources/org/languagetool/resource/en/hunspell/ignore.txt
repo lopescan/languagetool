@@ -214940,22 +214940,22 @@ de-
 dee
 #TIME OR SPEED PREFIXES
 Ante-
-Pre-
+Pre
 Brady-
-Tachy-
+Tachy
 Post-
 #DIRECITON OR POSITION PREFIXES
 Ab-
 Ad-
-Circum-
+Circum
 Peri-
 Dia-
 Trans-
 Extra-
 En-
 Endo-
-Intra-
-Epi-
+Intra
+Epi
 Sub-
 Inter-
 #SIZE OR QUANTITY PREFIXES
@@ -214968,7 +214968,7 @@ Macro-
 Micro-
 Mono-
 Uni-
-Oligo-
+Oligo
 Pan-
 Poly-
 Multi-
@@ -215254,10 +215254,8 @@ Cerebrovascular
 disease
 Cerebral
 arteriosclerosis
-Cerebral
-Cerebral
+atherolsclerosis
 embolism
-Cerebral
 thrombosis
 Hydrocephaly
 Encephalitis
@@ -215391,7 +215389,7 @@ neuritis
 Retinitis
 Retinopathy
 Retinosis
-Cerume
+Cerumen
 impaction
 Mastoiditis
 Otitis
@@ -215406,7 +215404,7 @@ media
 Otosclerosis
 Acoustic
 neuroma
-Sensorineura
+Sensorineural
 Ototoxic
 Enucleation
 Corneal
@@ -215634,6 +215632,7 @@ Murmur
 Tachycardia
 Vena
 cava
+vena
 Inferior
 Superior
 Angiogenesis
@@ -215822,7 +215821,7 @@ Penumoconiosis
 Pneumonia
 Pneumonitis
 Pulmonary
-Pulmonary
+emobolism
 neoplasm
 Restrictive
 lung
@@ -216055,7 +216054,8 @@ angiogram
 Retrograde
 pyelogram
 Ultrasonography
-Voidingcystourethrogram
+Voiding
+cystourethrogram
 Transrectal
 ultrsonography
 Urethrogram
