@@ -214977,7 +214977,8 @@ Dys-
 Eu-
 #Medical Term
 Abrasion
-Albinism (albino)
+Albinism
+albino
 Alopecia
 Anhidrosis
 Depigmentation
@@ -215011,29 +215012,37 @@ Excoriation
 Fissure
 Scale
 Crust
-Cherry angioma
+Cherry
+angioma
 Petechia
 Eccymosis
 Keloid
 Nevus
-Dysplastic nevus
+Dysplastic
+nevus
 Verucca
-Culture and Sensitivity (C&S)
-Biopsy (Bx)
+Biopsy
 Necrosis
 Onycholysis
 Onychophagia
 Xanthoma
-Decubitus ulcer
+Decubitus
+ulcer
 Eczema
-Atopic dermatitis
+Atopic
+dermatitis
 Hypertrichosis
 Icthyosis
-Actinic keratosis (AK)
-Basal cell carcinoma
-Malignant melanoma
-Squamous cell carcinoma
-Acne vulgaris
+Actinic
+keratosis
+Basal
+cell
+carcinoma
+Malignant
+melanoma
+Squamous
+Acne
+vulgaris
 Impetigo
 Onychomycosis
 Trichomycosis
@@ -215053,7 +215062,8 @@ Cryosurgery
 Dermabrasion
 Electrocauterization
 Electrodessication
-Incision and drainage (I&D)
+Incision
+drainage
 Liposuction
 Onychectomy
 Autograft
@@ -215070,8 +215080,10 @@ SC
 SQ
 Arthralgia
 Crepitation
-Genu valgum
-Genu varum
+Genu
+valgum
+Genu
+varum
 Bradykinesia
 Hyperkinesia
 Hypokinesia
@@ -215081,7 +215093,9 @@ Myospasm
 Arthrocentesis
 Arthroscopy
 Electromyogram
-Computerized Axial Tomography (CAT or CT)
+Computerized
+Axial
+Tomography
 Kyphosis
 Lordosis
 Scoliosis
@@ -215093,26 +215107,32 @@ Effusion
 Hemarthrosis
 Atrophy
 Hypertrophy
-Ankylosing spondylitis
-Osteogenesis imperfecta
+Ankylosing
+spondylitis
+Osteogenesis
+imperfecta
 Osteomalacia
 Osteomyelitis
 Osteopenia
 Osteoporosis
-Spinal stenosis
+Spinal
+stenosis
 Spondyloisthesis
 Arthritis
-Rheumatoid arthritis
+Rheumatoid
 Osteoarthritis
 Bursitis
 Subluxation
 Costochondritis
 Fascitis
-Muscular dystrophy
+Muscular
+dystrophy
 Myoclonus
 Myositis
-Necrotizing fasciitis
-Tardive dyskinesia
+Necrotizing
+fasciitis
+Tardive
+dyskinesia
 Tendonitis
 Osteocarcinoma
 Osteosarcoma
@@ -215122,10 +215142,11 @@ Anti-inflammatory
 Antipyretic
 Craniectomy
 Craniotomy
-External fixation
-Internal fixation
-Closed reduction
-Open reduction
+External
+fixation
+Internal
+Closed
+reduction
 Orthotics
 Prosthesis
 Arthoplasty
@@ -215179,16 +215200,24 @@ Hydrophobia
 Kleptomania
 Photophobia
 Pyromania
-Electroencephalography (EEG)
-Lumbar puncture (LP)
-Cerebral angiography
-Magnetic resonance angiography (MRA)
-Positron emission tomography (PET) scan
-Cerebral atrophy
-Cranial hematoma
-Epidural hematoma
-Intracerebral hematoma
-Subdural hematoma
+Electroencephalography
+Lumbar
+puncture
+Cerebral
+angiography
+Magnetic
+resonance
+angiography
+Positron
+emission
+tomography
+Cerebral
+atrophy
+Cranial
+hematoma
+Epidural
+Intracerebral
+Subdural
 Macrocephaly
 Microcephaly
 Neuritis
@@ -215198,8 +215227,9 @@ Hyperkinesia
 Nystagmus
 Prosopagnosia
 Anesthesiologist
-Afferent nerve
-Efferent nerve
+Afferent
+nerve
+Efferent
 Neurogenic
 Psychiatrist
 Psychogenic
@@ -215210,45 +215240,58 @@ Idiopathic
 Postictal
 Tonic
 Clonus
-Tonic-clonic seizure
-Cerebrovascular accident (CVA)
+Tonic-clonic
+seizure
+Cerebrovascular
+accident
 Stroke
-Hemorrhagic stroke
-Ischemic stroke
-Transient ischemic attack (TIA)
-Cerebrovascular disease
-Cerebral arteriosclerosis
-Cerebral atherolsclerosis
-Cerebral embolism
-Cerebral thrombosis
+Hemorrhagic
+stroke
+Ischemic
+Transient
+ischemic
+Cerebrovascular
+disease
+Cerebral
+arteriosclerosis
+Cerebral
+Cerebral
+embolism
+Cerebral
+thrombosis
 Hydrocephaly
 Encephalitis
 Encephalomyelitis
-Intracerebral hemorrhage
+Intracerebral
+hemorrhage
 Meningitis
 Myelitis
 Neuropathy
 Poliomyelitis
-Amyotrophic Lateral Sclerosis (ALS)
+Amyotrophic
+Lateral
+Sclerosis
 Anorexia
 Autism
 Bulimia
-Cerebral palsy
+Cerebral
+palsy
 Dysphoria
 Epilepsy
 Euphoria
 Hypomania
-Manic depression (bipolar)
+Manic
+depression
 Myasthenia
 Narcolepsy
 Psychosis
 Schizophrenia
 Anesthetic
-General anesthetic
-Local anesthetic
-Regional anesthetic
-Topical anesthetic
-Epidural anesthetic
+General
+anesthetic
+Regional
+Topical
+Epidural
 Analgesic
 Anticonvulsant
 Antidepressant
@@ -215329,7 +215372,8 @@ Macrotia
 Microtia
 Otopyorrhea
 Otosclerosis
-Tympanic perforation
+Tympanic
+perforation
 Tympanosclerosis
 Blepharitis
 Oculopathy
@@ -215339,37 +215383,49 @@ Trichiasis
 Conjnctivitis
 Aniridia
 Cataract
-Corneal abrasion
+Corneal
+abrasion
 Iritis
-Optic neuritis
+Optic
+neuritis
 Retinitis
 Retinopathy
 Retinosis
-Cerumen impaction
+Cerume
+impaction
 Mastoiditis
-Otitis externa
+Otitis
+externa
 Otomycosis
-Conductive hearing loss
+Conductive
+hearing
+loss
 Myringitis
-Otitis media
+Otitis
+media
 Otosclerosis
-Acoustic neuroma
-Sensorineural hearing loss
+Acoustic
+neuroma
+Sensorineura
 Ototoxic
 Enucleation
-Corneal transplant
-Intraocular lens implant
+Corneal
+transplant
+Intraocular
+implant
 Retinopexy
-Auditory prosthesis
+Auditory
+prosthesis
 Ceruminolysis
-Ear instillation
-Ear lavage
+Ear
+instillation
+lavage
 Myringectomy
 Myringotomy
 Tympanocyntesis
 Tympanoplasty
 Tympanostomy
-Cochlear implant
+Cochlear
 HEENT
 LASIK
 OD
@@ -215384,7 +215440,8 @@ EENT
 ENT
 OM
 TM
-Adrenal virilism
+Adrenal
+virilism
 Hirsutism
 Amenorrhea
 Gynecomastia
@@ -215421,25 +215478,36 @@ Euthyroid
 Gluconeogenesis
 Glycolysis
 Glycopenia
-Endocrine vs. exocrine
-Glycemic index
+Endocrine
+exocrine
+Glycemic
 Ketogenesis
-Endoscopic retrograde cholangiopancreatography
+Endoscopic
+retrograde
+cholangiopancreatography
 Adenopathy
 Ketosis
-Adrenal insufficiency
-Diabetes mellitus
-Diabetic ketoacidosis
+Adrenal
+insufficiency
+Diabetes
+mellitus
+Diabetic
+ketoacidosis
 Pancreatitis
 Pancreatolithiasis
-Hyperpituitarism vs. hypopituitarism
+Hyperpituitarism
+hypopituitarism
 Panhypopituitarism
-Hyperparathyroidism vs. hypoparathyroidism
-Hyperthroidism vs. Hypothroidism
+Hyperparathyroidism
+hypoparathyroidism
+Hyperthroidism
+Hypothroidism
 Thyroiditis
 Thyrotoxicosis
-Adenoma vs. Adenocarcinoma
-Pituitary adenoma
+Adenoma
+Adenocarcinoma
+Pituitary
+adenoma
 Pancreatectomy
 Hypophysectomy
 Parathyoidectomy
@@ -215464,7 +215532,7 @@ Hematoma
 Hemophilia
 Hemorrhage
 Petichia
-Reperfusion injury
+Reperfusion
 Lymphadenopathy
 Lymphedema
 Embolism
@@ -215501,8 +215569,10 @@ Immunoglobulin
 Perfusion
 Phlebotomy
 Sphygmomanometer
-Autoimmune disease
-Deep vein thrombosis
+Autoimmune
+Deep
+vein
+thrombosis
 Hypercoagulability
 Immunocompromised
 Immunodeficiency
@@ -215545,7 +215615,8 @@ PT
 PTT
 RBC
 WBC
-Angina pectoris
+Angina
+pectoris
 Arrhythmia
 Dysrhythmia
 Palpitation
@@ -215561,11 +215632,13 @@ Cardiotoxic
 Cyanosis
 Murmur
 Tachycardia
-Vena cava
-Inferior vena cava
-Superior vena cava
+Vena
+cava
+Inferior
+Superior
 Angiogenesis
-Aortic stenosis
+Aortic
+stenosis
 Arteriosclerosis
 Atherogenesis
 Atherosclerosis
@@ -215574,51 +215647,71 @@ Embolism
 Ischemia
 Occlusion
 Thrombus
-Varicose veins
+Varicose
+veins
 Vasospasm
 Venostasis
 Angiogram
 Aortogram
 Arteriogram
 Venogram
-Cardiac catheterization
+Cardiac
+catheterization
 Echocardiogram
 Electrocardiogram
 EKG
 ECG
-Sonography (Ultrasound)
-Stress electrocardiogram
-Transesophageal echocardiogram
-Diastolic pressure
-Systolic pressure
-Coronary circulation
+Sonography
+Stress
+electrocardiogram
+Transesophageal
+echocardiogram
+Diastolic
+Systolic
+Coronary
 Phlebotomist
 Phlebotomy
-Pulmonary circulation
-Systemic circulation
-Atrial fibrillation
-Atrial septal defect (ASD)
-Cardiac arrest
-Congestive cardiomyopathy
-Dilated cardiomyopathy
-Hypertrophic cardiomyopathy
-Restrictive cardiomyopathy
+Pulmonary
+circulation
+Systemic
+Atrial
+fibrillation
+Atrial
+septal
+defect
+Cardiac
+arrest
+Congestive
+cardiomyopathy
+Dilated
+cardiomyopathy
+Hypertrophic
+Restrictive
 Carditis
-Congenital heart defect
-Congestive heart failure (CHF)
-Coronary thrombosis
-Myocardial infarction
-Myocardial ischemia
+Congenital
+Congestive
+Coronary
+thrombosis
+Myocardial
+infarction
+Myocardial
+ischemia
 Myocarditis
-Pericardial effusion
+Pericardial
+effusion
 Pericarditis
 Vavulitis
-Ventricular septal defect (VSD)
+Ventricular
+septal
 Aneurysm
 Angioedema
-Aortic aneurysm
-Aortic regurgitation
-Deep vein thrombosis (DVT)
+Aortic
+aneurysm
+Aortic
+regurgitation
+Deep
+vein
+thrombosis
 Hypertension
 Hypotension
 Phlebitis
@@ -215630,10 +215723,14 @@ Thrombolytic
 Vasoconstrictor
 Vasopressor
 Vasodilator
-Cardiopulmonary resuscitation (CPR)
-Cardiothoracic surgery
+Cardiopulmonary
+resuscitation
+Cardiothoracic
 Cardioversion
-Coronary artery bypass graft (CABG)
+Coronary
+artery
+bypass
+graft
 Pericardiocentesis
 Anastomosis
 Angioplasty
@@ -215675,17 +215772,21 @@ Hemoptysis
 Sputum
 Auscultation
 Cyanosis
-Pectus carinatum
-Pectus excavatum
+Pectus
+carinatum
+Pectus
+excavatum
 Percussion
 Atelectasis
 Empyema
 pyothorax
 Hemothorax
-Pleural effusion
+Pleural
+effusion
 Pneumohemothorax
 Pneumothorax
-Pulmonary edema
+Pulmonary
+edema
 Tracheostenosis
 Hypercapnia
 hypercarbia
@@ -215693,33 +215794,39 @@ Hypocapnia
 hypocarbia
 Hypoxemia
 Hypoxia
-Computed tomography
-Ventilation-perfusion scan (VQ scan)
+Computed
+tomography
+Ventilation-perfusion
 Bronchoscopy
 Endoscope
 Oximetry
-Pulmonary function testing (PFT)
+Pulmonary
 Spirometry
 Laryngitis
 Rhinitis
 Sinusitis
 Pansinusitis
-Sleep apnea
+Sleep
+apnea
 Tonsillitis
 Asthma
 Bronchiolitis
 Bronchitis
-Chronic obstructive pulmonary disease (COPD)
+Chronic
+obstructive
+pulmonary
 Emphysema
 Pleuritis
 pleurisy
 Penumoconiosis
 Pneumonia
 Pneumonitis
-Pulmonary emobolism
-Pulmonary neoplasm
-Restrictive lung disorder
-Bronchogenic carcinoma
+Pulmonary
+Pulmonary
+neoplasm
+Restrictive
+lung
+Bronchogenic
 Mesothelioma
 Antitussive
 Bronchodilator
@@ -215731,7 +215838,8 @@ Laryngectomy
 Tonsillectomy
 Tracheostomy
 Tracheotomy
-Cardiopulmonary resuscitation (CPR)
+Cardiopulmonary
+resuscitation
 Lobectomy
 Pneumonectomy
 Thoracentesis
@@ -215788,10 +215896,11 @@ Colonoscopy
 Endoscope
 Endoscopy
 Esophagogastroduodenoscopy
-Fecal occult blood test (FOBT)
+Fecal
+occult
 Laproscope
 Laparoscopy
-Nasogastric tube
+Nasogastric
 Proctoscope
 Proctoscopy
 Sigmoidoscope
@@ -215815,16 +215924,20 @@ Esophagitis
 Gastritis
 Gastroenteritis
 Gastroenterocolitis
-Gastroesophageal reflux disease (GERD)
-Gingival hyperplasia
+Gastroesophageal
+reflux
+Gingival
+hyperplasia
 Periodontitis
-Pyloric stenosis
+Pyloric
 Stomatosis
 Colitis
 Enterocele
 Fistula
-Anal fistula
-Colovaginal fistula
+Anal
+fistula
+Colovaginal
+fistula
 Cholangitis
 Cholecystitis
 Choledocholithiasis
@@ -215833,8 +215946,8 @@ Hepatitis
 Pancreatitis
 Pancreatolithiasis
 Periotonitis
-Colorectal carcinoma
-Esophageal carcinoma
+Colorectal
+Esophageal
 Hepatocarcinoma
 Antacid
 Antiemetic
@@ -215851,7 +215964,7 @@ Ileostomy
 Abdominocentesis
 Cholecystectomy
 Cholelithotripsy
-Laparoscopic surgery
+Laparoscopic
 Laparotomy
 BE
 BM
@@ -215880,7 +215993,8 @@ Enuresis
 Hematuria
 Incontinence
 Nephralgia
-Nocturnal enuresis
+Nocturnal
+enuresis
 Nocturia
 Oliguria
 Polydipsia
@@ -215898,7 +216012,7 @@ Glucosuria
 Hyperkalemia
 Hyponatremia
 Ketonuria
-Meatal stenosis
+Meatal
 Nephroptosis
 Nephrosis
 Uremia
@@ -215910,7 +216024,9 @@ Nephroscopy
 Ureteroscopy
 Urethroscopy
 Urinalysis
-Blood urea nitrogen (BUN)
+Blood
+urea
+nitrogen
 Nephrologist
 Urologist
 Voiding
@@ -215922,20 +216038,26 @@ Hypospadias
 Oligospermia
 Phimosis
 Prostatomegaly
-Digital rectal exam
+Digital
+rectal
+exam
 Ejaculation
 Gonads
 Spermatogenesis
-Vas deferens
+Vas
+deferens
 Cystogram
 Nephrogram
 Nephrosonography
 Pyelogram
-Renal angiogram
-Retrograde pyelogram
+Renal
+angiogram
+Retrograde
+pyelogram
 Ultrasonography
-Voiding cystourethrogram
-Transrectal ultrsonography
+Voidingcystourethrogram
+Transrectal
+ultrsonography
 Urethrogram
 Cystitis
 Cystolith
@@ -215944,44 +216066,60 @@ Glomerulonephritis
 Hydronephrosis
 Nepthiris
 Nephrolithiasis
-Polycystic kidney disease
+Polycystic
+kidney
 Pyelonephritis
 Pyonephritis
-Renal failure
-Renal ischemia
-Stress urinary incontinence (SUI)
+Renal
+Renal
+ischemia
+Stress
+urinary
+incontinence
 Ureteritis
 Urethritis
-Urinary tract infection (UTI)
-Vesicoureteral reflux (VUR)
-Benign prostate hypertrophy
+Urinary
+tract
+Vesicoureteral
+reflux
+Benign
+prostate
+hypertrophy
 Epididymitis
 Orchitis
 Prostatitis
 Testitis
 Nephroma
-Renal cell cacrcinoma
+Renal
+cacrcinoma
 hypernephroma
-Testicular carcinoma
+Testicular
 Gonorrhea
 Diuretic
 Nephrotoxin
 Spermicide
 Cystectomy
-Extracorporeal shock wave lithotripsy (ESWL)
+Extracorporeal
+lithotripsy
 Hemodialysis
-Intracorporeal lithotripsy
-Kidney dialysis
+Intracorporeal
+lithotripsy
+Kidney
+dialysis
 Lithtripsy
 Nephectomy
-Renal angioplasty
+Renal
+angioplasty
 Urethrectomy
-Urinary catheterization
+Urinary
+catheterization
 Circumcision
 Orchidectomy
 Orchiopexy
 Prostatectomy
-Transurethral resection of the prostate (TURP)
+Transurethral
+resection
+prostate
 Vasectomy
 BUN
 Bx
@@ -216017,15 +216155,20 @@ Metromenorrhagia
 Metrorrhagia
 Oligomenorrhea
 Polymenorrhea
-Braxton Hicks contraction
+Braxton
+Hicks
+contraction
 Contraction
-Cervical dysplasia
-Uterine prolapse
+Cervical
+dysplasia
+Uterine
+prolapse
 Colposcope
 Colposcopy
 Hyseroscope
 Hyseroscopy
-Pap smear
+Pap
+smear
 Endometrium
 Gynecologist
 Gynecology
@@ -216033,8 +216176,10 @@ Menarche
 Myometrium
 Speculum
 Bradytocia
-Cephalopelvic disproportion (CPD)
-Congenital anomaly
+Cephalopelvic
+disproportion
+Congenital
+anomaly
 Dystocia
 Eutocia
 Gravida
@@ -216060,8 +216205,10 @@ Postpartum
 Prenatal
 Teratology
 Mammogram
-Transvaginal sonography
-Pelvic sonograph
+Transvaginal
+sonography
+Pelvic
+sonograph
 Colpitis
 Endometriosis
 Mastitis
@@ -216070,19 +216217,29 @@ Oophoritis
 Ovaritis
 Salpingitis
 Vaginitis
-Vesicovaginal fistula
+Vesicovaginal
+fistula
 Vulvitis
 Abortion
-Abruptio placentae
+Abruptio
+placentae
 Eclampsia
-Ectopic pregnancy
-Hyperemesis gravidarum
-Placenta previa
+Ectopic
+pregnancy
+Hyperemesis
+gravidarum
+Placenta
+previa
 Preeclampsia
-Spontaneous abortion
-Adenocarcinoma of the breast
-Cervical Intraepithelial Neoplasia
-Dermoid cyst
+Spontaneous
+abortion
+Adenocarcinoma
+breast
+Cervical
+Intraepithelial
+Neoplasia
+Dermoid
+cyst
 Teratoma
 Hysterectomy
 Hysterosalpingectomy
@@ -216091,9 +216248,11 @@ Oophorectomy
 Perineorrhaphy
 Salpinectomy
 Salpingo-oophorectomy
-Cesarean section
+Cesarean
+section
 Episiotomy
-In vitro fertilization
+vitro
+fertilization
 Oxytocin
 Tocolytic
 Cx
