@@ -214848,36 +214848,65 @@ Zsofia
 Zsohar
 #MedicalTerms
 #COMMON ROOTS
-Arthr/o
-Cardi/o
-Enter/o
-Gastr/o
-Hepat/p
-Neur/o
-Hem/o
-Hemat/o
-My/o
-Muscul/o
-Angi/o
-Vas/o
-Vascul/o
-Derm/o
-Dermat/o
-Cutane/o
-Pneum/o
-Pneumon/o
-Pulmon/o
+Arthr
+Arthro
+Cardi
+Cardio
+Enter
+Entero
+Gastr
+Gastro
+Hepat
+Hepatp
+Neur
+Neuro
+Hem
+Hemo
+Hemat
+Hemato
+My
+Myo
+Muscul
+Musculo
+Angi
+Angio
+Vas
+Vaso
+Vascul
+Vasculo
+Derm
+Dermo
+Dermat
+Dermato
+Cutane
+Cutaneo
+Pneum
+Pneumo
+Pneumon
+Pneumono
+Pulmon
+Pulmono
 #GENERAL PURPOSE ROOTS
-Gen/o
-Hydr/o
-Morph/o
-Myc/o
-Necr/o
-Path/o
-Phag/o
-Plas/o
-Py/o
-Sten/o
+Gen
+Geno
+Hydr
+Hydro
+Morph
+Morpho
+Myc
+Myco
+Necr
+Necro
+Path
+Patho
+Phag
+Phago
+Plas
+Plaso
+Py
+Pyo
+Sten
+Steno
 #SIMPLE SUFFIXES
 -ole
 #COMPLEX SUFFIXES
@@ -215016,7 +215045,8 @@ Antiseptic
 Epidermal
 Hypodermic
 Intradermal
-Percutaneous/Transdermal
+Percutaneous
+Transdermal
 Subcutaneous
 Chemosurgery
 Cryosurgery
@@ -215027,14 +215057,17 @@ Incision and drainage (I&D)
 Liposuction
 Onychectomy
 Autograft
-Homograft/Allograft
-Heterograft/Xenograft
+Homograft
+Allograft
+Heterograft
+Xenograft
 ABCDE
 AK
 Bx
 C&S
 Derm
-SC/SQ
+SC
+SQ
 Arthralgia
 Crepitation
 Genu valgum
@@ -215087,7 +215120,8 @@ Analgesic
 Antiarthritic
 Anti-inflammatory
 Antipyretic
-Craniectomy/Craniotomy
+Craniectomy
+Craniotomy
 External fixation
 Internal fixation
 Closed reduction
@@ -215377,7 +215411,8 @@ Hyperlipidemia
 Hypernatremia
 Hypoglycemia
 Uremia
-Adrenaline/Epinephrine
+Adrenaline
+Epinephrine
 ACTH
 Glucagon
 Glucocorticoid
@@ -215432,7 +215467,8 @@ Petichia
 Reperfusion injury
 Lymphadenopathy
 Lymphedema
-Embolism/Embolus
+Embolism
+Embolus
 Erythrocyte
 Erythrocytosis
 Hematopoiesis
@@ -215510,7 +215546,8 @@ PTT
 RBC
 WBC
 Angina pectoris
-Arrhythmia/Dysrhythmia
+Arrhythmia
+Dysrhythmia
 Palpitation
 Diaphoresis
 Hemorrhage
@@ -215532,7 +215569,8 @@ Aortic stenosis
 Arteriosclerosis
 Atherogenesis
 Atherosclerosis
-Embolus/Embolism
+Embolus
+Embolism
 Ischemia
 Occlusion
 Thrombus
@@ -215545,7 +215583,9 @@ Arteriogram
 Venogram
 Cardiac catheterization
 Echocardiogram
-Electrocardiogram (EKG/ECG)
+Electrocardiogram
+EKG
+ECG
 Sonography (Ultrasound)
 Stress electrocardiogram
 Transesophageal echocardiogram
@@ -215559,7 +215599,8 @@ Systemic circulation
 Atrial fibrillation
 Atrial septal defect (ASD)
 Cardiac arrest
-Congestive cardiomyopathy/Dilated cardiomyopathy
+Congestive cardiomyopathy
+Dilated cardiomyopathy
 Hypertrophic cardiomyopathy
 Restrictive cardiomyopathy
 Carditis
@@ -215586,7 +215627,8 @@ Antiarrhythmic
 Anticoagulant
 Antihypertensive
 Thrombolytic
-Vasoconstrictor/Vasopressor
+Vasoconstrictor
+Vasopressor
 Vasodilator
 Cardiopulmonary resuscitation (CPR)
 Cardiothoracic surgery
@@ -215637,15 +215679,18 @@ Pectus carinatum
 Pectus excavatum
 Percussion
 Atelectasis
-Empyema/pyothorax
+Empyema
+pyothorax
 Hemothorax
 Pleural effusion
 Pneumohemothorax
 Pneumothorax
 Pulmonary edema
 Tracheostenosis
-Hypercapnia/hypercarbia
-Hypocapnia/hypocarbia
+Hypercapnia
+hypercarbia
+Hypocapnia
+hypocarbia
 Hypoxemia
 Hypoxia
 Computed tomography
@@ -215666,7 +215711,8 @@ Bronchiolitis
 Bronchitis
 Chronic obstructive pulmonary disease (COPD)
 Emphysema
-Pleuritis/pleurisy
+Pleuritis
+pleurisy
 Penumoconiosis
 Pneumonia
 Pneumonitis
@@ -215688,7 +215734,8 @@ Tracheotomy
 Cardiopulmonary resuscitation (CPR)
 Lobectomy
 Pneumonectomy
-Thoracentesis/thoracocentesis
+Thoracentesis
+thoracocentesis
 Thoracostomy
 Thoracotomy
 ABG
@@ -215707,20 +215754,23 @@ PFT
 SOB
 TB
 URI
-V/Q
+VQ
 Aphagia
 Dyspepsia
-Gastralgia/Gastrodynia
+Gastralgia
+Gastrodynia
 Gingivostomatitis
 Hematemesis
 Hyperemesis
-Odontalgia/Odontodynia
+Odontalgia
+Odontodynia
 Stomatitis
 Constipation
 Diarrhea
 Hemorrhoid
 Cholemesis
-Janudice/Icterus
+Janudice
+Icterus
 Gastroparesis
 Gingivitis
 Anophony
@@ -215731,21 +215781,30 @@ Ascites
 Cholelith
 Hepatomegaly
 Pancreatolith
-Cholangiogram/Cholangiography
+Cholangiogram
+Cholangiography
 Anosigmoidoscopy
 Colonoscopy
-Endoscope/Endoscopy
+Endoscope
+Endoscopy
 Esophagogastroduodenoscopy
 Fecal occult blood test (FOBT)
-Laproscope/Laparoscopy
+Laproscope
+Laparoscopy
 Nasogastric tube
-Proctoscope/Proctoscopy
-Sigmoidoscope/Signoidoscopy
+Proctoscope
+Proctoscopy
+Sigmoidoscope
+Signoidoscopy
 Bariatrics
-Dentist/Dentistry
-Gastroenterologist/Gastroenterology
-Orthodontics/Orthodontist
-Proctologist/Proctology
+Dentist
+Dentistry
+Gastroenterologist
+Gastroenterology
+Orthodontics
+Orthodontist
+Proctologist
+Proctology
 Epigastric
 Hypocondriac
 Hypogastric
@@ -215814,7 +215873,8 @@ LLQ
 LUQ
 UGI
 Anuria
-Cystalgia/Cystodynia
+Cystalgia
+Cystodynia
 Dysuria
 Enuresis
 Hematuria
@@ -215828,7 +215888,8 @@ Pyuria
 Ureteralgia
 Urethrodynia
 Urethrorrhea
-Orchialgia/Orchiodynia
+Orchialgia
+Orchiodynia
 Priapism
 Albuminuria
 Azotemia
@@ -215899,7 +215960,8 @@ Orchitis
 Prostatitis
 Testitis
 Nephroma
-Renal cell cacrcinoma/hypernephroma
+Renal cell cacrcinoma
+hypernephroma
 Testicular carcinoma
 Gonorrhea
 Diuretic
@@ -215947,7 +216009,8 @@ Amenorrhea
 Dysmenorrhea
 Dyspareunia
 Gynecomastia
-Hysteralgia/hysterodynia
+Hysteralgia
+hysterodynia
 Mastalgia
 Menorrhagia
 Metromenorrhagia
@@ -215958,11 +216021,14 @@ Braxton Hicks contraction
 Contraction
 Cervical dysplasia
 Uterine prolapse
-Colposcope/Colposcopy
-Hyseroscope/Hyseroscopy
+Colposcope
+Colposcopy
+Hyseroscope
+Hyseroscopy
 Pap smear
 Endometrium
-Gynecologist/Gynecology
+Gynecologist
+Gynecology
 Menarche
 Myometrium
 Speculum
@@ -215978,15 +216044,19 @@ Polyhydramnios
 Teratogenic
 Amniocentesis
 Cardiotocograph
-Tocodynagraph/Tocography
+Tocodynagraph
+Tocography
 Antepartum
 Intrapartum
 Lactation
 Neonatal
-Neonatologist/Neonatology
-Obstetrician/Obstetrics
+Neonatologist
+Neonatology
+Obstetrician
+Obstetrics
 Perinatal
-Postnatal/Postpartum
+Postnatal
+Postpartum
 Prenatal
 Teratology
 Mammogram
@@ -215996,7 +216066,8 @@ Colpitis
 Endometriosis
 Mastitis
 Menopause
-Oophoritis/Ovaritis
+Oophoritis
+Ovaritis
 Salpingitis
 Vaginitis
 Vesicovaginal fistula
@@ -216032,12 +216103,15 @@ HRT
 LEEP
 PID
 PMS
-STD/STI
-TAH/BSO
+STD
+STI
+TAH
+BSO
 TSS
 VH
 CPD
-CS, C-section
+CS
+C-section
 EDD
 FAS
 FOB
