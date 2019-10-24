@@ -216274,7 +216274,7 @@ C-section
 EDD
 FAS
 FOB
-GK
+G
 IVF
 LGA
 LMP
