@@ -52,7 +52,7 @@
 
     <rule id="number_JJ" name="Tag number-based adjectives">
         <pattern>
-            <token regexp="yes">\d?(1st|1 st|2nd|2 nd|3rd|3 rd|\dth|\d th)</token>
+            <token regexp="yes">\d?(1st|2nd|3rd|\dth)</token>
         </pattern>
         <disambig postag="JJ"/>
         <example type="ambiguous" inputform="22nd[22nd]" outputform="22nd[22nd/JJ]">This is the <marker>22nd</marker> place.</example>
