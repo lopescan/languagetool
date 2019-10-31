@@ -45,7 +45,7 @@
     <rule id="number_JJ" name="Tag number-based adjectives">
         <pattern>
         <marker>
-          <token regexp="yes">\d?(1st|2nd|3rd|\dth)<exception postag="JJ"/></token>
+          <token regexp="yes">\d?(1st|2nd|3rd|\dth|1 st|2 nd|3 rd|\d th)<exception postag="JJ"/></token>
         </marker>
         <token postag_regexp="yes" postag="NN(:UN?)?|JJS?"/>
         </pattern>
