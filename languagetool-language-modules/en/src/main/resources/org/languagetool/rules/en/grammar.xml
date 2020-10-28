@@ -31077,7 +31077,7 @@ USA
             <pattern>
                 <token>on</token>
                 <token>a</token>
-                <token/>
+                <token regexp="yes" negate="yes">(.*)?ly$</token>
                 <token>basis</token>
             </pattern>
             <message>Replace with the proper adverbial form of <suggestion>\3ly</suggestion>.
